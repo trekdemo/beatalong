@@ -5,7 +5,7 @@ module UrlMatcher
     end
 
     def match?
-      @url ~= /itun\.es/
+      @url =~ /itun\.es/
     end
   end
 end

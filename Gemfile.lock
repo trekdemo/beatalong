@@ -28,6 +28,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    shotgun (0.9.1)
+      rack (>= 1.0)
     slop (3.6.0)
 
 PLATFORMS
@@ -39,3 +41,4 @@ DEPENDENCIES
   rack
   rake
   rspec
+  shotgun
