@@ -1,5 +1,5 @@
 class ProviderEntity
-  attr_accessor :artist, :album, :title, :cover_image_url, :url
+  attr_accessor :artist, :album, :title, :cover_image_url, :url, :kind, :original
 
   def initialize(attributes)
     attributes.each_pair do |key, value|
@@ -8,7 +8,7 @@ class ProviderEntity
   end
 
   def to_h
-    Hash[[:artist, :album, :title, :cover_image_url].map {|k| [k, public_send(k)] }]
+    Hash[[:artist, :album, :title, :cover_image_url, :url, :kind, :original].map {|k| [k, public_send(k)] }]
   end
 
   def inspect
