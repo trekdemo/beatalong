@@ -1,5 +1,7 @@
 require 'api/apple_music'
 require 'api/deezer'
+require 'api/spotify'
+require 'api/rdio'
 
 require 'erb'
 
