@@ -1,5 +1,13 @@
 require 'httparty'
 
+# https://developer.spotify.com/web-api/search-item/
+#
+# q        Required. The search query's keywords (and optional field filters and
+#          operators)
+# type     Required. A comma-separated list of item types to search across.
+#          Valid types are: album, artist, playlist, and track.
+# limit    Optional. The maximum number of results to return. Default: 20.
+#          Minimum: 1. Maximum: 50.
 module Api
   class Spotify
     include HTTParty
@@ -8,8 +16,7 @@ module Api
 
     class << self
       def search(query={})
-        # fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '+')
-        fields = query.values.join(' - ')
+        fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '%20')
         get("/v1/search", query: {q: fields, type: 'track'})['tracks']["items"]
           .map(&method(:format_result))
       end

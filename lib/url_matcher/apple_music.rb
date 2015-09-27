@@ -5,7 +5,8 @@ module UrlMatcher
     end
 
     def match?
-      @url =~ /itun\.es/
+      @url =~ /https?:\/\/itun\.es/ ||
+      @url =~ /https?:\/\/itunes\.apple\.com/
     end
   end
 end
