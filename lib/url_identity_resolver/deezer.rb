@@ -8,7 +8,7 @@ module UrlIdentityResolver
     def call
       self.kind = @url.path.to_s.scan(/\/([a-z]+)/).flatten.first
       self.id = @url.path.to_s.scan(/\/(\d+)/).flatten.first
-      self
+      true
     end
   end
 end

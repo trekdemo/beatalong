@@ -13,7 +13,7 @@ module UrlIdentityResolver
         apple_url = resp.headers['x-apple-translated-wo-url'].to_s
         self.id = apple_url.scan(/id=(\d+)/).flatten.first
       end
-      self
+      true
     end
 
   end
