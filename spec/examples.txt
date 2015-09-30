@@ -1,11 +1,12 @@
 example_id                                              | status | run_time        |
 ------------------------------------------------------- | ------ | --------------- |
-./spec/url_identity_resolver/apple_music_spec.rb[1:1:1] | passed | 1.21 seconds    |
-./spec/url_matcher/apple_music_spec.rb[1:1:1:1]         | passed | 0.00011 seconds |
-./spec/url_matcher/apple_music_spec.rb[1:1:2:1]         | passed | 0.00014 seconds |
-./spec/url_matcher/apple_music_spec.rb[1:1:3:1]         | passed | 0.00161 seconds |
-./spec/url_matcher/apple_music_spec.rb[1:1:4:1]         | passed | 0.00018 seconds |
-./spec/url_matcher/spotify_spec.rb[1:1:1:1]             | passed | 0.0002 seconds  |
-./spec/url_matcher/spotify_spec.rb[1:1:2:1]             | passed | 0.00024 seconds |
-./spec/url_matcher/spotify_spec.rb[1:1:3:1]             | passed | 0.00014 seconds |
-./spec/url_matcher/spotify_spec.rb[1:1:4:1]             | passed | 0.00014 seconds |
+./spec/url_identity_resolver/apple_music_spec.rb[1:1:1] | passed | 1.69 seconds    |
+./spec/url_identity_resolver/deezer_spec.rb[1:1:1]      | passed | 0.00064 seconds |
+./spec/url_matcher/apple_music_spec.rb[1:1:1:1]         | passed | 0.00012 seconds |
+./spec/url_matcher/apple_music_spec.rb[1:1:2:1]         | passed | 0.00017 seconds |
+./spec/url_matcher/apple_music_spec.rb[1:1:3:1]         | passed | 0.00015 seconds |
+./spec/url_matcher/apple_music_spec.rb[1:1:4:1]         | passed | 0.00168 seconds |
+./spec/url_matcher/spotify_spec.rb[1:1:1:1]             | passed | 0.00017 seconds |
+./spec/url_matcher/spotify_spec.rb[1:1:2:1]             | passed | 0.00013 seconds |
+./spec/url_matcher/spotify_spec.rb[1:1:3:1]             | passed | 0.00018 seconds |
+./spec/url_matcher/spotify_spec.rb[1:1:4:1]             | passed | 0.00013 seconds |
