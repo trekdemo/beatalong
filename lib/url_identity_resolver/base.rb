@@ -12,6 +12,7 @@ module UrlIdentityResolver
 
     def initialize(url)
       @url = URI(url)
+      call
     end
   end
 end

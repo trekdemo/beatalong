@@ -16,7 +16,7 @@ class EntityResolver
 
     if provider_name
       identity_resolver_class = Object.const_get("UrlIdentityResolver::#{provider_name}")
-      identity_resolver       = identity_resolver.new(original_entity_url).call
+      identity_resolver       = identity_resolver.new(original_entity_url)
       provider_id             = identity_resolver.id
       provider_kind           = identity_resolver.kind
 
