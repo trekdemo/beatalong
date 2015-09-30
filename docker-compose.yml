@@ -8,7 +8,7 @@ bundle:
 
 web:
   build: .
-  # command: bundle exec puma -C config/puma.rb
+  command: bundle exec shotgun -p 3000 -o 0.0.0.0
   volumes:
     - .:/streamflow2
   ports:
