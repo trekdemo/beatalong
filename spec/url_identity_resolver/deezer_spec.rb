@@ -6,7 +6,6 @@ module UrlIdentityResolver
 
     describe '#call' do
       it 'fetches the identifier and kind from the provider' do
-        subject.call
         expect(subject.id).to eq('90418035')
         expect(subject.kind).to eq('track')
       end

@@ -6,7 +6,6 @@ module UrlIdentityResolver
 
     describe '#call' do
       it 'fetches the identifier and kind from the provider' do
-        subject.call
         expect(subject.id).to eq('7c5qu1gNlg8jWDzzmlp89O')
         expect(subject.kind).to eq('artist')
       end
