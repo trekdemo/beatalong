@@ -1,19 +1,14 @@
-require 'httparty'
-require 'uri'
+require 'url_identity_resolver/base'
 
 module UrlIdentityResolver
   class Deezer
 
-    attr_accessor :id, :kind
-
-    def initialize(url)
-      @url = URI(url)
-    end
+    include Base
 
     def call
       self.kind = @url.path.to_s.scan(/\/([a-z]+)/).flatten.first
       self.id = @url.path.to_s.scan(/\/(\d+)/).flatten.first
-      true
+      self
     end
   end
 end

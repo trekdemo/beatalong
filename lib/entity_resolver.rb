@@ -15,11 +15,13 @@ class EntityResolver
     provider_name       = resolve_provider_name(original_entity_url)
 
     if provider_name
-      identity_resolver = Object.const_get("UrlIdentityResolver::#{provider_name}")
-      provider_id       = identity_resolver.new(original_entity_url).call
+      identity_resolver_class = Object.const_get("UrlIdentityResolver::#{provider_name}")
+      identity_resolver       = identity_resolver.new(original_entity_url).call
+      provider_id             = identity_resolver.id
+      provider_kind           = identity_resolver.kind
 
       env['streamflow.incoming_url']    = original_entity_url
-      env['streamflow.provider_entity'] = [provider_name, provider_id]
+      env['streamflow.provider_entity'] = [provider_name, provider_id, provider_kind]
     end
 
     @app.call(env)

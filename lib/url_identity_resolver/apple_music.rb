@@ -1,21 +1,20 @@
-require 'httparty'
-require 'uri'
+require 'url_identity_resolver/base'
 
 module UrlIdentityResolver
   class AppleMusic
 
-    def initialize(url)
-      @url = URI(url)
-    end
+    include Base
 
     def call
       if direct_id = @url.query.to_s.scan(/i=(\d+)/).flatten.first
-        direct_id
+        self.id = direct_id
       else
         resp = HTTParty.head(@url.to_s, folow_redirects: true)
         apple_url = resp.headers['x-apple-translated-wo-url'].to_s
-        apple_url.scan(/id=(\d+)/).flatten.first
+        self.id = apple_url.scan(/id=(\d+)/).flatten.first
       end
+      self
     end
+
   end
 end
