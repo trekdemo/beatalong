@@ -1,4 +1,5 @@
 ## Development on Docker
+[ ![Codeship Status for trekdemo/streamflow2](https://codeship.com/projects/7f8641c0-49d8-0133-1577-26ca0ee25698/status?branch=master)](https://codeship.com/projects/105740)
 
 The application can be runned over a docker environment. In order to do that, you'll have to download docker-toolbox.
 
