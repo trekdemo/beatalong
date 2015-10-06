@@ -1,9 +1,20 @@
-<img src="<%= entity_data.cover_image_url %>" alt="cover iamge" />
-<h1><%= entity_data.artist %> - <%= entity_data.album %></h1>
-<h2><%= entity_data.title %></h2>
-<ul>
-  <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a>
-  <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a>
-  <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a>
-  <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a>
-</ul>
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+      <meta charset="utf-8">
+      <title>Flow the Music</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <img src="<%= entity_data.cover_image_url %>" alt="cover iamge" />
+    <h1><%= entity_data.artist %> - <%= entity_data.album %></h1>
+    <h2><%= entity_data.title %></h2>
+    <ul>
+      <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
+      <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
+      <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
+      <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li>
+    </ul>
+  </body>
+</html>

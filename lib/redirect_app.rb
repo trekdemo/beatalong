@@ -8,8 +8,7 @@ require 'erb'
 class RedirectApp
   def self.call(env)
     orig_url = env['streamflow.incoming_url'].to_s
-    provider = env['streamflow.provider_entity'].first
-    id       = env['streamflow.provider_entity'].last
+    provider, id, kind = *env['streamflow.provider_entity']
 
     entity_data = Object.const_get("Api::#{provider}").find(id)
     destination_prov_name  = destination_provider(env)
@@ -17,12 +16,18 @@ class RedirectApp
 
     if provider != destination_prov_name
       destination_provider_data = destination_prov_class.search({
-          artist: entity_data.artist ,
-          album: entity_data.album,
-          track: entity_data.title,
-      })
+        artist: entity_data.artist,
+        album: entity_data.album,
+        track: entity_data.title,
+      }).first
 
-      [301, {'Location' => destination_provider_data.first.url}, []]
+      if destination_provider_data &&
+          (target_location = destination_provider_data.url)
+        [301, {'Location' => target_location}, []]
+      else
+        # redirect back
+        [301, {'Location' => env['HTTP_REFERER']}, []]
+      end
     else
       [301, {'Location' => orig_url}, []]
     end

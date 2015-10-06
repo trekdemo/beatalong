@@ -6,8 +6,8 @@ require 'erb'
 class JumpApp
   def self.call(env)
     orig_url = env['streamflow.incoming_url'].to_s
-    provider = env['streamflow.provider_entity'].first
-    id       = env['streamflow.provider_entity'].last
+    provider, id, kind = *env['streamflow.provider_entity']
+    puts [provider, id, kind].inspect
 
     entity_data = Object.const_get("Api::#{provider}").find(id)
 

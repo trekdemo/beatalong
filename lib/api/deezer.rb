@@ -9,7 +9,7 @@ module Api
 
     class << self
       def search(query={})
-        fields = query.map {|(k, v)| [k, v.to_s.inspect].join(':') }.join(' ')
+        fields = query.map {|(k, v)| [k, v.to_s].join(':') }.join(' ')
 
         get("/search", query: {q: fields, strict: 'on'})["data"]
           .map(&method(:format_result))
@@ -25,6 +25,7 @@ module Api
       end
 
       private
+
       def format_result(result)
         ProviderEntity.new({
           artist: result['artist']['name'],

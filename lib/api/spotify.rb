@@ -16,7 +16,7 @@ module Api
 
     class << self
       def search(query={})
-        fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '%20')
+        fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '+')
         get("/v1/search", query: {q: fields, type: 'track'})['tracks']["items"]
           .map(&method(:format_result))
       end
