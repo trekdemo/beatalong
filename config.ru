@@ -12,6 +12,10 @@ app = Rack::Builder.new do
   use Rack::ShowExceptions
 
   use EntityResolver
+  use Rack::Static,
+    urls: {"/" => 'index.html'},
+    index: 'index.html',
+    root: File.expand_path('../public', __FILE__)
 
   map('/j') { run JumpApp }
   map('/r') { run RedirectApp }
