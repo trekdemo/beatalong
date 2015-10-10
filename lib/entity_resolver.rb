@@ -2,8 +2,11 @@ require 'url_matcher/apple_music'
 require 'url_matcher/deezer'
 require 'url_matcher/rdio'
 require 'url_matcher/spotify'
-
+require 'url_identity_resolver/null'
 require 'url_identity_resolver/apple_music'
+require 'url_identity_resolver/deezer'
+require 'url_identity_resolver/spotify'
+# require 'url_identity_resolver/rdio'
 
 class EntityResolver
   RESOLVERS = [
@@ -13,33 +16,29 @@ class EntityResolver
     UrlMatcher::Spotify,
   ]
 
-  def initialize(app)
-    @app = app
+  attr_reader :url
+
+  def initialize(url)
+    @url = url
   end
 
-  def call(env)
-    original_entity_url = Rack::Request.new(env).params['u'].to_s
-    provider_name       = resolve_provider_name(original_entity_url)
-
-    if provider_name
-      identity_resolver_class = Object.const_get("UrlIdentityResolver::#{provider_name}")
-      identity_resolver       = identity_resolver_class.new(original_entity_url)
-      provider_id             = identity_resolver.id
-      provider_kind           = identity_resolver.kind
-
-      env['streamflow.incoming_url']    = original_entity_url
-      env['streamflow.provider_entity'] = [provider_name, provider_id, provider_kind]
-    end
-
-    @app.call(env)
+  def identity
+    identity_resolver.identity
   end
 
   private
-  def resolve_provider_name(url)
-    RESOLVERS.find { |resolver| resolver.new(url).match? }
-             .to_s
-             .split('::')
-             .last
+
+  def identity_resolver
+    resolver_name = provider_name || 'Null'
+    resolver_class = Object.const_get("UrlIdentityResolver::#{resolver_name}")
+    resolver_class.new(url)
+  end
+
+  def provider_name
+    RESOLVERS
+      .find { |resolver| resolver.new(url).match? }
+      .to_s
+      .split('::')
+      .last
   end
 end
-
