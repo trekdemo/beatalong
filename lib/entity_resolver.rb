@@ -1,9 +1,16 @@
 require 'url_matcher/apple_music'
+require 'url_matcher/deezer'
+require 'url_matcher/rdio'
+require 'url_matcher/spotify'
+
 require 'url_identity_resolver/apple_music'
 
 class EntityResolver
   RESOLVERS = [
     UrlMatcher::AppleMusic,
+    UrlMatcher::Deezer,
+    UrlMatcher::Rdio,
+    UrlMatcher::Spotify,
   ]
 
   def initialize(app)
