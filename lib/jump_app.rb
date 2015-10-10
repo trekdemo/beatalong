@@ -1,19 +1,32 @@
+require 'erb'
 require 'api/apple_music'
 require 'api/deezer'
-
-require 'erb'
+require 'api/spotify'
+# require 'api/rdio'
 
 class JumpApp
-  def self.call(env)
-    orig_url = env['streamflow.incoming_url'].to_s
-    provider, id, kind = *env['streamflow.provider_entity']
-    puts [provider, id, kind].inspect
+  TEMPLATE_PATH = File.expand_path("../../views/jump.erb", __FILE__)
 
-    entity_data = Object.const_get("Api::#{provider}").find(id)
+  def initialize
+    @template = ERB.new(File.read(TEMPLATE_PATH))
+  end
 
-    path = File.expand_path("../../views/jump.erb", __FILE__)
-    view = ERB.new(File.read(path)).result(binding)
+  def call(env)
+    provider_identity = env['streamflow.provider_identity']
 
-    [200, {'Content-Type' => 'text/html'}, [view]]
+    respond_with(
+      api_adapter(provider_identity.provider).find(provider_identity),
+      env['streamflow.incoming_url']
+    )
+  end
+
+  private
+
+  def respond_with(entity_data, orig_url)
+    [200, {'Content-Type' => 'text/html'}, [@template.result(binding)]]
+  end
+
+  def api_adapter(provider)
+    Object.const_get("Api::#{provider}")
   end
 end

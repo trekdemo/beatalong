@@ -17,8 +17,8 @@ module Api
           .map(&method(:format_result))
       end
 
-      def find(id)
-        lookup(id: id).first
+      def find(identity)
+        lookup(id: identity.id).first
       end
 
       private
