@@ -1,4 +1,5 @@
-require 'httparty'
+require 'api/base'
+require 'active_support/core_ext/string/inflections'
 
 # https://developer.spotify.com/web-api/search-item/
 #
@@ -10,35 +11,55 @@ require 'httparty'
 #          Minimum: 1. Maximum: 50.
 module Api
   class Spotify
-    include HTTParty
+    include ::Api::Base
     base_uri 'https://api.spotify.com'
-    format :json
+    # debug_output $stdout
 
-    class << self
-      def search(query={})
-        fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '+')
-        get("/v1/search", query: {q: fields, type: 'track'})['tracks']["items"]
-          .map(&method(:format_result))
-      end
+    def find(identity)
+      response = self.class.get(['/v1', identity.kind.pluralize, identity.id].join('/'))
+      format_result(response)
+    end
 
-      def lookup(query={})
-        get("/lookup", query: query)["results"]
-          .map(&method(:format_result))
-      end
+    def search(entity)
+      fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '+')
+      get("/v1/search", query: {q: fields, type: 'track'})['tracks']["items"]
+        .map(&method(:format_result))
+    end
 
-      private
-      def format_result(result)
-        ProviderEntity.new({
-          artist: result['artists'].first['name'],
-          album: result['album']['name'],
-          title: result['name'],
-          cover_image_url: result['album']['images'].first['url'],
-          url: result['external_urls']['spotify'],
-          kind: result['type'],
-          # original: result,
-        })
-      end
+    private
 
+    def format_result(json)
+      send("format_#{json['type']}_result", json)
+    end
+
+    def format_artist_result(json)
+      ProviderEntity.new({
+        artist: json['name'],
+        cover_image_url: json['images'].first['url'],
+        url: json['external_urls']['spotify'],
+        kind: json['type'],
+      })
+    end
+
+    def format_album_result(json)
+      ProviderEntity.new({
+        artist: json['artists'].first['name'],
+        album: json['name'],
+        cover_image_url: json['images'].first['url'],
+        url: json['external_urls']['spotify'],
+        kind: json['type'],
+      })
+    end
+
+    def format_track_result(json)
+      ProviderEntity.new({
+        artist: json['artists'].first['name'],
+        album: json['album']['name'],
+        track: json['name'],
+        cover_image_url: json['album']['images'].first['url'],
+        url: json['external_urls']['spotify'],
+        kind: json['type'],
+      })
     end
   end
 end
