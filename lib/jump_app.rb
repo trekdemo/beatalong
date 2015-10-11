@@ -27,6 +27,6 @@ class JumpApp
   end
 
   def api_adapter(provider)
-    Object.const_get("Api::#{provider}")
+    Object.const_get("Api::#{provider}").new
   end
 end
