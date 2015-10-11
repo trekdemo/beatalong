@@ -29,8 +29,9 @@ class RedirectApp
     entity_data = api_adapter.find(identity)
 
     # Find entity on destination
+    # TODO Detect country_code
     destination_prov_class = Object.const_get("Api::#{destination_prov_name}").new
-    destination_provider_data = destination_prov_class.search(entity_data).first
+    destination_provider_data = destination_prov_class('us').search(entity_data)
 
     if destination_provider_data
       destination_provider_data.url

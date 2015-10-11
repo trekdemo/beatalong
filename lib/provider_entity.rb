@@ -8,7 +8,8 @@ class ProviderEntity
   end
 
   def to_h
-    Hash[[:artist, :album, :title, :cover_image_url, :url, :kind, :original].map {|k| [k, public_send(k)] }]
+    Hash[[:artist, :album, :title, :cover_image_url, :url, :kind, :original]
+      .map {|k| [k, public_send(k)] }]
   end
 
   def inspect
