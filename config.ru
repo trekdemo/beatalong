@@ -18,6 +18,10 @@ end
 app = Rack::Builder.new do
   use Rack::CommonLogger
   use Rack::ShowExceptions if APP_ENV == 'development'
+  if APP_ENV == 'production'
+    require 'rack/tracker'
+    use(Rack::Tracker) { handler :google_analytics, { tracker: 'UA-2495676-17' } }
+  end
 
   use EntityResolverMiddleware
   use Rack::Static,

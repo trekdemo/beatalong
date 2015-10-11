@@ -10,6 +10,7 @@ gem 'httparty', require: false
 group :production do
   gem 'puma'
   gem 'rollbar', '~> 2.2.1'
+  gem 'rack-tracker'
 end
 
 group :development, :test do
