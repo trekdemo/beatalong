@@ -1,14 +1,9 @@
-require 'httparty'
-require 'provider_entity'
 require 'active_support/core_ext/hash/slice'
 
 module Api
   class Deezer
-    include HTTParty
+    include Base
     base_uri 'http://api.deezer.com'
-    format :json
-
-    def initialize(*); end
 
     def find(identity)
       response = get(['/', identity.kind, identity.id].join('/'))

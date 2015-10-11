@@ -1,23 +1,15 @@
-require 'httparty'
-require 'provider_entity'
 require 'active_support/core_ext/hash/slice'
+require 'api/base'
 
 module Api
   # Offical docs:
   #   https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html#searching
   class AppleMusic
-    include HTTParty
+    include Base
     base_uri 'https://itunes.apple.com'
-    format :json
-
-    attr_reader :country_code
 
     AVAILABLE_SEARCH_PARAMS = %i[term country media entity attribute callback
       limit lang version explicit]
-
-    def initialize(country_code = 'us')
-      @country_code = country_code
-    end
 
     def find(identity)
       get('/lookup', {
