@@ -1,5 +1,6 @@
 require 'httparty'
 require 'provider_entity'
+require 'active_support/core_ext/hash/slice'
 
 module Api
   # Offical docs:
@@ -9,24 +10,29 @@ module Api
     base_uri 'https://itunes.apple.com'
     format :json
 
+    attr_reader :country_code
+
     AVAILABLE_SEARCH_PARAMS = %i[term country media entity attribute callback
       limit lang version explicit]
+
+    def initialize(country_code = 'us')
+      @country_code = country_code
+    end
 
     def find(identity)
       get('/lookup', {
         id: identity.id,
         entity: itunes_kind(identity.kind),
-        country: identity.country_code,
+        country: identity.country_code || country_code,
       })
     end
 
     def search(entity)
       get('/search', normalize_search_query({
-        artist: entity.artist,
-        album: entity.album,
-        track: entity.title,
+        country: country_code,
         media: 'music',
-        entity: entity.kind,
+        entity: itunes_kind(entity.kind),
+        term: [entity.artist, entity.album, entity.title].compact.join(' - '),
       }))
     end
 
@@ -45,20 +51,21 @@ module Api
 
     def normalize_search_query(query)
       query.merge!({limit: 1})
-      fail ArgumentError, 'Unknown query param: #{}' if (extra = query - AVAILABLE_SEARCH_PARAMS)
+      if !(extra = query.keys - AVAILABLE_SEARCH_PARAMS).empty?
+        fail ArgumentError, "Unknown query param: #{extra}"
+      end
 
       query.slice(*AVAILABLE_SEARCH_PARAMS)
     end
 
     def format_result(result)
       ProviderEntity.new({
+        kind: internal_kind(result['wrapperType']),
         artist: result['artistName'],
         album: result['collectionName'],
         title: result['trackName'],
-        cover_image_url: result['artworkUrl100'],
         url: result['trackViewUrl'] || result['collectionViewUrl'] || result['artistViewUrl']|| result['artistLinkUrl'],
-        kind: internal_kind(result['wrapperType']),
-        # original: result,
+        cover_image_url: result['artworkUrl100'],
       })
     end
 
