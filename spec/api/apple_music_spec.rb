@@ -1,19 +1,12 @@
 require 'api/apple_music'
-require 'provider_identity'
 
 module Api
   RSpec.describe AppleMusic do
-    def build_pi(id, kind)
-      ProviderIdentity.new(provider: 'AppleMusic', id: id, kind: kind, country_code: 'nl')
-    end
-
-    def build_pe(kind, artist, album = nil, title = nil)
-      ProviderEntity.new(kind: kind, artist: artist, album: album, title: title)
-    end
+    include InternalStructuresFactory
 
     describe '.find' do
       context 'when identity belongs to a track' do
-        let(:identity) { build_pi('724633596', 'track') }
+        let(:identity) { build_pi('AppleMusic', '724633596', 'track') }
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
@@ -27,7 +20,7 @@ module Api
       end
 
       context 'when identity belongs to an album' do
-        let(:identity) { build_pi('724633277', 'album') }
+        let(:identity) { build_pi('AppleMusic', '724633277', 'album') }
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
@@ -41,7 +34,7 @@ module Api
       end
 
       context 'when identity belongs to an artist' do
-        let(:identity) { build_pi('524856', 'artist') }
+        let(:identity) { build_pi('AppleMusic', '524856', 'artist') }
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
