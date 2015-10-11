@@ -11,7 +11,7 @@ module UrlIdentityResolver
     PRIMARY_ATRIBUTES = /^https?:\/\/itunes.apple.com
       \/(?<country_code>[a-z]{2})
       \/(?<action>artist|album|playlist)
-      (?<description>\/[\w\-\.]+)?
+      (?<description>\/.+)?
       \/id(?<id>\w+)/xi
     SECONDARY_ATTRIBUTES = /i=(?<id>\w+)/i
 
