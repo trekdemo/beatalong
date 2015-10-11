@@ -6,11 +6,11 @@ module UrlIdentityResolver
       subject { described_class.new(url) }
 
       context 'when url is shortened' do
-        # https://itunes.apple.com/nl/album/no-memory-time-featuring-joe/id257725589?l=en
-        let(:url) { 'https://itun.es/nl/vsjxp' }
+        # https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?&l=en
+        let(:url) { 'https://itun.es/nl/m7y95' }
 
         it 'resolves the url and fetches the attributes' do
-          expect(subject.id).to eq('257725589')
+          expect(subject.id).to eq('972394188')
           expect(subject.kind).to eq('album')
           expect(subject.country_code).to eq('nl')
         end
