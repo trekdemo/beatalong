@@ -22,11 +22,11 @@ RSpec.configure do |config|
 
   # Setup VCR
   require 'vcr'
-
   VCR.configure do |config|
     config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
     config.hook_into :webmock # or :fakeweb
   end
+
   # Add VCR to all tests
   require 'active_support/core_ext/string/inflections'
   config.around(:each) do |example|

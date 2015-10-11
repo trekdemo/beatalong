@@ -47,6 +47,50 @@ module Api
         end
       end
     end
+
+    describe '#search' do
+      context 'when looking for an artist' do
+        let(:entity) { build_pe('artist', 'UB40') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.kind).to eq('artist')
+          expect(subject.artist).to eq('UB40')
+          expect(subject.album).to be_nil
+          expect(subject.track).to be_nil
+          expect(subject.url).to eq('https://open.spotify.com/artist/69MEO1AADKg1IZrq2XLzo5')
+        end
+      end
+
+      context 'when looking for an album' do
+        let(:entity) { build_pe('album', 'Metallica', 'Death Magnetic') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.kind).to eq('album')
+          expect(subject.url).to eq('https://open.spotify.com/album/3wAdN3V06Btox7NjFfBKRC')
+          expect(subject.artist).to eq('') # Metallica - they're not including this
+          expect(subject.album).to eq('Death Magnetic')
+          expect(subject.track).to be_nil
+        end
+      end
+
+      context 'when looking for an track' do
+        let(:entity) { build_pe('track', 'UB40', 'The Very Best Of', 'One in Ten') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.kind).to eq('track')
+          expect(subject.artist).to eq('UB40')
+          expect(subject.album).to eq('The Very Best Of')
+          expect(subject.track).to eq('One in Ten')
+          expect(subject.url).to eq('https://open.spotify.com/track/1dKfteL9OIYuFOCwBzV0SB')
+        end
+      end
+    end
   end
 end
 

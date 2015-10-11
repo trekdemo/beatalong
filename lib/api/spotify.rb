@@ -13,20 +13,36 @@ module Api
   class Spotify
     include ::Api::Base
     base_uri 'https://api.spotify.com'
-    # debug_output $stdout
 
     def find(identity)
-      response = self.class.get(['/v1', identity.kind.pluralize, identity.id].join('/'))
+      response = get(['/v1', identity.kind.pluralize, identity.id].join('/'))
       format_result(response)
     end
 
     def search(entity)
-      fields = query.map {|kv| kv.join(':') }.join(' ').gsub(/\s+/ , '+')
-      get("/v1/search", query: {q: fields, type: 'track'})['tracks']["items"]
+      response = get('/v1/search', {
+        type: entity.kind,
+        q: search_term(entity),
+        limit: 1,
+      })
+      response[entity.kind.pluralize]['items']
         .map(&method(:format_result))
+        .first
     end
 
     private
+
+    def get(path, query = nil)
+      self.class.get(path, query: query)
+    end
+
+    def search_term(entity)
+      entity
+        .to_h
+        .slice(:artist, :album, :track)
+        .reject { |_, v| v.nil? }
+        .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join('+')
+    end
 
     def format_result(json)
       send("format_#{json['type']}_result", json)
@@ -43,9 +59,9 @@ module Api
 
     def format_album_result(json)
       ProviderEntity.new({
-        artist: json['artists'].first['name'],
+        artist: json['artists'].to_a.map { |artist| artist['name'] }.join(' - '),
         album: json['name'],
-        cover_image_url: json['images'].first['url'],
+        cover_image_url: json['images'].to_a.map { |img| img['url'] }.first,
         url: json['external_urls']['spotify'],
         kind: json['type'],
       })
