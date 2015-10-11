@@ -32,7 +32,7 @@ module Api
         country: country_code,
         media: 'music',
         entity: itunes_kind(entity.kind),
-        term: [entity.artist, entity.album, entity.title].compact.join(' - '),
+        term: [entity.artist, entity.album, entity.track].compact.join(' - '),
       }))
     end
 
@@ -63,7 +63,7 @@ module Api
         kind: internal_kind(result['wrapperType']),
         artist: result['artistName'],
         album: result['collectionName'],
-        title: result['trackName'],
+        track: result['trackName'],
         url: result['trackViewUrl'] || result['collectionViewUrl'] || result['artistViewUrl']|| result['artistLinkUrl'],
         cover_image_url: result['artworkUrl100'],
       })

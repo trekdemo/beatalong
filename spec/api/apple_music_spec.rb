@@ -13,7 +13,7 @@ module Api
         it 'returns with the meta data of the track' do
           expect(subject.find(identity).artist).to eq('UB40')
           expect(subject.find(identity).album).to eq('The Very Best of UB40: 1980-2000')
-          expect(subject.find(identity).title).to eq('Kingston Town')
+          expect(subject.find(identity).track).to eq('Kingston Town')
           expect(subject.find(identity).kind).to eq('track')
           expect(subject.find(identity).url).to eq('https://itunes.apple.com/nl/album/kingston-town/id724633277?i=724633596&uo=4')
         end
@@ -27,7 +27,7 @@ module Api
         it 'returns with the meta data of the album' do
           expect(subject.find(identity).artist).to eq('UB40')
           expect(subject.find(identity).album).to eq('The Very Best of UB40: 1980-2000')
-          expect(subject.find(identity).title).to be_nil
+          expect(subject.find(identity).track).to be_nil
           expect(subject.find(identity).kind).to eq('album')
           expect(subject.find(identity).url).to eq('https://itunes.apple.com/nl/album/the-very-best-of-ub40-1980-2000/id724633277?uo=4')
         end
@@ -41,7 +41,7 @@ module Api
         it 'returns with the meta data of the artist' do
           expect(subject.find(identity).artist).to eq('UB40')
           expect(subject.find(identity).album).to be_nil
-          expect(subject.find(identity).title).to be_nil
+          expect(subject.find(identity).track).to be_nil
           expect(subject.find(identity).kind).to eq('artist')
           expect(subject.find(identity).url).to eq('https://itunes.apple.com/nl/artist/ub40/id524856?uo=4')
         end
@@ -57,7 +57,7 @@ module Api
         it 'returns with a match' do
           expect(subject.artist).to eq('UB40')
           expect(subject.album).to be_nil
-          expect(subject.title).to be_nil
+          expect(subject.track).to be_nil
           expect(subject.kind).to eq('artist')
           expect(subject.url).to eq('https://itunes.apple.com/nl/artist/ub40/id524856?uo=4')
         end
@@ -71,7 +71,7 @@ module Api
         it 'returns with a match' do
           expect(subject.artist).to eq('UB40')
           expect(subject.album).to eq('The Very Best of UB40: 1980-2000')
-          expect(subject.title).to be_nil
+          expect(subject.track).to be_nil
           expect(subject.kind).to eq('album')
           expect(subject.url).to eq('https://itunes.apple.com/nl/album/the-very-best-of-ub40-1980-2000/id724633277?uo=4')
         end
@@ -85,7 +85,7 @@ module Api
         it 'returns with a match' do
           expect(subject.artist).to eq('UB40')
           expect(subject.album).to eq('The Very Best of UB40: 1980-2000')
-          expect(subject.title).to eq('Kingston Town')
+          expect(subject.track).to eq('Kingston Town')
           expect(subject.kind).to eq('track')
           expect(subject.url).to eq('https://itunes.apple.com/nl/album/kingston-town/id724633277?i=724633596&uo=4')
         end

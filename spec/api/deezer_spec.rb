@@ -13,7 +13,7 @@ module Api
         it 'returns with the meta data of the artist' do
           expect(subject.find(identity).artist).to eq('Metallica')
           expect(subject.find(identity).album).to be_nil
-          expect(subject.find(identity).title).to be_nil
+          expect(subject.find(identity).track).to be_nil
           expect(subject.find(identity).kind).to eq('artist')
           expect(subject.find(identity).url).to eq('http://www.deezer.com/artist/119')
         end
@@ -27,7 +27,7 @@ module Api
         it 'returns with the meta data of the album' do
           expect(subject.find(identity).artist).to eq('NOFX')
           expect(subject.find(identity).album).to eq('Backstage Passport Soundtrack')
-          expect(subject.find(identity).title).to be_nil
+          expect(subject.find(identity).track).to be_nil
           expect(subject.find(identity).kind).to eq('album')
           expect(subject.find(identity).url).to eq('http://www.deezer.com/album/9426892')
         end
@@ -41,7 +41,7 @@ module Api
         it 'returns with the meta data of the album' do
           expect(subject.find(identity).artist).to eq('NOFX')
           expect(subject.find(identity).album).to eq('Backstage Passport Soundtrack')
-          expect(subject.find(identity).title).to eq('No Fun in Fundamentalism')
+          expect(subject.find(identity).track).to eq('No Fun in Fundamentalism')
           expect(subject.find(identity).kind).to eq('track')
           expect(subject.find(identity).url).to eq('http://www.deezer.com/track/92876026')
         end

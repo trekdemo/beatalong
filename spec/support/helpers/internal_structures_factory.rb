@@ -6,7 +6,7 @@ module InternalStructuresFactory
     ProviderIdentity.new(provider: provider, id: id, kind: kind, country_code: country_code)
   end
 
-  def build_pe(kind, artist, album = nil, title = nil)
-    ProviderEntity.new(kind: kind, artist: artist, album: album, title: title)
+  def build_pe(kind, artist, album = nil, track = nil)
+    ProviderEntity.new(kind: kind, artist: artist, album: album, track: track)
   end
 end
