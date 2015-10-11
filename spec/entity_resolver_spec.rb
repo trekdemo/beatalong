@@ -9,11 +9,11 @@ RSpec.describe EntityResolver do
     context 'when provider is AppleMusic' do
       {
         'https://itunes.apple.com/nl/artist/kellerkind/id290891328?l=en' =>
-          ['AppleMusic', '290891328', nil],
+          ['AppleMusic', '290891328', 'artist'],
         'https://itunes.apple.com/nl/album/caracal-deluxe/id1002029534?l=en' =>
-          ['AppleMusic', '1002029534', nil],
+          ['AppleMusic', '1002029534', 'album'],
         'https://itun.es/nl/EhCU7?i=1002030097' =>
-          ['AppleMusic', '1002030097', nil],
+          ['AppleMusic', '1002030097', 'track'],
       }.each_pair do |url, identity|
         context url.inspect do
           let(:url) { url }

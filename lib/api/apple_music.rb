@@ -18,7 +18,7 @@ module Api
       end
 
       def find(identity)
-        lookup(id: identity.id).first
+        lookup(id: identity.id, country: identity.country_code).first
       end
 
       private

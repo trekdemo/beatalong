@@ -8,7 +8,7 @@ module UrlIdentityResolver
     extend ActiveSupport::Concern
 
     included do
-      attr_accessor :id, :kind, :url
+      attr_accessor :id, :kind, :url, :country_code
     end
 
     def initialize(url)
@@ -17,7 +17,12 @@ module UrlIdentityResolver
     end
 
     def identity
-      ProviderIdentity.new(provider: provider_name, id: id, kind: kind)
+      ProviderIdentity.new(
+        provider: provider_name,
+        id: id,
+        kind: kind,
+        country_code: country_code,
+      )
     end
 
     def provider_name
