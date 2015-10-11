@@ -8,33 +8,35 @@ require 'erb'
 class RedirectApp
   def self.call(env)
     orig_url = env['streamflow.incoming_url'].to_s
-    provider, id, kind = *env['streamflow.provider_entity']
-
-    entity_data = Object.const_get("Api::#{provider}").find(id)
+    identity = env['streamflow.provider_identity']
     destination_prov_name  = destination_provider(env)
-    destination_prov_class = Object.const_get("Api::#{destination_prov_name}")
+    redirect_to = if identity.provider != destination_prov_name
+                    destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
+                  else
+                    orig_url
+                  end
 
-    if provider != destination_prov_name
-      destination_provider_data = destination_prov_class.search({
-        artist: entity_data.artist,
-        album: entity_data.album,
-        track: entity_data.title,
-      }).first
-
-      if destination_provider_data &&
-          (target_location = destination_provider_data.url)
-        [301, {'Location' => target_location}, []]
-      else
-        # redirect back
-        [301, {'Location' => env['HTTP_REFERER']}, []]
-      end
-    else
-      [301, {'Location' => orig_url}, []]
-    end
+    [301, {'Location' => redirect_to}, []]
   end
 
   def self.destination_provider(env)
     camelize(env['PATH_INFO'].split('/').last.to_s)
+  end
+
+  def self.destination_provider_url(identity, destination_prov_name, &blk)
+    # Get information based on url
+    api_adapter = Object.const_get("Api::#{identity.provider}").new
+    entity_data = api_adapter.find(identity)
+
+    # Find entity on destination
+    destination_prov_class = Object.const_get("Api::#{destination_prov_name}").new
+    destination_provider_data = destination_prov_class.search(entity_data).first
+
+    if destination_provider_data
+      destination_provider_data.url
+    else
+      blk.call # fallback
+    end
   end
 
   def self.camelize(term, uppercase_first_letter = true)
