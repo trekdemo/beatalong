@@ -17,7 +17,28 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  # Require every support file
   Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
+
+  # Setup VCR
+  require 'vcr'
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    config.hook_into :webmock # or :fakeweb
+  end
+  # Add VCR to all tests
+  require 'active_support/core_ext/string/inflections'
+  config.around(:each) do |example|
+    options = example.metadata[:vcr] || {}
+    if options[:record] == :skip
+      VCR.turned_off(&example)
+    else
+      name = example.metadata[:full_description].split(/\s+/, 2).join('/').underscore.gsub(/\./,'/').gsub(/[^\w\/]+/, '_').gsub(/\/$/, '')
+      VCR.use_cassette(name, options, &example)
+    end
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
