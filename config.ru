@@ -6,10 +6,18 @@ require 'entity_resolver_middleware'
 require 'jump_app'
 require 'redirect_app'
 
+APP_ENV = ENV['RACK_ENV']
+
+if APP_ENV == 'production'
+  require 'rollbar'
+  Rollbar.configure do |config|
+    config.access_token = 'a84d60a5230b46cabe7dba37a3713485' # ENV['ROLLBAR_ACCESS_TOKEN']
+  end
+end
 
 app = Rack::Builder.new do
   use Rack::CommonLogger
-  use Rack::ShowExceptions
+  use Rack::ShowExceptions if APP_ENV == 'development'
 
   use EntityResolverMiddleware
   use Rack::Static,

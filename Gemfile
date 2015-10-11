@@ -9,6 +9,7 @@ gem 'httparty', require: false
 # gem 'rspotify', require: false
 group :production do
   gem 'puma'
+  gem 'rollbar', '~> 2.2.1'
 end
 
 group :development, :test do

@@ -27,6 +27,7 @@ GEM
     puma (2.14.0)
     rack (1.6.4)
     rake (10.4.2)
+    rollbar (2.2.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -62,6 +63,7 @@ DEPENDENCIES
   puma
   rack
   rake
+  rollbar (~> 2.2.1)
   rspec
   shotgun
   vcr
