@@ -1,5 +1,6 @@
 require 'httparty'
 require 'provider_entity'
+require 'active_support/core_ext/hash/slice'
 
 module Api
   class Deezer
@@ -7,22 +8,36 @@ module Api
     base_uri 'http://api.deezer.com'
     format :json
 
+    def initialize(*); end
+
     def find(identity)
       response = get(['/', identity.kind, identity.id].join('/'))
       format_result(response)
     end
 
-    def search(query={})
-      fields = query.map {|(k, v)| [k, v.to_s].join(':') }.join(' ')
-
-      self.class.get("/search", query: {q: fields, strict: 'on'})["data"]
+    # http://developers.deezer.com/api/search
+    def search(entity)
+      get(['/search', entity.kind].join('/'), {
+        q: search_term(entity),
+        strict: 'on',
+        limit: 1, # TODO Does it work?
+      })["data"]
         .map(&method(:format_result))
+        .first
     end
 
     private
 
     def get(path, query = nil)
       self.class.get(path, query: query)
+    end
+
+    def search_term(entity)
+      entity
+        .to_h
+        .slice(:artist, :album, :track)
+        .reject { |_, v| v.nil? }
+        .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join(' ')
     end
 
     def format_result(json)
@@ -52,7 +67,7 @@ module Api
       ProviderEntity.new({
         artist: json['artist']['name'],
         album: json['album']['title'],
-        title: json['title'],
+        track: json['title'],
         cover_image_url: json['album']['cover_big'],
         url: json['link'],
         kind: 'track',
