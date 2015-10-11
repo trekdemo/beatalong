@@ -1,0 +1,213 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com//artist/119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:58 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fr67b1e4fe596c4c17622d8b9803558e780b9aed; expires=Fri,
+        08-Apr-2016 18:22:58 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-47
+      Content-Length:
+      - '316'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1444587778&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/e-cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/e-cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/e-cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","nb_album":4,"nb_fan":2324202,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:58 GMT
+- request:
+    method: get
+    uri: http://api.deezer.com//artist/119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:58 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fr90cd39a6abec575e9799ef994c53969db13996; expires=Fri,
+        08-Apr-2016 18:22:58 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-21
+      Content-Length:
+      - '314'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1444587778&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","nb_album":4,"nb_fan":2324202,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:58 GMT
+- request:
+    method: get
+    uri: http://api.deezer.com//artist/119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:58 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fre3fc655c67d25c61bc6416866e6e16ee5bb344; expires=Fri,
+        08-Apr-2016 18:22:58 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-43
+      Content-Length:
+      - '314'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1444587778&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","nb_album":4,"nb_fan":2324202,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:58 GMT
+- request:
+    method: get
+    uri: http://api.deezer.com//artist/119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:58 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_frbba5356f2b64b4766982e1909527242806b265; expires=Fri,
+        08-Apr-2016 18:22:58 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-45
+      Content-Length:
+      - '314'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1444587778&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","nb_album":4,"nb_fan":2324202,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:58 GMT
+- request:
+    method: get
+    uri: http://api.deezer.com//artist/119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:58 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_frf74ce82fa1f84ef711670758961085cecda1c8; expires=Fri,
+        08-Apr-2016 18:22:58 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-07
+      Content-Length:
+      - '314'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1444587778&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","nb_album":4,"nb_fan":2324202,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:58 GMT
+recorded_with: VCR 2.9.3

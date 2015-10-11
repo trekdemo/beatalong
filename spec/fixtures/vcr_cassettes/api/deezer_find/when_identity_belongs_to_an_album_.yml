@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com//album/9426892
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:57 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fr593b3667db03fb13b41a943cfe55c1c149c205; expires=Fri,
+        08-Apr-2016 18:22:57 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-46
+      Content-Length:
+      - '1706'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":9426892,"title":"Backstage Passport Soundtrack","upc":"751097075524","link":"http:\/\/www.deezer.com\/album\/9426892","share":"http:\/\/www.deezer.com\/album\/9426892?utm_source=deezer&utm_content=album-9426892&utm_term=0_1444587777&utm_medium=web","cover":"http:\/\/api.deezer.com\/album\/9426892\/image","cover_small":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/56x56-000000-80-0-0.jpg","cover_medium":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/250x250-000000-80-0-0.jpg","cover_big":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/500x500-000000-80-0-0.jpg","genre_id":85,"genres":{"data":[{"id":85,"name":"Alternative","picture":"http:\/\/api.deezer.com\/genre\/85\/image","type":"genre"},{"id":87,"name":"Indie
+        Rock","picture":"http:\/\/api.deezer.com\/genre\/87\/image","type":"genre"}]},"label":"Fat
+        Wreck Chords","nb_tracks":15,"duration":2003,"fans":1047,"rating":0,"release_date":"2014-12-09","record_type":"album","available":true,"tracklist":"http:\/\/api.deezer.com\/album\/9426892\/tracks","explicit_lyrics":false,"contributors":[{"id":941,"name":"NOFX","link":"http:\/\/www.deezer.com\/artist\/941","share":"http:\/\/www.deezer.com\/artist\/941?utm_source=deezer&utm_content=artist-941&utm_term=0_1444587777&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/941\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/500x500-000000-80-0-0.jpg","radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist","role":"Main"}],"artist":{"id":941,"name":"NOFX","picture":"http:\/\/api.deezer.com\/artist\/941\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/500x500-000000-80-0-0.jpg","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"album","tracks":{"data":[{"id":92876024,"readable":true,"title":"Backstage
+        Passport","title_short":"Backstage Passport","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876024","duration":96,"rank":558045,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-7.deezer.com\/stream\/797dd1df9c204cd9f2cbc27525f7a327-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876026,"readable":true,"title":"No
+        Fun in Fundamentalism","title_short":"No Fun in Fundamentalism","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876026","duration":111,"rank":552907,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-1.deezer.com\/stream\/18d7c9083026b67957a9eed4cf3444dc-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876028,"readable":true,"title":"Insulted
+        by Germans (Again)","title_short":"Insulted by Germans (Again)","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876028","duration":162,"rank":552346,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-c.deezer.com\/stream\/c470f3ab4fff86de6df7e2087fea9a0d-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876030,"readable":true,"title":"All
+        My Friends in New York","title_short":"All My Friends in New York","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876030","duration":133,"rank":549632,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-b.deezer.com\/stream\/b1e7b5ff6a3c10c73e6f47c0d8a119d9-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876032,"readable":true,"title":"You
+        Will Lose Faith","title_short":"You Will Lose Faith","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876032","duration":191,"rank":542388,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-3.deezer.com\/stream\/354acdada7669f79a54e62de2ac06af0-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876034,"readable":true,"title":"Teenage
+        Punching Bag","title_short":"Teenage Punching Bag","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876034","duration":125,"rank":523310,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-9.deezer.com\/stream\/93d874908475e9d37d7deb9c93844892-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876036,"readable":true,"title":"Leaving
+        Jesusland (Live)","title_short":"Leaving Jesusland (Live)","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876036","duration":181,"rank":525685,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-c.deezer.com\/stream\/cf98ed49433bacd6130b6b4b3a27b375-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876038,"readable":true,"title":"Greatest
+        Country in the World","title_short":"Greatest Country in the World","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876038","duration":97,"rank":521821,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-1.deezer.com\/stream\/12e26eaee98ad9974e5df911512c284b-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876040,"readable":true,"title":"Last
+        Night Was Really Fun?","title_short":"Last Night Was Really Fun?","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876040","duration":119,"rank":507687,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-9.deezer.com\/stream\/9f1af8d8e32df6bb86d4351fd0b71b4e-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876042,"readable":true,"title":"We''re
+        Bros","title_short":"We''re Bros","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876042","duration":63,"rank":502572,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-6.deezer.com\/stream\/66fb0e78e8f0131ab1dee13cdf89ee39-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876044,"readable":true,"title":"Your
+        Hubcaps Cost More Than My Car","title_short":"Your Hubcaps Cost More Than
+        My Car","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876044","duration":151,"rank":510910,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-0.deezer.com\/stream\/0b98f6c3701eaf09543f363e0c710381-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876046,"readable":true,"title":"Fan
+        Mail","title_short":"Fan Mail","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876046","duration":171,"rank":530823,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-0.deezer.com\/stream\/0edd47e74c9a39665912bfb913e3f840-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876048,"readable":true,"title":"Arming
+        the Proletariat with Potato Guns","title_short":"Arming the Proletariat with
+        Potato Guns","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876048","duration":140,"rank":517321,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-0.deezer.com\/stream\/0f4db7d57fd452f07c45bc32778f9da4-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876050,"readable":true,"title":"I,
+        Melvin","title_short":"I, Melvin","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876050","duration":145,"rank":510063,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-a.deezer.com\/stream\/a733b4a536d085e9bce323ca5dda9a1c-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"},{"id":92876052,"readable":true,"title":"Punk
+        Rock Passport","title_short":"Punk Rock Passport","title_version":"","link":"http:\/\/www.deezer.com\/track\/92876052","duration":118,"rank":488782,"explicit_lyrics":false,"preview":"http:\/\/cdn-preview-9.deezer.com\/stream\/9480773856d3c5455b6b9a2bf7dd8438-2.mp3","artist":{"id":941,"name":"NOFX","tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"type":"track"}]}}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:57 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com//track/92876026
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:57 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fr5f2995f0dfa7054d2687f0ad996a6f5ccccc89; expires=Fri,
+        08-Apr-2016 18:22:57 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-09
+      Content-Length:
+      - '1287'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":92876026,"readable":true,"title":"No Fun in Fundamentalism","title_short":"No
+        Fun in Fundamentalism","title_version":"","isrc":"USFW41475502","link":"http:\/\/www.deezer.com\/track\/92876026","share":"http:\/\/www.deezer.com\/track\/92876026?utm_source=deezer&utm_content=track-92876026&utm_term=0_1444587777&utm_medium=web","duration":111,"track_position":2,"disk_number":1,"rank":552907,"release_date":"2015-01-03","explicit_lyrics":false,"preview":"http:\/\/cdn-preview-1.deezer.com\/stream\/18d7c9083026b67957a9eed4cf3444dc-2.mp3","bpm":159.628,"gain":-7.8,"available_countries":["AD","AE","AF","AG","AI","AL","AM","AN","AO","AQ","AR","AS","AT","AU","AW","AX","AZ","BA","BB","BD","BE","BF","BG","BH","BI","BJ","BM","BN","BO","BR","BS","BT","BV","BW","BY","BZ","CA","CC","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CU","CV","CX","CY","CZ","DE","DJ","DK","DM","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FI","FJ","FK","FM","FO","FR","GA","GB","GD","GE","GF","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY","HK","HM","HN","HR","HT","HU","ID","IE","IL","IN","IO","IQ","IR","IS","IT","JM","JO","JP","KE","KG","KH","KI","KM","KN","KP","KR","KW","KY","KZ","LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY","MA","MC","MD","ME","MG","MH","MK","ML","MM","MN","MO","MP","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","RS","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","ST","SV","SY","SZ","TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ","UA","UG","UM","US","UY","UZ","VA","VC","VE","VG","VI","VN","VU","WF","WS","YE","YT","ZA","ZM","ZW"],"contributors":[{"id":941,"name":"NOFX","link":"http:\/\/www.deezer.com\/artist\/941","share":"http:\/\/www.deezer.com\/artist\/941?utm_source=deezer&utm_content=artist-941&utm_term=0_1444587777&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/941\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/500x500-000000-80-0-0.jpg","radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist","role":"Main"}],"artist":{"id":941,"name":"NOFX","link":"http:\/\/www.deezer.com\/artist\/941","share":"http:\/\/www.deezer.com\/artist\/941?utm_source=deezer&utm_content=artist-941&utm_term=0_1444587777&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/941\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/048d704a1e558691375931f87322f7a3\/500x500-000000-80-0-0.jpg","radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/941\/top?limit=50","type":"artist"},"album":{"id":9426892,"title":"Backstage
+        Passport Soundtrack","link":"http:\/\/www.deezer.com\/album\/9426892","cover":"http:\/\/api.deezer.com\/album\/9426892\/image","cover_small":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/56x56-000000-80-0-0.jpg","cover_medium":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/250x250-000000-80-0-0.jpg","cover_big":"http:\/\/cdn-images.deezer.com\/images\/cover\/a00479b0d1b812ee47217e0d532d5969\/500x500-000000-80-0-0.jpg","release_date":"2014-12-09","tracklist":"http:\/\/api.deezer.com\/album\/9426892\/tracks","type":"album"},"type":"track"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:57 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com/search/artist?limit=1&q=artist:%22UB40%22&strict=on
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:59 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_frd4b4ec3057b9268515e3fd30d72b79eb7c100d; expires=Fri,
+        08-Apr-2016 18:22:59 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-14
+      Content-Length:
+      - '678'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":165,"name":"UB40","link":"http:\/\/www.deezer.com\/artist\/165","picture":"http:\/\/api.deezer.com\/artist\/165\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/500x500-000000-80-0-0.jpg","nb_album":54,"nb_fan":195355,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/165\/top?limit=50","type":"artist"},{"id":290089,"name":"Ub40
+        And Chrissie Hynde","link":"http:\/\/www.deezer.com\/artist\/290089","picture":"http:\/\/api.deezer.com\/artist\/290089\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":160,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/290089\/top?limit=50","type":"artist"},{"id":294394,"name":"UB
+        40","link":"http:\/\/www.deezer.com\/artist\/294394","picture":"http:\/\/api.deezer.com\/artist\/294394\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":9247,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/294394\/top?limit=50","type":"artist"},{"id":1360141,"name":"UB40
+        & Robert Palmer","link":"http:\/\/www.deezer.com\/artist\/1360141","picture":"http:\/\/api.deezer.com\/artist\/1360141\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":49,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/1360141\/top?limit=50","type":"artist"},{"id":113432,"name":"UB40
+        (Karaoke)","link":"http:\/\/www.deezer.com\/artist\/113432","picture":"http:\/\/api.deezer.com\/artist\/113432\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":1,"nb_fan":43,"radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/113432\/top?limit=50","type":"artist"},{"id":4090190,"name":"Speed
+        2 The Original Motion Picture Soundtrack featuring UB40","link":"http:\/\/www.deezer.com\/artist\/4090190","picture":"http:\/\/api.deezer.com\/artist\/4090190\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":22,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/4090190\/top?limit=50","type":"artist"},{"id":1210088,"name":"808
+        State feat. UB40","link":"http:\/\/www.deezer.com\/artist\/1210088","picture":"http:\/\/api.deezer.com\/artist\/1210088\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":29,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/1210088\/top?limit=50","type":"artist"},{"id":4221960,"name":"Karaoke
+        - UB40","link":"http:\/\/www.deezer.com\/artist\/4221960","picture":"http:\/\/api.deezer.com\/artist\/4221960\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":8,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/4221960\/top?limit=50","type":"artist"},{"id":4314074,"name":"808
+        State Vs. UB40","link":"http:\/\/www.deezer.com\/artist\/4314074","picture":"http:\/\/api.deezer.com\/artist\/4314074\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/\/500x500-000000-80-0-0.jpg","nb_album":0,"nb_fan":0,"radio":false,"tracklist":"http:\/\/api.deezer.com\/artist\/4314074\/top?limit=50","type":"artist"}],"total":9,"next":"http:\/\/api.deezer.com\/search\/artist?q=artist%3A%22UB40%22&strict=on&limit=1&index=1"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:59 GMT
+recorded_with: VCR 2.9.3

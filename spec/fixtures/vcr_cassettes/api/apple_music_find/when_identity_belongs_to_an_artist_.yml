@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://itunes.apple.com/lookup?country=nl&entity=musicArtist&id=524856
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Apple-Jingle-Correlation-Key:
+      - HYYE2MBS5OVB6S2OO3X6S2U36Y
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStoreServices.woa/ws/wsLookup?id=524856&entity=musicArtist&country=nl&urlDesc="
+      X-Apple-Orig-Url:
+      - https://itunes.apple.com/lookup?id=524856&entity=musicArtist&country=nl
+      X-Apple-Application-Site:
+      - NWK
+      Apple-Timing-App:
+      - 13 ms
+      Content-Type:
+      - text/javascript; charset=utf-8
+      X-Apple-Application-Instance:
+      - '1001174'
+      X-Webobjects-Loadaverage:
+      - '0'
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.154.42.218/80/lookup/browser/https?country=nl&entity=musicArtist&id=524856"
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-transform, max-age=0
+      Date:
+      - Sun, 11 Oct 2015 18:24:36 GMT
+      Content-Length:
+      - '273'
+      Connection:
+      - keep-alive
+      X-Apple-Partner:
+      - origin.0
+    body:
+      encoding: UTF-8
+      string: |2+
+
+
+
+        {
+         "resultCount":1,
+         "results": [
+        {"wrapperType":"artist", "artistType":"Artist", "artistName":"UB40", "artistLinkUrl":"https://itunes.apple.com/nl/artist/ub40/id524856?uo=4", "artistId":524856, "amgArtistId":5724, "primaryGenreName":"Reggae", "primaryGenreId":24}]
+        }
+
+
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:24:36 GMT
+recorded_with: VCR 2.9.3

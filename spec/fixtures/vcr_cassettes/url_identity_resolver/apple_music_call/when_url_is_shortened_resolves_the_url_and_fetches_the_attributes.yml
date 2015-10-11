@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: https://itun.es/nl/m7y95
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Apple WebObjects
+    headers:
+      Last-Modified:
+      - Sun, 11 Oct 2015 18:23:11 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStore.woa/wa/redirectToContent?path=%2Fnl%2Fm7y95"
+      X-Apple-Aka-Ttl:
+      - Generated Sun Oct 11 11:23:11 PDT 2015, Expires Sun Oct 11 11:24:11 PDT 2015,
+        TTL 60s
+      Vary:
+      - X-Apple-Store-Front
+      X-Apple-Application-Site:
+      - NWK
+      Edge-Control:
+      - cache-maxage=60s
+      Apple-Timing-App:
+      - 2 ms
+      Cache-Control:
+      - no-transform, max-age=480
+      X-Apple-Orig-Url:
+      - https://itun.es/nl/m7y95
+      Location:
+      - https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?l=en
+      X-Apple-Application-Instance:
+      - '1012503'
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Webobjects-Loadaverage:
+      - '0'
+      X-Apple-Jingle-Correlation-Key:
+      - 46FZTTC2OR2GUVELGA5GMF2UMU
+      Content-Length:
+      - '0'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Via:
+      - http/1.1 vagrant-oel63-x64.localdomain (ApacheTrafficServer/4.1.0 [uScMsSf
+        pSeN:t cCMi p sS])
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.154.42.213/80/nl/m7y95/browser/https"
+      Date:
+      - Sun, 11 Oct 2015 18:23:11 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:23:11 GMT
+- request:
+    method: head
+    uri: https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?l=en
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Sun, 11 Oct 2015 18:23:12 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStore.woa/wa/viewAlbum?l=en&id=972394188&cc=nl&urlDesc=/youre-mine-feat.-oscar-wolf"
+      X-Apple-Orig-Url:
+      - https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?l=en
+      X-Apple-Application-Site:
+      - ST11
+      Apple-Timing-App:
+      - 252 ms
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Apple-Application-Instance:
+      - '2004905'
+      X-Apple-Aka-Ttl:
+      - Generated Sun Oct 11 11:23:12 PDT 2015, Expires Sun Oct 11 11:24:12 PDT 2015,
+        TTL 60s
+      X-Webobjects-Loadaverage:
+      - '0'
+      X-Apple-Jingle-Correlation-Key:
+      - GYN66QVEVZV37NEBSAIGQ4RQUA
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.173.38.161/80/nl/album/youre-mine-feat.-oscar-wolf/id972394188/browser/https?l=en"
+      Cache-Control:
+      - no-transform, max-age=60
+      Date:
+      - Sun, 11 Oct 2015 18:23:12 GMT
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - X-Apple-Store-Front
+      X-Apple-Partner:
+      - origin.0
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:23:12 GMT
+recorded_with: VCR 2.9.3

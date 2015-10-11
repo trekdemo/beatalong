@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://itunes.apple.com/search?country=nl&entity=song&limit=1&media=music&term=UB40%20-%20The%20Very%20Best%20of%20UB40:%201980-2000%20-%20Kingston%20Town
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Apple-Jingle-Correlation-Key:
+      - FZFMUWAAIFOZ6GLNT3NFFU3FRY
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStoreServices.woa/ws/wsSearch?term=UB40%20-%20The%20Very%20Best%20of%20UB40%3A%201980-2000%20-%20Kingston%20Town&country=nl&media=music&entity=song&limit=1&urlDesc="
+      X-Apple-Orig-Url:
+      - https://itunes.apple.com/search?term=UB40%20-%20The%20Very%20Best%20of%20UB40%3A%201980-2000%20-%20Kingston%20Town&country=nl&media=music&entity=song&limit=1
+      X-Apple-Application-Site:
+      - NWK
+      Apple-Timing-App:
+      - 32 ms
+      Content-Type:
+      - text/javascript; charset=utf-8
+      X-Apple-Application-Instance:
+      - '1000984'
+      X-Webobjects-Loadaverage:
+      - '0'
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.154.42.218/80/search/browser/https?country=nl&entity=song&limit=1&media=music&term=UB40%20-%20The%20Very%20Best%20of%20UB40%3A%201980-2000%20-%20Kingston%20Town"
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-transform, max-age=59
+      Date:
+      - Sun, 11 Oct 2015 18:24:31 GMT
+      Content-Length:
+      - '1528'
+      Connection:
+      - keep-alive
+      X-Apple-Partner:
+      - origin.0
+    body:
+      encoding: UTF-8
+      string: |2+
+
+
+
+        {
+         "resultCount":1,
+         "results": [
+        {"wrapperType":"track", "kind":"song", "artistId":524856, "collectionId":724633277, "trackId":724633596, "artistName":"UB40", "collectionName":"The Very Best of UB40: 1980-2000", "trackName":"Kingston Town", "collectionCensoredName":"The Very Best of UB40: 1980-2000", "trackCensoredName":"Kingston Town", "artistViewUrl":"https://itunes.apple.com/nl/artist/ub40/id524856?uo=4", "collectionViewUrl":"https://itunes.apple.com/nl/album/kingston-town/id724633277?i=724633596&uo=4", "trackViewUrl":"https://itunes.apple.com/nl/album/kingston-town/id724633277?i=724633596&uo=4", "previewUrl":"http://a435.phobos.apple.com/us/r30/Music4/v4/b5/29/ac/b529ace4-827f-dcb1-88bd-20f8fe1a964b/mzaf_4008366981985956126.plus.aac.p.m4a", "artworkUrl30":"http://is1.mzstatic.com/image/thumb/Music/v4/92/f8/d4/92f8d44e-408e-c8ba-28c7-80dad770ff79/00724385042454.jpg/30x30bb-85.jpg", "artworkUrl60":"http://is1.mzstatic.com/image/thumb/Music/v4/92/f8/d4/92f8d44e-408e-c8ba-28c7-80dad770ff79/00724385042454.jpg/60x60bb-85.jpg", "artworkUrl100":"http://is2.mzstatic.com/image/thumb/Music/v4/92/f8/d4/92f8d44e-408e-c8ba-28c7-80dad770ff79/00724385042454.jpg/100x100bb-85.jpg", "collectionPrice":7.99, "trackPrice":1.29, "releaseDate":"2003-03-01T08:00:00Z", "collectionExplicitness":"notExplicit", "trackExplicitness":"notExplicit", "discCount":1, "discNumber":1, "trackCount":20, "trackNumber":2, "trackTimeMillis":230440, "country":"NLD", "currency":"EUR", "primaryGenreName":"Reggae", "isStreamable":true}]
+        }
+
+
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:24:31 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com/search/album?limit=1&q=artist:%22UB40%22%20album:%22The%20Very%20Best%20Of%22&strict=on
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 11 Oct 2015 18:22:59 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_fr23ffc2590277a137e8ae1958ce35e9308f6329; expires=Fri,
+        08-Apr-2016 18:22:59 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-47
+      Content-Length:
+      - '562'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":304182,"title":"The Very Best Of","link":"http:\/\/www.deezer.com\/album\/304182","cover":"http:\/\/api.deezer.com\/album\/304182\/image","cover_small":"http:\/\/cdn-images.deezer.com\/images\/cover\/a7700a7cc51ad1fd8bbd6464b183f469\/56x56-000000-80-0-0.jpg","cover_medium":"http:\/\/cdn-images.deezer.com\/images\/cover\/a7700a7cc51ad1fd8bbd6464b183f469\/250x250-000000-80-0-0.jpg","cover_big":"http:\/\/cdn-images.deezer.com\/images\/cover\/a7700a7cc51ad1fd8bbd6464b183f469\/500x500-000000-80-0-0.jpg","genre_id":85,"nb_tracks":18,"record_type":"album","tracklist":"http:\/\/api.deezer.com\/album\/304182\/tracks","explicit_lyrics":false,"artist":{"id":165,"name":"UB40","link":"http:\/\/www.deezer.com\/artist\/165","picture":"http:\/\/api.deezer.com\/artist\/165\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/500x500-000000-80-0-0.jpg","tracklist":"http:\/\/api.deezer.com\/artist\/165\/top?limit=50","type":"artist"},"type":"album"},{"id":301763,"title":"The
+        Very Best Of UB40","link":"http:\/\/www.deezer.com\/album\/301763","cover":"http:\/\/api.deezer.com\/album\/301763\/image","cover_small":"http:\/\/cdn-images.deezer.com\/images\/cover\/ba1ee8b4130e3c0e2606dfe365312dab\/56x56-000000-80-0-0.jpg","cover_medium":"http:\/\/cdn-images.deezer.com\/images\/cover\/ba1ee8b4130e3c0e2606dfe365312dab\/250x250-000000-80-0-0.jpg","cover_big":"http:\/\/cdn-images.deezer.com\/images\/cover\/ba1ee8b4130e3c0e2606dfe365312dab\/500x500-000000-80-0-0.jpg","genre_id":144,"nb_tracks":20,"record_type":"album","tracklist":"http:\/\/api.deezer.com\/album\/301763\/tracks","explicit_lyrics":false,"artist":{"id":165,"name":"UB40","link":"http:\/\/www.deezer.com\/artist\/165","picture":"http:\/\/api.deezer.com\/artist\/165\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/55b1ce1d28bc47ac4fbab082e110f9a4\/500x500-000000-80-0-0.jpg","tracklist":"http:\/\/api.deezer.com\/artist\/165\/top?limit=50","type":"artist"},"type":"album"}],"total":2,"next":"http:\/\/api.deezer.com\/search\/album?q=artist%3A%22UB40%22%20album%3A%22The%20Very%20Best%20Of%22&strict=on&limit=1&index=1"}'
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 18:22:59 GMT
+recorded_with: VCR 2.9.3
