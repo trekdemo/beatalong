@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=1&q=artist:%22UB40%22&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 11 Oct 2015 19:30:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "artists" : {
+            "href" : "https://api.spotify.com/v1/search?query=artist%3A%22UB40%22&offset=0&limit=1&type=artist",
+            "items" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/69MEO1AADKg1IZrq2XLzo5"
+              },
+              "followers" : {
+                "href" : null,
+                "total" : 225918
+              },
+              "genres" : [ ],
+              "href" : "https://api.spotify.com/v1/artists/69MEO1AADKg1IZrq2XLzo5",
+              "id" : "69MEO1AADKg1IZrq2XLzo5",
+              "images" : [ {
+                "height" : 1420,
+                "url" : "https://i.scdn.co/image/610f183c9b2f78b7ce2fe17c7501e4287869f457",
+                "width" : 1000
+              }, {
+                "height" : 909,
+                "url" : "https://i.scdn.co/image/a78ccaeb59704bce7f7d93155a89bfeaebe4ff0d",
+                "width" : 640
+              }, {
+                "height" : 284,
+                "url" : "https://i.scdn.co/image/9f318d1e29b276f3392498e9784ddde92bc3c149",
+                "width" : 200
+              }, {
+                "height" : 91,
+                "url" : "https://i.scdn.co/image/6b0e7ba60a075aad5bfa83e8a6f8065077055050",
+                "width" : 64
+              } ],
+              "name" : "UB40",
+              "popularity" : 69,
+              "type" : "artist",
+              "uri" : "spotify:artist:69MEO1AADKg1IZrq2XLzo5"
+            } ],
+            "limit" : 1,
+            "next" : "https://api.spotify.com/v1/search?query=artist%3A%22UB40%22&offset=1&limit=1&type=artist",
+            "offset" : 0,
+            "previous" : null,
+            "total" : 5
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 19:30:52 GMT
+recorded_with: VCR 2.9.3

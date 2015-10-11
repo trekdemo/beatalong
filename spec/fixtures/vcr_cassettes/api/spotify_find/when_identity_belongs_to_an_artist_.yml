@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/artists/2ye2Wgw4gimLv2eAKyk1NB
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 11 Oct 2015 19:30:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/2ye2Wgw4gimLv2eAKyk1NB"
+          },
+          "followers" : {
+            "href" : null,
+            "total" : 1487640
+          },
+          "genres" : [ "metal" ],
+          "href" : "https://api.spotify.com/v1/artists/2ye2Wgw4gimLv2eAKyk1NB",
+          "id" : "2ye2Wgw4gimLv2eAKyk1NB",
+          "images" : [ {
+            "height" : 960,
+            "url" : "https://i.scdn.co/image/3e77faaefed7e976999d5d40b02c2d0cae173a5a",
+            "width" : 960
+          }, {
+            "height" : 640,
+            "url" : "https://i.scdn.co/image/2cfbc8c8e6af445b4323a3eda3ae97fe1bba8935",
+            "width" : 640
+          }, {
+            "height" : 200,
+            "url" : "https://i.scdn.co/image/15d9ccb37a96d49f69f44f999fb1e9e46f9b3ccd",
+            "width" : 200
+          }, {
+            "height" : 64,
+            "url" : "https://i.scdn.co/image/412a8f3a40f44fcfadb53bcecef2434f45fdd015",
+            "width" : 64
+          } ],
+          "name" : "Metallica",
+          "popularity" : 82,
+          "type" : "artist",
+          "uri" : "spotify:artist:2ye2Wgw4gimLv2eAKyk1NB"
+        }
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 19:30:53 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=1&q=artist:%22UB40%22%2Balbum:%22The%20Very%20Best%20Of%22%2Btrack:%22One%20in%20Ten%22&type=track
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 11 Oct 2015 19:30:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "tracks" : {
+            "href" : "https://api.spotify.com/v1/search?query=artist%3A%22UB40%22%2Balbum%3A%22The+Very+Best+Of%22%2Btrack%3A%22One+in+Ten%22&offset=0&limit=1&type=track",
+            "items" : [ {
+              "album" : {
+                "album_type" : "compilation",
+                "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SI", "SK", "SV", "TR", "TW", "US", "UY" ],
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/album/05owfigVGpgPe7RKJG1hum"
+                },
+                "href" : "https://api.spotify.com/v1/albums/05owfigVGpgPe7RKJG1hum",
+                "id" : "05owfigVGpgPe7RKJG1hum",
+                "images" : [ {
+                  "height" : 640,
+                  "url" : "https://i.scdn.co/image/58a1a0ced12c24d0c4636b31744ab6024dcf8394",
+                  "width" : 640
+                }, {
+                  "height" : 300,
+                  "url" : "https://i.scdn.co/image/26290c8e4ac524766ab3e78675c602b9cb2b665e",
+                  "width" : 300
+                }, {
+                  "height" : 64,
+                  "url" : "https://i.scdn.co/image/0767a3125d184a2cf5c14df12a2eb8ad7b847c38",
+                  "width" : 64
+                } ],
+                "name" : "The Very Best Of",
+                "type" : "album",
+                "uri" : "spotify:album:05owfigVGpgPe7RKJG1hum"
+              },
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/69MEO1AADKg1IZrq2XLzo5"
+                },
+                "href" : "https://api.spotify.com/v1/artists/69MEO1AADKg1IZrq2XLzo5",
+                "id" : "69MEO1AADKg1IZrq2XLzo5",
+                "name" : "UB40",
+                "type" : "artist",
+                "uri" : "spotify:artist:69MEO1AADKg1IZrq2XLzo5"
+              } ],
+              "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SI", "SK", "SV", "TR", "TW", "US", "UY" ],
+              "disc_number" : 1,
+              "duration_ms" : 273133,
+              "explicit" : false,
+              "external_ids" : {
+                "isrc" : "GBAAA8100344"
+              },
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/track/1dKfteL9OIYuFOCwBzV0SB"
+              },
+              "href" : "https://api.spotify.com/v1/tracks/1dKfteL9OIYuFOCwBzV0SB",
+              "id" : "1dKfteL9OIYuFOCwBzV0SB",
+              "name" : "One in Ten",
+              "popularity" : 40,
+              "preview_url" : "https://p.scdn.co/mp3-preview/ef75f368ad87326d06a4a0bc7f2f286e83afe2e2",
+              "track_number" : 4,
+              "type" : "track",
+              "uri" : "spotify:track:1dKfteL9OIYuFOCwBzV0SB"
+            } ],
+            "limit" : 1,
+            "next" : "https://api.spotify.com/v1/search?query=artist%3A%22UB40%22%2Balbum%3A%22The+Very+Best+Of%22%2Btrack%3A%22One+in+Ten%22&offset=1&limit=1&type=track",
+            "offset" : 0,
+            "previous" : null,
+            "total" : 2
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 19:30:52 GMT
+recorded_with: VCR 2.9.3

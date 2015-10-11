@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=1&q=artist:%22Metallica%22%2Balbum:%22Death%20Magnetic%22&type=album
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 11 Oct 2015 19:30:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "albums" : {
+            "href" : "https://api.spotify.com/v1/search?query=artist%3A%22Metallica%22%2Balbum%3A%22Death+Magnetic%22&offset=0&limit=1&type=album",
+            "items" : [ {
+              "album_type" : "album",
+              "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SI", "SK", "SV", "TR", "TW", "US", "UY" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/3wAdN3V06Btox7NjFfBKRC"
+              },
+              "href" : "https://api.spotify.com/v1/albums/3wAdN3V06Btox7NjFfBKRC",
+              "id" : "3wAdN3V06Btox7NjFfBKRC",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/8138fd0f45dbc8a12bed53560e8c5b3a20925043",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/6abc94370cf84640cc9ba1810ab3bdfced43d719",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/1dba636df90bbfcdc9c82ca7664c1cd3bfdbf5c9",
+                "width" : 64
+              } ],
+              "name" : "Death Magnetic",
+              "type" : "album",
+              "uri" : "spotify:album:3wAdN3V06Btox7NjFfBKRC"
+            } ],
+            "limit" : 1,
+            "next" : "https://api.spotify.com/v1/search?query=artist%3A%22Metallica%22%2Balbum%3A%22Death+Magnetic%22&offset=1&limit=1&type=album",
+            "offset" : 0,
+            "previous" : null,
+            "total" : 2
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 11 Oct 2015 19:30:52 GMT
+recorded_with: VCR 2.9.3
