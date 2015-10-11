@@ -12,7 +12,7 @@ RSpec.describe EntityResolver do
           ['AppleMusic', '290891328', 'artist'],
         'https://itunes.apple.com/nl/album/caracal-deluxe/id1002029534?l=en' =>
           ['AppleMusic', '1002029534', 'album'],
-        'https://itun.es/nl/EhCU7?i=1002030097' =>
+        'https://itunes.apple.com/nl/album/caracal-deluxe/id1002029534?i=1002030097&l=en' =>
           ['AppleMusic', '1002030097', 'track'],
       }.each_pair do |url, identity|
         context url.inspect do

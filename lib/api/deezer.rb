@@ -1,8 +1,9 @@
 require 'active_support/core_ext/hash/slice'
+require 'api/base'
 
 module Api
   class Deezer
-    include Base
+    include ::Api::Base
     base_uri 'http://api.deezer.com'
 
     def find(identity)

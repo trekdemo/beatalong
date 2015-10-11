@@ -4,7 +4,7 @@ module Api
   RSpec.describe AppleMusic do
     include InternalStructuresFactory
 
-    describe '.find' do
+    describe '#find' do
       context 'when identity belongs to a track' do
         let(:identity) { build_pi('AppleMusic', '724633596', 'track') }
 
@@ -48,7 +48,7 @@ module Api
       end
     end
 
-    describe '.search' do
+    describe '#search' do
       context 'when looking for an artist' do
         let(:entity) { build_pe('artist', 'UB40') }
         subject { described_class.new('nl').search(entity) }

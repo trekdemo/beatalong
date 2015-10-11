@@ -5,7 +5,7 @@ module Api
   # Offical docs:
   #   https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html#searching
   class AppleMusic
-    include Base
+    include ::Api::Base
     base_uri 'https://itunes.apple.com'
 
     AVAILABLE_SEARCH_PARAMS = %i[term country media entity attribute callback
