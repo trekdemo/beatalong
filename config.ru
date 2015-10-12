@@ -1,5 +1,6 @@
 require 'rack/builder'
 require 'rack-json-logs'
+require 'newrelic_rpm'
 
 $: << File.expand_path('../lib', __FILE__)
 

@@ -11,6 +11,7 @@ gem 'rack-json-logs'
 group :production do
   gem 'puma'
   gem 'rollbar', '~> 2.2.1'
+  gem 'newrelic_rpm'
   gem 'rack-tracker'
 end
 
