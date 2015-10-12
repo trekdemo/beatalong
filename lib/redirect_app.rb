@@ -8,15 +8,18 @@ require 'erb'
 class RedirectApp
   def self.call(env)
     orig_url = env['streamflow.incoming_url'].to_s
-    identity = env['streamflow.provider_identity']
-    destination_prov_name  = destination_provider(env)
-    redirect_to = if identity.provider != destination_prov_name
-                    destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
-                  else
-                    orig_url
-                  end
+    if (identity = env['streamflow.provider_identity'])
+      destination_prov_name  = destination_provider(env)
+      redirect_to = if identity.provider != destination_prov_name
+                      destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
+                    else
+                      orig_url
+                    end
 
-    [301, {'Location' => redirect_to}, []]
+      [301, {'Location' => redirect_to}, []]
+    else
+      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['streamflow.incoming_url'].inspect}"]]
+    end
   end
 
   def self.destination_provider(env)

@@ -18,6 +18,12 @@ class ProviderIdentity
     to_a == other.to_a
   end
 
+  def valid?
+    !to_a.compact.empty?
+  end
+
+  private
+
   def validated_kind(kind)
     return kind if VALID_KIND.include?(kind)
 

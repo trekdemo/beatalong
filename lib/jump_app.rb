@@ -12,12 +12,14 @@ class JumpApp
   end
 
   def call(env)
-    provider_identity = env['streamflow.provider_identity']
-
-    respond_with(
-      api_adapter(provider_identity.provider).find(provider_identity),
-      env['streamflow.incoming_url']
-    )
+    if (provider_identity = env['streamflow.provider_identity'])
+      respond_with(
+        api_adapter(provider_identity.provider).find(provider_identity),
+        env['streamflow.incoming_url']
+      )
+    else
+      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['streamflow.incoming_url'].inspect}"]]
+    end
   end
 
   private
