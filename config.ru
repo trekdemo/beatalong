@@ -13,14 +13,14 @@ require 'redirect_app'
 app = Rack::Builder.new do
   use DevelopmentAdditions
   use Rack::JsonLogs, reraise_exceptions: true # instead of use Rack::CommonLogger
-
   use ProductionAdditions
-  use EntityResolverMiddleware
 
   use Rack::Static,
     urls: {"/" => 'index.html'},
     index: 'index.html',
     root: File.expand_path('../public', __FILE__)
+
+  use EntityResolverMiddleware
   map('/j') { run JumpApp.new }
   map('/r') { run RedirectApp }
 end
