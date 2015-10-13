@@ -36,7 +36,7 @@ class EntityResolver
 
   def provider_name
     RESOLVERS
-      .find { |resolver| resolver.new(url).match? }
+      .find { |matcher| matcher.match?(url) }
       .to_s
       .split('::')
       .last
