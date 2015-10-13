@@ -1,11 +1,9 @@
 module UrlMatcher
   class Deezer
-    def initialize(url)
-      @url = url
-    end
-
-    def match?
-      @url =~ /https?:\/\/(www\.)?deezer\.com/
+    def self.match?(url)
+      !!(
+        url =~ /^https?:\/\/(www\.)?deezer\.com\/(artist|album|track)/
+      )
     end
   end
 end

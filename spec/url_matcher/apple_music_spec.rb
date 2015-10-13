@@ -2,7 +2,7 @@ require 'url_matcher/apple_music'
 
 module UrlMatcher
   RSpec.describe AppleMusic do
-    describe '#match?' do
+    describe '.match?' do
       [
         # artist
         'https://itunes.apple.com/nl/artist/kellerkind/id290891328?l=en',
@@ -18,8 +18,8 @@ module UrlMatcher
         'https://itunes.apple.com/nl/playlist/amsterdam-dance-event-amsterdam/idpl.633ff1b81d3046138a4b384c717762d9?l=en',
       ].each do |url|
         context "when #{url.inspect}" do
-          subject { described_class.new(url) }
-          it { is_expected.to be_match }
+          subject { described_class.match?(url) }
+          it { is_expected.to be true }
         end
       end
     end
