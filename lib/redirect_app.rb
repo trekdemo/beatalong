@@ -6,7 +6,7 @@ require 'api/rdio'
 require 'erb'
 
 class RedirectApp
-  def self.call(env)
+  def call(env)
     orig_url = env['streamflow.incoming_url'].to_s
     if (identity = env['streamflow.provider_identity'])
       destination_prov_name  = destination_provider(env)
@@ -22,11 +22,11 @@ class RedirectApp
     end
   end
 
-  def self.destination_provider(env)
+  def destination_provider(env)
     camelize(env['PATH_INFO'].split('/').last.to_s)
   end
 
-  def self.destination_provider_url(identity, destination_prov_name, &blk)
+  def destination_provider_url(identity, destination_prov_name, &blk)
     # Get information based on url
     api_adapter = Object.const_get("Api::#{identity.provider}").new
     entity_data = api_adapter.find(identity)
@@ -43,7 +43,7 @@ class RedirectApp
     end
   end
 
-  def self.camelize(term, uppercase_first_letter = true)
+  def camelize(term, uppercase_first_letter = true)
       string = term.to_s
       if uppercase_first_letter
         string = string.sub(/^[a-z\d]*/) { $&.capitalize }

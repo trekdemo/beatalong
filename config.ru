@@ -24,7 +24,7 @@ app = Rack::Builder.new do
 
   use EntityResolverMiddleware
   map('/j') { run JumpApp.new }
-  map('/r') { run RedirectApp }
+  map('/r') { run RedirectApp.new }
 end
 
 run app
