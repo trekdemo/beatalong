@@ -5,7 +5,6 @@ gem 'rake'
 gem 'rack'
 gem 'activesupport'
 gem 'httparty', require: false
-gem 'rack-json-logs'
 
 # gem 'rspotify', require: false
 group :production do

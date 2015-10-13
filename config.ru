@@ -1,5 +1,4 @@
 require 'rack/builder'
-require 'rack-json-logs'
 require 'newrelic_rpm'
 
 $: << File.expand_path('../lib', __FILE__)
@@ -13,7 +12,6 @@ require 'redirect_app'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
-  # use Rack::JsonLogs, reraise_exceptions: true # instead of use Rack::CommonLogger
   use Rack::CommonLogger
   use ProductionAdditions
 
