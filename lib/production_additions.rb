@@ -1,17 +1,17 @@
 class ProductionAdditions
   def initialize(app)
-    @extended_app = if ENV['RACK_ENV'] == 'production'
-      build_extended_app(app)
-    else
-      app
-    end
+    @app = (production?) ?  build_extended_app(app) : app
   end
 
   def call(env)
-    @extended_app.call(env)
+    @app.call(env)
   end
 
   private
+
+  def production?
+    ENV['RACK_ENV'] == 'production'
+  end
 
   def build_extended_app(app)
     require 'rack/tracker'
