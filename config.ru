@@ -18,7 +18,6 @@ app = Rack::Builder.new do
   use ProductionAdditions
 
   use Rack::Static,
-    urls: {"/" => 'index.html'},
     index: 'index.html',
     root: File.expand_path('../public', __FILE__)
 
