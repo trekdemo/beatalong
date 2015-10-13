@@ -13,7 +13,8 @@ require 'redirect_app'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
-  use Rack::JsonLogs, reraise_exceptions: true # instead of use Rack::CommonLogger
+  # use Rack::JsonLogs, reraise_exceptions: true # instead of use Rack::CommonLogger
+  use Rack::CommonLogger
   use ProductionAdditions
 
   use Rack::Static,
