@@ -5,12 +5,71 @@
       <title>Flow the Music</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+      <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+        }
+        .wrapper {
+          height: 100%;
+          width: 60%;
+          margin: 0 auto;
+          padding: 2em 0;
+        }
+        h1 {
+          font-family: 'Raleway', sans-serif;
+          font-weight: 100;
+          font-size: 4em;
+          text-align: center;
+        }
+        .form-wrapper {
+          position: relative;
+        }
+        .share-url {
+          margin-bottom: 45px;
+          padding-right: 48px;
+          box-shadow: 0 0 0px 5px rgba(20, 28, 34, 0.1);
+          box-sizing: border-box;
+          width: 100%;
+          font-size: 1.5em;
+          -webkit-appearance: none;
+          padding: .8em;
+          background: #fff;
+          border: none;
+          border-radius: .3em;
+          font-weight: 300;
+          font-family: sans-serif;
+          color: #141c22;
+          outline: none;
+        }
+        .share-btn {
+          position: absolute;
+          cursor: pointer;
+          top: .8em;
+          right: .8em;
+          font-size: 1.5em;
+          border: none;
+          background-color: transparent;
+          color: #ccc;
+          text-transform: uppercase;
+        }
+        .share-btn:hover {
+          color: #666;
+        }
+      </style>
   </head>
   <body>
-    <h1>Flow the Music</h1>
-    <form action="/j" method="GET">
-      <input name="u" placeholder="Insert your url..." />
-      <input type="submit" value="Flow it!" />
-    </form>
+    <div class="wrapper">
+      <h1>Share your favorite music with your friends!</h1>
+      <div class="form-wrapper">
+        <form action="/j" method="GET">
+          <input name="u" class="share-url" autofocus="autofocus" placeholder="Put your music url here&hellip;" />
+          <input type="submit" class="share-btn" value="Share" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>
