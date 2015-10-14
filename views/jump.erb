@@ -5,16 +5,20 @@
       <title>Flow the Music</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+      <link href='/assets/style.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
-    <img src="<%= entity_data.cover_image_url %>" alt="cover iamge" />
-    <h1><%= entity_data.artist %> - <%= entity_data.album %></h1>
-    <h2><%= entity_data.track %></h2>
-    <ul>
-      <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
-      <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
-      <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
-      <!-- <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li> -->
-    </ul>
+    <div class="wrapper">
+      <img src="<%= entity_data.cover_image_url %>" alt="cover iamge" />
+      <h1><%= entity_data.artist %> - <%= entity_data.album %></h1>
+      <h2><%= entity_data.track %></h2>
+      <ul>
+        <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
+        <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
+        <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
+        <!-- <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li> -->
+      </ul>
+    </div>
   </body>
 </html>

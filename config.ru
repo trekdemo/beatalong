@@ -15,14 +15,14 @@ app = Rack::Builder.new do
   use Rack::CommonLogger
   use ProductionAdditions
 
-  use Rack::Static,
-    index: 'index.html',
-    urls: ['/', '/images'],
-    root: File.expand_path('../public', __FILE__)
-
   use EntityResolverMiddleware
   map('/j') { run JumpApp.new }
   map('/r') { run RedirectApp.new }
+  use Rack::Static,
+    index: 'index.html',
+    urls: ['/', '/assets'],
+    root: File.expand_path('../public', __FILE__)
+  run -> {}
 end
 
 run app
