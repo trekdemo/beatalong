@@ -17,6 +17,7 @@ app = Rack::Builder.new do
 
   use Rack::Static,
     index: 'index.html',
+    urls: ['/', '/images'],
     root: File.expand_path('../public', __FILE__)
 
   use EntityResolverMiddleware
