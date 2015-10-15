@@ -56,8 +56,13 @@ module Api
         artist: result['artistName'],
         album: result['collectionName'],
         track: result['trackName'],
-        url: result['trackViewUrl'] || result['collectionViewUrl'] || result['artistViewUrl']|| result['artistLinkUrl'],
-        cover_image_url: result['artworkUrl100'],
+        url: (
+          result['trackViewUrl'] ||
+          result['collectionViewUrl'] ||
+          result['artistViewUrl']||
+          result['artistLinkUrl']
+        ),
+        cover_image_url: result['artworkUrl100'].to_s.sub('100x100', '420x420'),
       })
     end
 
