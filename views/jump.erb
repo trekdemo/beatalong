@@ -12,6 +12,7 @@
       <meta property="og:image" content="<%= entity_data.cover_image_url %>"/>
       <meta property="og:site_name" content="StreamFlow"/>
       <meta property="fb:app_id" content="1067545229962488"/>
+      <meta name="twitter:card" content="summary_large_image">
 
       <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
       <link href='/assets/style.css' rel='stylesheet' type='text/css' />
@@ -32,15 +33,18 @@
           <i><%= secondary_title.join('<br />') %></i>
         </h1>
         <div class="outside-links">
-          <ul>
-            <li><div data-href="<%= request.url %>" data-layout="button_count"></div></li>
-          </ul>
-          <ul>
+          <span class="kind">[ Listen in on these services ]</span>
+          <ul class="cf">
             <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
-            <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
             <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
+            <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
             <!-- <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li> -->
           </ul>
+        </div>
+        <div class="outside-links social">
+          <span class="kind">[ Share this <% entity_data.kind %> with your friends ]</span>
+          <div class="fb-like" data-href="<%= request.url %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+          <div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="streamflow">Tweet</a></div>
         </div>
       </div>
     </div>
@@ -52,5 +56,6 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1067545229962488";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </body>
 </html>
