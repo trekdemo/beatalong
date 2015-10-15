@@ -1,20 +1,19 @@
 <!doctype html>
 <% titles = [entity_data.track, entity_data.album, entity_data.artist].compact %>
-<html class="no-js" lang="">
+<html class="" lang="en-US">
   <head>
       <meta charset="utf-8">
-      <title>Flow the Music</title>
+      <title>StreamFlow</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
       <meta property="og:type" content="music.song"/>
-      <meta property="og:title" content="<%= titles.first %>"/>
       <meta property="og:title" content="<%= titles.first %>"/>
       <meta property="og:url" content="<%= request.url %>"/>
       <meta property="og:image" content="<%= entity_data.cover_image_url %>"/>
       <meta property="og:site_name" content="StreamFlow"/>
       <meta property="fb:app_id" content="1067545229962488"/>
+
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
       <link href='/assets/style.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
@@ -34,7 +33,7 @@
         </h1>
         <div class="outside-links">
           <ul>
-            <li><div data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div></li>
+            <li><div data-href="<%= request.url %>" data-layout="button_count"></div></li>
           </ul>
           <ul>
             <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
