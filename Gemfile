@@ -20,10 +20,12 @@ end
 
 group :development do
   gem 'shotgun'
+  gem 'derailed'
 end
 
 group :test do
   gem 'rspec'
   gem 'vcr'
   gem 'webmock'
+  gem 'rack-test'
 end
