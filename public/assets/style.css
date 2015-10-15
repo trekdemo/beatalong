@@ -12,13 +12,29 @@ html, body {
   margin: 0 auto;
   padding: 2em 0;
 }
-h1, h3 {
+a, a:visited {
+  color: #2798e8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
 }
 h1 {
   font-size: 4em;
+}
+h1.center {
   text-align: center;
+}
+h1.small, h2.small {
+  margin: .05em 0 .15em;
+}
+h1.small {
+  font-size: 1.8em;;
+  font-weight: 400;
 }
 .form-wrapper {
   position: relative;
@@ -58,6 +74,8 @@ h1 {
 ul {
   list-style: none;
   margin: 0; padding: 0;
+}
+ul.logos {
   margin-top: -1.5em;
 }
 li {
@@ -66,3 +84,20 @@ li {
   float: left;
 }
 
+.column {
+  margin: 0;
+  padding: 0 10px;
+  width: 45%;
+  float: left;
+
+}
+
+.kind {
+  font-size: .8em;
+  font-weight: 100;
+  color: #999;
+}
+
+.outside-links {
+  margin-top: 3em;
+}

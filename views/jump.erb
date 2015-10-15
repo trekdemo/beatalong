@@ -10,15 +10,28 @@
   </head>
   <body>
     <div class="wrapper">
-      <img src="<%= entity_data.cover_image_url %>" alt="cover iamge" />
-      <h1><%= entity_data.artist %> - <%= entity_data.album %></h1>
-      <h2><%= entity_data.track %></h2>
-      <ul>
-        <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
-        <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
-        <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
-        <!-- <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li> -->
-      </ul>
+      <p>
+        <a href="/">&larr; Share another</a>
+      </p>
+      <div class="column">
+        <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover iamge" />
+      </div>
+      <div class="column">
+        <% main_title, *secondary_title = *[entity_data.track, entity_data.album, entity_data.artist].compact %>
+        <span class="kind">[ <%= entity_data.kind %> ]</span>
+        <h1 class="small"><%= main_title %></h2>
+        <h2 class="small">
+          <i><%= secondary_title.join('<br />') %></i>
+        </h1>
+        <div class="outside-links">
+          <ul>
+            <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
+            <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
+            <li><a href="/r/deezer?u=<%= orig_url %>">Deezer</a></li>
+            <!-- <li><a href="/r/rdio?u=<%= orig_url %>">Rdio</a></li> -->
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
