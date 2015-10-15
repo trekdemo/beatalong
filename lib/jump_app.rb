@@ -15,7 +15,7 @@ class JumpApp
     if (provider_identity = env['streamflow.provider_identity'])
       respond_with(
         api_adapter(provider_identity.provider).find(provider_identity),
-        env['streamflow.incoming_url']
+        env
       )
     else
       [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['streamflow.incoming_url'].inspect}"]]
@@ -24,7 +24,10 @@ class JumpApp
 
   private
 
-  def respond_with(entity_data, orig_url)
+  def respond_with(entity_data, env)
+    orig_url = env['streamflow.incoming_url']
+    request = Rack::Request.new(env)
+
     [200, {'Content-Type' => 'text/html'}, [@template.result(binding)]]
   end
 

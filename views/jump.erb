@@ -1,4 +1,5 @@
 <!doctype html>
+<% titles = [entity_data.track, entity_data.album, entity_data.artist].compact %>
 <html class="no-js" lang="">
   <head>
       <meta charset="utf-8">
@@ -6,7 +7,13 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-      <link href='/assets/style.css' rel='stylesheet' type='text/css' />
+
+      <meta property="og:title" content="<%= titles.first %>"/>
+      <meta property="og:type" content="music.song"/>
+      <meta property="og:url" content="<%= request.url %>"/>
+      <meta property="og:image" content="<%= entity_data.cover_image_url %>"/>
+      <meta property="og:site_name" content="Spotify"/>
+      <meta property="fb:app_id" content="174829003346"/>     <link href='/assets/style.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
     <div class="wrapper">
@@ -17,13 +24,16 @@
         <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover iamge" />
       </div>
       <div class="column">
-        <% main_title, *secondary_title = *[entity_data.track, entity_data.album, entity_data.artist].compact %>
+        <% main_title, *secondary_title = *titles %>
         <span class="kind">[ <%= entity_data.kind %> ]</span>
         <h1 class="small"><%= main_title %></h2>
         <h2 class="small">
           <i><%= secondary_title.join('<br />') %></i>
         </h1>
         <div class="outside-links">
+          <ul>
+            <li><div data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div></li>
+          </ul>
           <ul>
             <li><a href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
             <li><a href="/r/spotify?u=<%= orig_url %>">Spotify</a></li>
@@ -33,5 +43,13 @@
         </div>
       </div>
     </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1067545229962488";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>
