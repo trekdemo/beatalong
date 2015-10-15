@@ -15,6 +15,13 @@ module UrlIdentityResolver
       \/id(?<id>\w+)/xi
     SECONDARY_ATTRIBUTES = /i=(?<id>\w+)/i
 
+    def self.match?(url)
+      !!(
+        url =~ /https?:\/\/itun\.es/ ||
+        url =~ /https?:\/\/itunes\.apple\.com/
+      )
+    end
+
     def call
       primary_match = clean_url.match(PRIMARY_ATRIBUTES)
       secondary_match = url.query.to_s.match(SECONDARY_ATTRIBUTES) || {}
