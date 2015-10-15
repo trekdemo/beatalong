@@ -11,7 +11,7 @@ class EntityResolverMiddleware
     env['streamflow.incoming_url'] = url
 
     # Try to identify the URL
-    identity = EntityResolver.new(url).identity
+    identity = EntityResolver.identity_from(url)
     if identity && identity.valid?
       env['streamflow.provider_identity'] = identity
     end

@@ -1,6 +1,6 @@
-require 'url_matcher/rdio'
+require 'url_identity_resolver/rdio'
 
-module UrlMatcher
+module UrlIdentityResolver
   RSpec.describe Rdio do
     describe '.match?' do
       [
@@ -22,4 +22,3 @@ module UrlMatcher
     end
   end
 end
-

@@ -1,10 +1,8 @@
 require 'entity_resolver'
 
 RSpec.describe EntityResolver do
-  subject { described_class.new(url) }
-
-  describe '#identity' do
-    subject { described_class.new(url).identity }
+  describe '.identity_from' do
+    subject { described_class.identity_from(url) }
 
     context 'when provider is AppleMusic' do
       {

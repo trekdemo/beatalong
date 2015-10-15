@@ -1,4 +1,4 @@
-module UrlMatcher
+module UrlIdentityResolver
   class Rdio
     def self.match?(url)
       !!(
@@ -6,5 +6,9 @@ module UrlMatcher
         url =~ /https?:\/\/(www\.)?rd\.io/
       )
     end
+
+    def initialize(*); end
+    def call; end
+    def identity; end
   end
 end

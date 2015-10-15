@@ -1,6 +1,6 @@
-require 'url_matcher/google_play_music'
+require 'url_identity_resolver/google_play_music'
 
-module UrlMatcher
+module UrlIdentityResolver
   RSpec.describe GooglePlayMusic do
     describe '.match?' do
       # artist album track
@@ -11,7 +11,7 @@ module UrlMatcher
       ].each do |url|
         context "when #{url.inspect}" do
           subject { described_class.match?(url) }
-          xit { is_expected.to be true }
+          it { is_expected.to be true }
         end
       end
     end
