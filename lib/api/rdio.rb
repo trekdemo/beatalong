@@ -14,7 +14,9 @@ module Api
       }
 
       response = post(params)
-      format_result(response.parsed_response["result"]["results"].first, kind: entity.kind)
+      response.parsed_response["result"]["results"]
+        .map{ |r| format_result(r, kind: entity.kind) }
+        .first
     end
 
     def find(identity)
