@@ -30,7 +30,7 @@ module Api
     end
 
     def post(params)
-      params[:access_token] = token
+      params[:access_token] = RdioTokenRetriever.instance.token
 
       self.class.post(
         "",
@@ -47,27 +47,6 @@ module Api
         url: result['shortUrl'],
         cover_image_url: result['dynamicIcon'],
       })
-    end
-
-    private
-
-    def token
-      @token ||= nil
-      return @token if @token
-
-      auth = {
-        username: "ccon3zw2gje3vfth5w4qa5i46e",
-        password: "nTkxdCl0dxjQbDjrlR0q1Q"
-      }
-      response = self.class.post(
-        "https://services.rdio.com/oauth2/token",
-        body: {
-          grant_type: 'client_credentials'
-        },
-        basic_auth: auth
-      )
-
-      @token = response.parsed_response["access_token"]
     end
 
   end

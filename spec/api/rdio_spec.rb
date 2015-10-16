@@ -1,4 +1,5 @@
 require 'api/rdio'
+require 'rdio_token_retriever'
 
 module Api
   RSpec.describe Rdio do
@@ -8,45 +9,48 @@ module Api
 
       context 'when identity belongs to an artist' do
         let(:identity) { build_pi('Rdio', '/artist/Disclosure/', 'artist') }
+        let(:result) { subject.find(identity)}
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
         it 'returns with the meta data of the artist' do
-          expect(subject.find(identity).artist).to eq('Disclosure')
-          expect(subject.find(identity).album).to be_nil
-          expect(subject.find(identity).track).to be_nil
-          expect(subject.find(identity).kind).to eq('artist')
-          expect(subject.find(identity).url).to eq('http://rd.io/x/Qi1OQMY/')
+          expect(result.artist).to eq('Disclosure')
+          expect(result.album).to be_nil
+          expect(result.track).to be_nil
+          expect(result.kind).to eq('artist')
+          expect(result.url).to eq('http://rd.io/x/Qi1OQMY/')
         end
 
       end
 
       context 'when identity belongs to an album' do
         let(:identity) { build_pi('Rdio', '/artist/Disclosure/album/Caracal_(Deluxe)/', 'album') }
+        let(:result) { subject.find(identity)}
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
         it 'returns with the meta data of the album' do
-          expect(subject.find(identity).artist).to eq('Disclosure')
-          expect(subject.find(identity).album).to eq('Caracal (Deluxe)')
-          expect(subject.find(identity).track).to be_nil
-          expect(subject.find(identity).kind).to eq('album')
-          expect(subject.find(identity).url).to eq('http://rd.io/x/Qj4cRQM/')
+          expect(result.artist).to eq('Disclosure')
+          expect(result.album).to eq('Caracal (Deluxe)')
+          expect(result.track).to be_nil
+          expect(result.kind).to eq('album')
+          expect(result.url).to eq('http://rd.io/x/Qj4cRQM/')
         end
 
       end
 
       context 'when identity belongs to a track' do
         let(:identity) { build_pi('Rdio', '/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/', 'track') }
+        let(:result) { subject.find(identity)}
 
         specify { expect(subject.find(identity)).to be_a(ProviderEntity) }
 
         it 'returns with the meta data of the track' do
-          expect(subject.find(identity).artist).to eq('Disclosure')
-          expect(subject.find(identity).album).to eq('Caracal (Deluxe)')
-          expect(subject.find(identity).track).to eq('Hourglass')
-          expect(subject.find(identity).kind).to eq('track')
-          expect(subject.find(identity).url).to eq('http://rd.io/x/QitGQJXF/')
+          expect(result.artist).to eq('Disclosure')
+          expect(result.album).to eq('Caracal (Deluxe)')
+          expect(result.track).to eq('Hourglass')
+          expect(result.kind).to eq('track')
+          expect(result.url).to eq('http://rd.io/x/QitGQJXF/')
         end
 
       end
@@ -56,6 +60,7 @@ module Api
     describe '#search' do
       context 'when looking for an artist' do
         let(:entity) { build_pe('artist', 'Disclosure') }
+
         subject { described_class.new.search(entity) }
 
         it { is_expected.to be_a(ProviderEntity) }
