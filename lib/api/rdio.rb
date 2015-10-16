@@ -5,21 +5,15 @@ module Api
     include ::Api::Base
 
     base_uri 'https://services.rdio.com/api/1/'
-    format :json
 
     def search(entity)
       params = {
         query: "#{entity.artist} #{entity.album} #{entity.track}",
         types: entity.kind,
         method: 'search',
-        access_token: token
       }
 
-      response = self.class.post(
-        "",
-        body: params
-      )
-
+      response = post(params)
       format_result(response.parsed_response["result"]["results"].first, kind: entity.kind)
     end
 
@@ -27,19 +21,23 @@ module Api
       params = {
         url: identity.id,
         method: 'getObjectFromUrl',
-        access_token: token
       }
 
-      response = self.class.post(
-        "",
-        body: params
-      )
-
+      response = post(params)
       format_result(response.parsed_response["result"], kind: identity.kind)
     end
 
+    def post(params)
+      params[:access_token] = token
+
+      self.class.post(
+        "",
+        body: params
+      )
+    end
+
     def format_result(result, kind:)
-      pe = ProviderEntity.new({
+      ProviderEntity.new({
         kind: kind,
         artist: kind == 'artist' ? result['name'] : result['artist'],
         album: kind == 'album' ? result['name'] : result['album'],
