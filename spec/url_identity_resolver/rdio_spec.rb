@@ -29,7 +29,8 @@ module UrlIdentityResolver
         let(:url) { 'http://rd.io/x/Rl5BAGYrVl6S0w/' }
 
         it 'resolves the url and fetches the attributes' do
-          expect(subject.id).to eq('Rl5BAGYrVl6S0w')
+          expect(subject.id).to eq('/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/')
+          expect(subject.kind).to eq('track')
         end
       end
 
@@ -40,6 +41,7 @@ module UrlIdentityResolver
 
           it 'fetches the identifier of the artist' do
             expect(subject.id).to eq('/artist/Disclosure/')
+            expect(subject.kind).to eq('artist')
           end
         end
 
@@ -48,6 +50,7 @@ module UrlIdentityResolver
 
           it 'fetches the identifier of the album' do
             expect(subject.id).to eq('/artist/Disclosure/album/Caracal_(Deluxe)/')
+            expect(subject.kind).to eq('album')
           end
         end
 
@@ -56,6 +59,7 @@ module UrlIdentityResolver
 
           it 'fetches the identifier of the track' do
             expect(subject.id).to eq('/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/')
+            expect(subject.kind).to eq('track')
           end
         end
       end
