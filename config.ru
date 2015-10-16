@@ -9,6 +9,7 @@ require 'production_additions'
 require 'entity_resolver_middleware'
 require 'jump_app'
 require 'redirect_app'
+require 'rdio_token_retriever'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
