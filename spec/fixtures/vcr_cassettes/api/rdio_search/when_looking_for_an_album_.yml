@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ccon3zw2gje3vfth5w4qa5i46e:nTkxdCl0dxjQbDjrlR0q1Q@services.rdio.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.4
+      Date:
+      - Fri, 16 Oct 2015 20:06:23 GMT
+      Connection:
+      - keep-alive
+      X-Srv:
+      - srv-208-07
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Language, Cookie
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      P3p:
+      - CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy
+        for more info."
+      Set-Cookie:
+      - r=eyJfZSI6IDB9.TntV3ezgjIEgu4PtxiO8mTYQsJM; Domain=.rdio.com; Path=/
+      X-Version:
+      - '720'
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '194'
+    body:
+      encoding: UTF-8
+      string: '{"access_token": "AAAAAWEAAAAA_____wAAAABWIVi_ViIBfwAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZfW1c5nD20qr8xI2-W96oEcqdyqH3NI2OMk-80YDMn6t",
+        "token_type": "bearer", "expires_in": 43200, "scope": ""}'
+    http_version: 
+  recorded_at: Fri, 16 Oct 2015 20:06:23 GMT
+- request:
+    method: post
+    uri: https://services.rdio.com/api/1
+    body:
+      encoding: UTF-8
+      string: query=Disclosure%20Caracal%20%28Deluxe%29%20&types=album&method=search&access_token=AAAAAWEAAAAA_____wAAAABWIVi_ViIBfwAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZfW1c5nD20qr8xI2-W96oEcqdyqH3NI2OMk-80YDMn6t
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.4
+      Date:
+      - Fri, 16 Oct 2015 20:06:24 GMT
+      Connection:
+      - keep-alive
+      X-Srv:
+      - srv-108-16
+      Content-Language:
+      - en
+      Access-Control-Expose-Headers:
+      - x-rdio-api-version
+      Vary:
+      - Accept-Language, Cookie
+      X-Rdio-Api-Version:
+      - '0'
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      P3p:
+      - CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy
+        for more info."
+      X-Version:
+      - '720'
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '976'
+    body:
+      encoding: UTF-8
+      string: '{"status": "ok", "result": {"album_count": 1, "number_results": 1,
+        "results": [{"baseIcon": "album/0/4/a/00000000005e1a40/3/square-200.jpg",
+        "releaseDate": "2015-09-25", "artistUrl": "/artist/Disclosure/", "duration":
+        4039, "dynamicIcon": "http://rdiodynimages3-a.akamaihd.net/?l=a6167104-3",
+        "isClean": false, "shortUrl": "http://rd.io/x/Qj4cRQM/", "canStream": true,
+        "embedUrl": "https://rd.io/e/Qj4cRQM/", "type": "a", "price": null, "key":
+        "a6167104", "icon": "http://rdio3img-a.akamaihd.net/album/0/4/a/00000000005e1a40/3/square-200.jpg",
+        "canSample": true, "name": "Caracal (Deluxe)", "isExplicit": false, "artist":
+        "Disclosure", "url": "/artist/Disclosure/album/Caracal_(Deluxe)/", "artistKey":
+        "r794501", "length": 14, "trackKeys": ["t69195415", "t69195416", "t69195417",
+        "t69195418", "t69195419", "t69195420", "t69195421", "t69195422", "t69195423",
+        "t69195424", "t69195425", "t69195426", "t69195427", "t69195428"], "canTether":
+        true, "displayDate": "Sep 25, 2015"}]}}'
+    http_version: 
+  recorded_at: Fri, 16 Oct 2015 20:06:24 GMT
+recorded_with: VCR 2.9.3

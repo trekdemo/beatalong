@@ -54,6 +54,48 @@ module Api
     end
 
     describe '#search' do
+      context 'when looking for an artist' do
+        let(:entity) { build_pe('artist', 'Disclosure') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.artist).to eq('Disclosure')
+          expect(subject.album).to be_nil
+          expect(subject.track).to be_nil
+          expect(subject.kind).to eq('artist')
+          expect(subject.url).to eq('http://rd.io/x/Qi1OQMY/')
+        end
+      end
+
+      context 'when looking for an album' do
+        let(:entity) { build_pe('album', 'Disclosure', 'Caracal (Deluxe)') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.artist).to eq('Disclosure')
+          expect(subject.album).to eq('Caracal (Deluxe)')
+          expect(subject.track).to be_nil
+          expect(subject.kind).to eq('album')
+          expect(subject.url).to eq('http://rd.io/x/Qj4cRQM/')
+        end
+      end
+
+      context 'when looking for a track' do
+        let(:entity) { build_pe('track', 'Disclosure', 'Caracal (Deluxe)', 'Hourglass') }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.artist).to eq('Disclosure')
+          expect(subject.album).to eq('Caracal (Deluxe)')
+          expect(subject.track).to eq('Hourglass')
+          expect(subject.kind).to eq('track')
+          expect(subject.url).to eq('http://rd.io/x/QitGQJXF/')
+        end
+      end
     end
+
   end
 end

@@ -8,6 +8,19 @@ module Api
     format :json
 
     def search(entity)
+      params = {
+        query: "#{entity.artist} #{entity.album} #{entity.track}",
+        types: entity.kind,
+        method: 'search',
+        access_token: token
+      }
+
+      response = self.class.post(
+        "",
+        body: params
+      )
+
+      format_result(response.parsed_response["result"]["results"].first, kind: entity.kind)
     end
 
     def find(identity)
