@@ -5,8 +5,8 @@ gem 'rake'
 gem 'rack'
 gem 'activesupport'
 gem 'httparty', require: false
+gem 'rack-timeout'
 
-# gem 'rspotify', require: false
 group :production do
   gem 'puma'
   gem 'rollbar', '~> 2.2.1'
