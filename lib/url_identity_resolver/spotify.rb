@@ -6,13 +6,20 @@ module UrlIdentityResolver
 
     def self.match?(url)
       !!(
-        url =~ /https?:\/\/sptfy\.com/ ||
-        url =~ /https?:\/\/play.spotify\.com/
+        url =~ /https?:\/\/play.spotify\.com/ ||
+        url =~ /spotify:/
       )
     end
 
     def call
-      self.kind, self.id = *url.path.to_s.scan(/^\/([a-z]+)\/([a-zA-Z0-9]+)/).flatten
+      url_string = url.to_s
+      self.kind, self.id = if url_string =~ /spotify:/
+        parts = url_string.split(":")
+        [parts[1], parts[2]]
+      else
+        url.path.to_s.scan(/^\/([a-z]+)\/([a-zA-Z0-9]+)/).flatten
+      end
+
       true
     end
   end
