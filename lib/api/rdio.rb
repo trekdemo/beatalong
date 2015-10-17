@@ -38,7 +38,7 @@ module Api
       )
 
       if response['error']
-        fail StandardError, "API error: #{response['error']} (#{response['error_description'])}"
+        fail StandardError, "API error: #{response['error']} (#{response['error_description']})"
       end
 
       response
