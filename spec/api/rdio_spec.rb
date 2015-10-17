@@ -5,6 +5,12 @@ module Api
   RSpec.describe Rdio do
     include InternalStructuresFactory
 
+    before(:all) do
+      VCR.use_cassette('rdio_token_retriever') do
+        RdioTokenRetriever.instance.token
+      end
+    end
+
     describe '#find' do
 
       context 'when identity belongs to an artist' do

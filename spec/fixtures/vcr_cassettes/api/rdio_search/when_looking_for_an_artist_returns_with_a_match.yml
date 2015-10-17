@@ -2,63 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://ccon3zw2gje3vfth5w4qa5i46e:nTkxdCl0dxjQbDjrlR0q1Q@services.rdio.com/oauth2/token
-    body:
-      encoding: UTF-8
-      string: grant_type=client_credentials
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.2.4
-      Date:
-      - Fri, 16 Oct 2015 20:06:32 GMT
-      Connection:
-      - keep-alive
-      X-Srv:
-      - srv-111-08
-      Content-Language:
-      - en
-      Vary:
-      - Accept-Language, Cookie
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-store
-      Access-Control-Allow-Origin:
-      - "*"
-      P3p:
-      - CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy
-        for more info."
-      Set-Cookie:
-      - r=eyJfZSI6IDB9.TntV3ezgjIEgu4PtxiO8mTYQsJM; Domain=.rdio.com; Path=/
-      X-Version:
-      - '720'
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '194'
-    body:
-      encoding: UTF-8
-      string: '{"access_token": "AAAAAWEAAAAA_____wAAAABWIVjIViIBiAAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZT-29k-5n48E0PCPduE2uNEPw8UmYHjYC3Zjda0ekCrY",
-        "token_type": "bearer", "expires_in": 43200, "scope": ""}'
-    http_version: 
-  recorded_at: Fri, 16 Oct 2015 20:06:32 GMT
-- request:
-    method: post
     uri: https://services.rdio.com/api/1
     body:
       encoding: UTF-8
-      string: query=Disclosure%20%20&types=artist&method=search&access_token=AAAAAWEAAAAA_____wAAAABWIVjIViIBiAAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZT-29k-5n48E0PCPduE2uNEPw8UmYHjYC3Zjda0ekCrY
+      string: query=Disclosure%20%20&types=artist&method=search&access_token=AAAAAWEAAAAA_____wAAAABWIiP7ViLMuwAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZaTAt55-aelNW-qkfZl0JcV4fYMtBO2Lww8thA3PyQ1G
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -74,13 +21,13 @@ http_interactions:
       Server:
       - nginx/1.2.4
       Date:
-      - Fri, 16 Oct 2015 20:06:33 GMT
+      - Sat, 17 Oct 2015 10:33:37 GMT
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
       X-Srv:
-      - srv-211-09
+      - srv-210-28
       Content-Language:
       - en
       Access-Control-Expose-Headers:
@@ -134,14 +81,14 @@ http_interactions:
         "http://rd.io/x/Qi14WJg/", "length": 1, "key": "r3803099", "radioKey": "rr3803099",
         "dynamicIcon": "http://rdiodynimages0-a.akamaihd.net/?l=artist/no-artist-image-square.png",
         "type": "r", "icon": "http://rdio3img-a.akamaihd.net/artist/no-artist-image-square.png"},
-        {"name": "Disclosure feat. AlunaGeorge", "baseIcon": "artist/no-artist-image-square.png",
-        "hasRadio": true, "url": "/artist/Disclosure_feat._AlunaGeorge/", "shortUrl":
-        "http://rd.io/x/Qi1uHig/", "length": 0, "key": "r2900331", "radioKey": "rr2900331",
-        "dynamicIcon": "http://rdiodynimages0-a.akamaihd.net/?l=artist/no-artist-image-square.png",
-        "type": "r", "icon": "http://rdio3img-a.akamaihd.net/artist/no-artist-image-square.png"},
         {"name": "Disclosure, Mary J. Blige", "baseIcon": "artist/no-artist-image-square.png",
         "hasRadio": true, "url": "/artist/Disclosure%2C_Mary_J._Blige/", "shortUrl":
         "http://rd.io/x/Qi11__o/", "length": 0, "key": "r3645625", "radioKey": "rr3645625",
+        "dynamicIcon": "http://rdiodynimages0-a.akamaihd.net/?l=artist/no-artist-image-square.png",
+        "type": "r", "icon": "http://rdio3img-a.akamaihd.net/artist/no-artist-image-square.png"},
+        {"name": "Disclosure feat. AlunaGeorge", "baseIcon": "artist/no-artist-image-square.png",
+        "hasRadio": true, "url": "/artist/Disclosure_feat._AlunaGeorge/", "shortUrl":
+        "http://rd.io/x/Qi1uHig/", "length": 0, "key": "r2900331", "radioKey": "rr2900331",
         "dynamicIcon": "http://rdiodynimages0-a.akamaihd.net/?l=artist/no-artist-image-square.png",
         "type": "r", "icon": "http://rdio3img-a.akamaihd.net/artist/no-artist-image-square.png"},
         {"name": "Disclosure,AlunaGeorge", "baseIcon": "artist/no-artist-image-square.png",
@@ -155,5 +102,5 @@ http_interactions:
         "rr5194128", "dynamicIcon": "http://rdiodynimages0-a.akamaihd.net/?l=artist/no-artist-image-square.png",
         "type": "r", "icon": "http://rdio3img-a.akamaihd.net/artist/no-artist-image-square.png"}]}}'
     http_version: 
-  recorded_at: Fri, 16 Oct 2015 20:06:33 GMT
+  recorded_at: Sat, 17 Oct 2015 10:33:38 GMT
 recorded_with: VCR 2.9.3
