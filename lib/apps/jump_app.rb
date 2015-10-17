@@ -5,7 +5,7 @@ require 'api/spotify'
 require 'api/rdio'
 
 class JumpApp
-  TEMPLATE_PATH = File.expand_path("../../views/jump.erb", __FILE__)
+  TEMPLATE_PATH = File.expand_path("../../../views/jump.erb", __FILE__)
 
   def initialize
     @template = ERB.new(File.read(TEMPLATE_PATH))

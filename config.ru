@@ -4,11 +4,11 @@ require 'newrelic_rpm'
 $: << File.expand_path('../lib', __FILE__)
 
 require 'initializers'
-require 'development_additions'
-require 'production_additions'
-require 'entity_resolver_middleware'
-require 'jump_app'
-require 'redirect_app'
+require 'middleware/development_additions'
+require 'middleware/production_additions'
+require 'middleware/entity_resolver_middleware'
+require 'apps/jump_app'
+require 'apps/redirect_app'
 require 'rdio_token_retriever'
 
 app = Rack::Builder.new do
