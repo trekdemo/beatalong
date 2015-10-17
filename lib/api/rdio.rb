@@ -32,10 +32,16 @@ module Api
     def post(params)
       params[:access_token] = RdioTokenRetriever.instance.token
 
-      self.class.post(
+      response = self.class.post(
         "",
         body: params
       )
+
+      if response['error']
+        fail StandardError, "API error: #{response['error']} (#{response['error_description'])}"
+      end
+
+      response
     end
 
     def format_result(result, kind:)
