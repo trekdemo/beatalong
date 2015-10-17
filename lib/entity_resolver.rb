@@ -2,7 +2,7 @@ require 'url_identity_resolver/null'
 require 'url_identity_resolver/apple_music'
 require 'url_identity_resolver/deezer'
 require 'url_identity_resolver/spotify'
-# require 'url_identity_resolver/rdio'
+require 'url_identity_resolver/rdio'
 # require 'url_identity_resolver/google_play_music'
 
 class EntityResolver
@@ -10,7 +10,7 @@ class EntityResolver
     UrlIdentityResolver::AppleMusic,
     UrlIdentityResolver::Deezer,
     # UrlIdentityResolver::GooglePlayMusic,
-    # UrlIdentityResolver::Rdio,
+    UrlIdentityResolver::Rdio,
     UrlIdentityResolver::Spotify,
     UrlIdentityResolver::Null, # This must be the last
   ]

@@ -21,3 +21,6 @@
 
 # rspec
 /spec/examples.txt
+
+# env
+/config/.env

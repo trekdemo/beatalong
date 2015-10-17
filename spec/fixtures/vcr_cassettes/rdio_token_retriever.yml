@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ccon3zw2gje3vfth5w4qa5i46e:nTkxdCl0dxjQbDjrlR0q1Q@services.rdio.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.4
+      Date:
+      - Sat, 17 Oct 2015 10:33:31 GMT
+      Connection:
+      - keep-alive
+      X-Srv:
+      - srv-111-09
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Language, Cookie
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      P3p:
+      - CP="This is not a P3P policy. See http://www.rdio.com/legal/privacy-policy
+        for more info."
+      Set-Cookie:
+      - r=eyJfZSI6IDB9.TntV3ezgjIEgu4PtxiO8mTYQsJM; Domain=.rdio.com; Path=/
+      X-Version:
+      - '720'
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '194'
+    body:
+      encoding: UTF-8
+      string: '{"access_token": "AAAAAWEAAAAA_____wAAAABWIiP7ViLMuwAAABpjY29uM3p3MmdqZTN2ZnRoNXc0cWE1aTQ2ZaTAt55-aelNW-qkfZl0JcV4fYMtBO2Lww8thA3PyQ1G",
+        "token_type": "bearer", "expires_in": 43200, "scope": ""}'
+    http_version: 
+  recorded_at: Sat, 17 Oct 2015 10:33:31 GMT
+recorded_with: VCR 2.9.3

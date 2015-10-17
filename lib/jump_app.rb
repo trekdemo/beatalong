@@ -2,7 +2,7 @@ require 'erb'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
-# require 'api/rdio'
+require 'api/rdio'
 
 class JumpApp
   TEMPLATE_PATH = File.expand_path("../../views/jump.erb", __FILE__)
