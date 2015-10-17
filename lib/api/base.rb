@@ -15,5 +15,9 @@ module Api
     def initialize(country_code = 'us')
       @country_code = country_code
     end
+
+    def clean_api_query_string(query)
+      query.gsub(/(feat(uring|\.)?.*)|(\(|\))/, "").strip
+    end
   end
 end

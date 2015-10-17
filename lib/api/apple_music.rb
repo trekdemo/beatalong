@@ -24,11 +24,15 @@ module Api
         country: country_code,
         media: 'music',
         entity: itunes_kind(entity.kind),
-        term: [entity.artist, entity.album, entity.track].compact.join(' - '),
+        term: search_term(entity),
       }))
     end
 
     private
+
+    def search_term(entity)
+      clean_api_query_string([entity.artist, entity.album, entity.track].compact.join(' - '))
+    end
 
     def get(path, query)
       response = self.class.get(path, query: query)

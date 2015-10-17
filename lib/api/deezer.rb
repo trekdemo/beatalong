@@ -29,11 +29,13 @@ module Api
     end
 
     def search_term(entity)
-      entity
-        .to_h
-        .slice(:artist, :album, :track)
-        .reject { |_, v| v.nil? }
-        .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join(' ')
+      clean_api_query_string(
+        entity
+          .to_h
+          .slice(:artist, :album, :track)
+          .reject { |_, v| v.nil? }
+          .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join(' ')
+      )
     end
 
     def format_result(json)
