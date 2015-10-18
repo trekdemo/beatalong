@@ -1,4 +1,5 @@
 require 'erb'
+require 'api/cached'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
@@ -32,6 +33,6 @@ class JumpApp
   end
 
   def api_adapter(provider)
-    Object.const_get("Api::#{provider}").new
+    Api::Cached.new(Object.const_get("Api::#{provider}").new)
   end
 end
