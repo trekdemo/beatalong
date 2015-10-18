@@ -20,6 +20,7 @@ class ProductionAdditions
     require "rack/timeout/rollbar"
 
     Rack::Builder.new do
+      use Rack::CommonLogger, $logger
       use Rack::ContentLength
       use Rack::Timeout
       Rack::Timeout.timeout = 5

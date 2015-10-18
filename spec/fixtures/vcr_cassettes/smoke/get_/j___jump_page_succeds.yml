@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.deezer.com//track/107198152
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 17 Oct 2015 15:25:23 GMT
+      Server:
+      - Apache
+      P3p:
+      - policyref="/w3c/p3p.xml" CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"
+      Set-Cookie:
+      - dzr_uniq_id=dzr_uniq_id_frfaaac117920655159f04385b37562caaf7ae06; expires=Thu,
+        14-Apr-2016 15:25:23 GMT; Max-Age=15552000; path=/; domain=.deezer.com
+      Vary:
+      - Accept-Encoding
+      X-Host:
+      - blm-web-30
+      Content-Length:
+      - '1312'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":107198152,"readable":true,"title":"Fade to Black (Live)","title_short":"Fade
+        to Black","title_version":"(Live)","isrc":"FRX871595395","link":"http:\/\/www.deezer.com\/track\/107198152","share":"http:\/\/www.deezer.com\/track\/107198152?utm_source=deezer&utm_content=track-107198152&utm_term=0_1445095523&utm_medium=web","duration":482,"track_position":13,"disk_number":1,"rank":429767,"release_date":"2015-09-08","explicit_lyrics":false,"preview":"http:\/\/cdn-preview-b.deezer.com\/stream\/b7fcc65508260431305479a83730d374-0.mp3","bpm":0,"gain":0,"available_countries":["AD","AE","AF","AG","AI","AL","AM","AN","AO","AQ","AR","AS","AT","AU","AW","AX","AZ","BA","BB","BD","BE","BF","BG","BH","BI","BJ","BM","BN","BO","BR","BS","BT","BV","BW","BY","BZ","CA","CC","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CU","CV","CX","CY","CZ","DE","DJ","DK","DM","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FI","FJ","FK","FM","FO","FR","GA","GB","GD","GE","GF","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY","HK","HM","HN","HR","HT","HU","ID","IE","IL","IN","IO","IQ","IR","IS","IT","JM","JO","JP","KE","KG","KH","KI","KM","KN","KP","KR","KW","KY","KZ","LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY","MA","MC","MD","ME","MG","MH","MK","ML","MM","MN","MO","MP","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","RS","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","ST","SV","SY","SZ","TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ","UA","UG","UY","UZ","VA","VC","VE","VG","VN","VU","WF","WS","YE","YT","ZA","ZM","ZW"],"contributors":[{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1445095523&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist","role":"Main"}],"artist":{"id":119,"name":"Metallica","link":"http:\/\/www.deezer.com\/artist\/119","share":"http:\/\/www.deezer.com\/artist\/119?utm_source=deezer&utm_content=artist-119&utm_term=0_1445095523&utm_medium=web","picture":"http:\/\/api.deezer.com\/artist\/119\/image","picture_small":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/56x56-000000-80-0-0.jpg","picture_medium":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/250x250-000000-80-0-0.jpg","picture_big":"http:\/\/cdn-images.deezer.com\/images\/artist\/717903ee88ebff55146f95c9492f08a4\/500x500-000000-80-0-0.jpg","radio":true,"tracklist":"http:\/\/api.deezer.com\/artist\/119\/top?limit=50","type":"artist"},"album":{"id":11176202,"title":"Jones
+        Beach Amphitheater, Long Island, New York, June 8th 1994","link":"http:\/\/www.deezer.com\/album\/11176202","cover":"http:\/\/api.deezer.com\/album\/11176202\/image","cover_small":"http:\/\/cdn-images.deezer.com\/images\/cover\/ff0176c354c1ddf87a01eba79627be16\/56x56-000000-80-0-0.jpg","cover_medium":"http:\/\/cdn-images.deezer.com\/images\/cover\/ff0176c354c1ddf87a01eba79627be16\/250x250-000000-80-0-0.jpg","cover_big":"http:\/\/cdn-images.deezer.com\/images\/cover\/ff0176c354c1ddf87a01eba79627be16\/500x500-000000-80-0-0.jpg","release_date":"2015-09-06","tracklist":"http:\/\/api.deezer.com\/album\/11176202\/tracks","type":"album"},"type":"track"}'
+    http_version: 
+  recorded_at: Sat, 17 Oct 2015 15:25:23 GMT
+recorded_with: VCR 2.9.3

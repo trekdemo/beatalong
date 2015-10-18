@@ -1,11 +1,12 @@
 require 'erb'
+require 'api/cached'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
 require 'api/rdio'
 
 class JumpApp
-  TEMPLATE_PATH = File.expand_path("../../views/jump.erb", __FILE__)
+  TEMPLATE_PATH = File.expand_path("../../../views/jump.erb", __FILE__)
 
   def initialize
     @template = ERB.new(File.read(TEMPLATE_PATH))
@@ -32,6 +33,6 @@ class JumpApp
   end
 
   def api_adapter(provider)
-    Object.const_get("Api::#{provider}").new
+    Api::Cached.new(Object.const_get("Api::#{provider}").new)
   end
 end
