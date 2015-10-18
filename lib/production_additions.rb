@@ -16,9 +16,13 @@ class ProductionAdditions
   def build_extended_app(app)
     require 'rack/tracker'
     require 'rollbar'
+    require 'rack-timeout'
+    require "rack/timeout/rollbar"
 
     Rack::Builder.new do
       use Rack::ContentLength
+      use Rack::Timeout
+      Rack::Timeout.timeout = 5
       use(Rack::Tracker) { handler :google_analytics, { tracker: 'UA-2495676-17' } }
       run app
     end
