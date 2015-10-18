@@ -2,6 +2,9 @@ require 'api/base'
 
 module Api
   class Rdio
+
+    class InvalidTokenException < StandardError; end
+
     include ::Api::Base
 
     base_uri 'https://services.rdio.com/api/1/'
@@ -29,18 +32,28 @@ module Api
       format_result(response.parsed_response["result"], kind: identity.kind)
     end
 
+    private
+
     def post(params)
-      params[:access_token] = RdioTokenRetriever.instance.token
-
-      response = self.class.post(
-        "",
-        body: params
-      )
-
-      if response['error']
-        fail StandardError, "API error: #{response['error']} (#{response['error_description']})"
+      response = begin
+        params[:access_token] = RdioTokenRetriever.instance.token
+        post_request(params)
+      rescue InvalidTokenException
+        params[:access_token] = RdioTokenRetriever.instance.refresh_token
+        post_request(params)
       end
 
+      response
+    end
+
+    def post_request(params)
+      response = self.class.post("", body: params)
+
+      if response['error'] == 'invalid_token'
+        raise InvalidTokenException
+      elsif response['error']
+        raise StandardError, "API error: #{response['error']} (#{response['error_description']})"
+      end
       response
     end
 

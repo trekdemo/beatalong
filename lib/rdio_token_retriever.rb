@@ -30,4 +30,9 @@ class RdioTokenRetriever
     @token = response.parsed_response["access_token"]
   end
 
+  def refresh_token
+    @token = nil
+    token
+  end
+
 end
