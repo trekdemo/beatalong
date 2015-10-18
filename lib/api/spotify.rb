@@ -25,6 +25,7 @@ module Api
         q: search_term(entity),
         limit: 1,
       })
+
       response[entity.kind.pluralize]['items']
         .map(&method(:format_result))
         .first
@@ -41,7 +42,7 @@ module Api
         .to_h
         .slice(:artist, :album, :track)
         .reject { |_, v| v.nil? }
-        .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join('+')
+        .map {|(k, v)| [k, clean_api_query_string(v.to_s).inspect].join(':') }.join('+')
     end
 
     def format_result(json)

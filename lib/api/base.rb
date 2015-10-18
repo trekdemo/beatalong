@@ -15,5 +15,15 @@ module Api
     def initialize(country_code = 'us')
       @country_code = country_code
     end
+
+    def clean_api_query_string(query)
+      # http://rubular.com/r/mCu0wXlPC7
+      query.gsub(/
+        (feat(uring|\.)?.*)|
+        (\(|\))|
+        (-\ EP)|
+        (-\ Single)
+      /xi, "").strip
+    end
   end
 end

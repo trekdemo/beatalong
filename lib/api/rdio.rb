@@ -8,7 +8,7 @@ module Api
 
     def search(entity)
       params = {
-        query: "#{entity.artist} #{entity.album} #{entity.track}",
+        query: search_term(entity),
         types: entity.kind,
         method: 'search',
       }
@@ -53,6 +53,12 @@ module Api
         url: result['shortUrl'],
         cover_image_url: result['dynamicIcon'],
       })
+    end
+
+    private
+
+    def search_term(entity)
+      clean_api_query_string("#{entity.artist} #{entity.album} #{entity.track}")
     end
 
   end
