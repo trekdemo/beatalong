@@ -17,7 +17,13 @@ module Api
     end
 
     def clean_api_query_string(query)
-      query.gsub(/(feat(uring|\.)?.*)|(\(|\))/, "").strip
+      # http://rubular.com/r/mCu0wXlPC7
+      query.gsub(/
+        (feat(uring|\.)?.*)|
+        (\(|\))|
+        (-\ EP)|
+        (-\ Single)
+      /xi, "").strip
     end
   end
 end
