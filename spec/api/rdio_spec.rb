@@ -12,6 +12,7 @@ module Api
     end
 
     describe '#find' do
+    
       context 'when identity belongs to an artist' do
         let(:identity) { build_pi('Rdio', '/artist/Disclosure/', 'artist') }
         let(:result) { subject.find(identity)}
