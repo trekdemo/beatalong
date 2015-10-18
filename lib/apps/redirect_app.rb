@@ -22,25 +22,31 @@ class RedirectApp
     end
   end
 
+  private
+
   def destination_provider(env)
     camelize(env['PATH_INFO'].split('/').last.to_s)
   end
 
   def destination_provider_url(identity, destination_prov_name, &blk)
     # Get information based on url
-    api_adapter = Object.const_get("Api::#{identity.provider}").new
+    api_adapter = cached_api_adapter(identity.provider)
     entity_data = api_adapter.find(identity)
 
     # Find entity on destination
     # TODO Detect country_code
-    destination_prov_class = Object.const_get("Api::#{destination_prov_name}").new('us')
-    destination_provider_data = destination_prov_class.search(entity_data)
+    destination_provider_data =
+      cached_api_adapter(destination_prov_name).search(entity_data)
 
     if destination_provider_data
       destination_provider_data.url
     else
       blk.call # fallback
     end
+  end
+
+  def cached_api_adapter(provider)
+    Api::Cached.new(Object.const_get("Api::#{provider}").new('us'))
   end
 
   def camelize(term, uppercase_first_letter = true)
