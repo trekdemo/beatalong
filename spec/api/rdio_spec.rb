@@ -12,7 +12,6 @@ module Api
     end
 
     describe '#find' do
-
       context 'when identity belongs to an artist' do
         let(:identity) { build_pi('Rdio', '/artist/Disclosure/', 'artist') }
         let(:result) { subject.find(identity)}
@@ -104,6 +103,26 @@ module Api
           expect(subject.track).to eq('Hourglass')
           expect(subject.kind).to eq('track')
           expect(subject.url).to eq('http://rd.io/x/QitGQJXF/')
+        end
+      end
+    end
+
+    describe '#post' do
+      context 'when access token is expired' do
+        subject { described_class.new }
+
+        it 'should ask for a new access token and use that instead' do
+          allow(RdioTokenRetriever.instance).to receive(:token) { 1 }
+          allow(RdioTokenRetriever.instance).to receive(:refresh_token) { 2 }
+          allow(subject).to receive(:post_request).with({access_token: 1}) do
+            raise Api::Rdio::InvalidTokenException
+          end
+          allow(subject).to receive(:post_request).with({access_token: 2}) do
+            {}
+          end
+
+          expect(RdioTokenRetriever.instance).to receive(:refresh_token)
+          subject.send(:post,{})
         end
       end
     end
