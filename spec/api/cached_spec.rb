@@ -5,7 +5,7 @@ module Api
     include InternalStructuresFactory
 
     subject { described_class.new(mock_adapter) }
-    let(:mock_adapter) { double }
+    let(:mock_adapter) { double(provider_name: 'dummy', country_code: 'us') }
 
     describe '#find' do
       let(:identity) { build_pi('dummy', '1', 'track') }
@@ -18,10 +18,12 @@ module Api
     end
 
     describe '#search' do
-      it 'delegates the calls to the adapter' do
-        expect(mock_adapter).to receive(:search).with(:argument)
+      let(:entity) { build_pe('artist', 'me') }
 
-        subject.search(:argument)
+      it 'delegates the calls to the adapter' do
+        expect(mock_adapter).to receive(:search).with(entity)
+
+        subject.search(entity)
       end
     end
   end
