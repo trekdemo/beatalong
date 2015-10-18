@@ -25,7 +25,7 @@ class RedirectApp
   private
 
   def destination_provider(env)
-    camelize(env['PATH_INFO'].split('/').last.to_s)
+    env['PATH_INFO'].split('/').last.to_s.camelize
   end
 
   def destination_provider_url(identity, destination_prov_name, &blk)
@@ -47,17 +47,5 @@ class RedirectApp
 
   def cached_api_adapter(provider)
     Api::Cached.new(Object.const_get("Api::#{provider}").new('us'))
-  end
-
-  def camelize(term, uppercase_first_letter = true)
-    string = term.to_s
-    if uppercase_first_letter
-      string = string.sub(/^[a-z\d]*/) { $&.capitalize }
-    else
-      string = string.sub(/^(?:(?=\b|[A-Z_])|\w)/) { $&.downcase }
-    end
-    string.gsub!(/(?:_|(\/))([a-z\d]*)/) { "#{$1 || $2.capitalize}" }
-    string.gsub!(/\//, '::')
-    string
   end
 end
