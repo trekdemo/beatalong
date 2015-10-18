@@ -15,7 +15,7 @@ module Api
     end
 
     def search(entity)
-      Store.cache_hash *cache_key_field_for_entity(entity) do
+      Store.cache_hash(*cache_key_field_for_entity(entity)) do
         adapter.search(entity)
       end
     end
