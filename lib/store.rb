@@ -6,17 +6,31 @@ class Store
       get(key) { set(key, yield) }
     end
 
+    def cache_hash(key, field)
+      fail ArgumentError, 'block is mandatory' unless block_given?
+
+      get_hash(key, field) { set_hash(key, field, yield) }
+    end
+
     def set(key, value)
       kf = hash_get_key_field(key)
-      $redis.hset(kf[:key], kf[:field], Marshal.dump(value))
+      set_hash(kf[:key], kf[:field], value)
+    end
+
+    def set_hash(key, field, value)
+      $redis.hset(key, field, dump(value))
 
       return value
     end
 
     def get(key)
       kf = hash_get_key_field(key)
-      if (cached = $redis.hget(kf[:key], kf[:field]))
-        Marshal.load(cached.to_s)
+      get_hash(kf[:key], kf[:field]) { yield }
+    end
+
+    def get_hash(key, field)
+      if (cached = $redis.hget(key, field))
+        load(cached.to_s)
       elsif block_given?
         yield
       else
@@ -25,6 +39,14 @@ class Store
     end
 
     private
+
+    def load(value)
+      Marshal.load(value)
+    end
+
+    def dump(value)
+      Marshal.dump(value)
+    end
 
     def hash_get_key_field(key)
       prefix, _, suffix = key.rpartition(':')
