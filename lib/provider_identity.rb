@@ -1,5 +1,5 @@
 class ProviderIdentity
-  VALID_KIND = %w[artist album track playlist]
+  VALID_KIND = %w[artist album track]
 
   attr_reader :provider, :id, :kind, :country_code
 
