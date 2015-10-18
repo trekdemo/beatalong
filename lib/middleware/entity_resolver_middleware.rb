@@ -8,12 +8,12 @@ class EntityResolverMiddleware
   def call(env)
     # Get the URL specified by the user
     url = Rack::Request.new(env).params['u'].to_s
-    env['streamflow.incoming_url'] = url
+    env['beatalong.incoming_url'] = url
 
     # Try to identify the URL
     identity = EntityResolver.identity_from(url)
     if identity && identity.valid?
-      env['streamflow.provider_identity'] = identity
+      env['beatalong.provider_identity'] = identity
     end
 
     @app.call(env)

@@ -13,20 +13,20 @@ class JumpApp
   end
 
   def call(env)
-    if (provider_identity = env['streamflow.provider_identity'])
+    if (provider_identity = env['beatalong.provider_identity'])
       respond_with(
         api_adapter(provider_identity.provider).find(provider_identity),
         env
       )
     else
-      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['streamflow.incoming_url'].inspect}"]]
+      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['beatalong.incoming_url'].inspect}"]]
     end
   end
 
   private
 
   def respond_with(entity_data, env)
-    orig_url = env['streamflow.incoming_url']
+    orig_url = env['beatalong.incoming_url']
     request = Rack::Request.new(env)
 
     [200, {'Content-Type' => 'text/html'}, [@template.result(binding)]]

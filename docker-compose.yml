@@ -2,7 +2,7 @@
 # project name. You may need to run `docker-compose build web`
 # before this works.
 bundle:
-  image: streamflow2_web
+  image: beatalong_web
   volumes:
     - bundle
 
@@ -11,7 +11,7 @@ web:
   env_file: config/.env
   command: bundle exec shotgun -p 3000 -o 0.0.0.0
   volumes:
-    - .:/streamflow2
+    - .:/beatalong
   ports:
     - "3000:3000"
   volumes_from:

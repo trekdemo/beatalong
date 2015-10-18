@@ -1,8 +1,8 @@
 # image and default installs
 FROM ruby:2.2.2
-RUN apt-get update -qq && apt-get install -y build-essential 
+RUN apt-get update -qq && apt-get install -y build-essential
 
-ENV APP_HOME /streamflow2
+ENV APP_HOME /beatalong
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
