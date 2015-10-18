@@ -25,7 +25,7 @@ class ProviderIdentity
   private
 
   def validated_kind(kind)
-    return kind if VALID_KIND.include?(kind)
+    return kind.downcase if VALID_KIND.include?(kind)
 
     fail ArgumentError, "#{kind.inspect} is not a valid kind!"
   end
