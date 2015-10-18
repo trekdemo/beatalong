@@ -17,6 +17,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 ENV['RACK_ENV'] = 'test'
+require 'fakeredis/rspec'
+$redis ||= Redis.new
+
 RSpec.configure do |config|
   # Require every support file
   Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
