@@ -18,7 +18,7 @@ class Store
     end
 
     def set_hash(key, field, value)
-      $redis.hset(key, field, dump(value))
+      $redis.hset(key, field, dump(value)) if value
 
       return value
     end
