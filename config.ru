@@ -13,7 +13,6 @@ require 'rdio_token_retriever'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
-  use Rack::CommonLogger
   use ProductionAdditions
 
   use EntityResolverMiddleware
