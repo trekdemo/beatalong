@@ -13,11 +13,13 @@ module Api
 
     # http://developers.deezer.com/api/search
     def search(entity)
-      get(['/search', entity.kind].join('/'), {
+      response = get(['/search', entity.kind].join('/'), {
         q: search_term(entity),
         strict: 'on',
         limit: 1, # TODO Does it work?
-      })["data"]
+      })
+
+      response["data"]
         .map(&method(:format_result))
         .first
     end
@@ -29,13 +31,11 @@ module Api
     end
 
     def search_term(entity)
-      clean_api_query_string(
-        entity
-          .to_h
-          .slice(:artist, :album, :track)
-          .reject { |_, v| v.nil? }
-          .map {|(k, v)| [k, v.to_s.inspect].join(':') }.join(' ')
-      )
+      entity
+        .to_h
+        .slice(:artist, :album, :track)
+        .reject { |_, v| v.nil? }
+        .map {|(k, v)| [k, clean_api_query_string(v.to_s).inspect].join(':') }.join(' ')
     end
 
     def format_result(json)
