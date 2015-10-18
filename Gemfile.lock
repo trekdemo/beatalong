@@ -25,6 +25,7 @@ GEM
     diff-lcs (1.2.5)
     get_process_mem (0.2.0)
     heapy (0.1.0)
+    hiredis (0.6.0)
     httparty (0.13.6)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -49,6 +50,7 @@ GEM
       rack (>= 1.4)
       tilt (>= 1.4)
     rake (10.4.2)
+    redis (3.2.1)
     rollbar (2.2.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -83,6 +85,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   derailed
+  hiredis
   httparty
   newrelic_rpm
   pry
@@ -92,6 +95,7 @@ DEPENDENCIES
   rack-timeout
   rack-tracker
   rake
+  redis
   rollbar (~> 2.2.1)
   rspec
   shotgun
