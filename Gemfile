@@ -11,7 +11,7 @@ gem 'rack-timeout'
 
 group :production do
   gem 'puma'
-  gem 'rollbar', '~> 2.2.1'
+  gem 'rollbar'
   gem 'newrelic_rpm'
   gem 'rack-tracker'
 end

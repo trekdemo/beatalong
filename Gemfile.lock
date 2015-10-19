@@ -36,6 +36,7 @@ GEM
     memory_profiler (0.9.6)
     method_source (0.8.2)
     minitest (5.8.1)
+    multi_json (1.11.2)
     multi_xml (0.5.5)
     newrelic_rpm (3.13.2.302)
     pry (0.10.1)
@@ -53,7 +54,8 @@ GEM
       tilt (>= 1.4)
     rake (10.4.2)
     redis (3.2.1)
-    rollbar (2.2.1)
+    rollbar (2.4.0)
+      multi_json
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -99,7 +101,7 @@ DEPENDENCIES
   rack-tracker
   rake
   redis
-  rollbar (~> 2.2.1)
+  rollbar
   rspec
   shotgun
   vcr
