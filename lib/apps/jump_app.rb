@@ -13,6 +13,7 @@ class JumpApp
   end
 
   def call(env)
+    provider_identity = env['beatalong.provider_identity']
     respond_with(
       api_adapter(provider_identity.provider).find(provider_identity),
       env

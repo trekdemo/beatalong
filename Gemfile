@@ -8,6 +8,7 @@ gem 'httparty', require: false
 gem 'hiredis'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rack-timeout'
+gem 'rack-flash3'
 
 group :production do
   gem 'puma'

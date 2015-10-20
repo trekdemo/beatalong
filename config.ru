@@ -1,5 +1,7 @@
 require 'rack/builder'
 require 'newrelic_rpm'
+require 'rack-flash'
+require 'active_support/core_ext/object/blank'
 
 $: << File.expand_path('../lib', __FILE__)
 
@@ -17,14 +19,24 @@ require 'beatalong/errors'
 app = Rack::Builder.new do
   use DevelopmentAdditions
   use ProductionAdditions
+  use Rack::Session::Pool
+  use Rack::Flash, :accessorize => [:notice, :error]
+  map('/j') do
+    use ErrorHandlerMiddleware
+    use EntityResolverMiddleware
+    run JumpApp.new
+  end
+
+  map('/r') do
+    use ErrorHandlerMiddleware
+    use EntityResolverMiddleware
+    run RedirectApp.new
+  end
+
   map('/')  { run IndexApp.new }
-  use ErrorHandlerMiddleware
-  use EntityResolverMiddleware
-  map('/j') { run JumpApp.new }
-  map('/r') { run RedirectApp.new }
 
   use Rack::Static,
-    urls: ['/', '/assets'],
+    urls: ['/assets'],
     root: File.expand_path('../public', __FILE__)
   run -> {}
 end

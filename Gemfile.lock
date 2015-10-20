@@ -44,6 +44,8 @@ GEM
       slop (~> 3.4)
     puma (2.14.0)
     rack (1.6.4)
+    rack-flash3 (1.0.5)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.3.2)
@@ -94,6 +96,7 @@ DEPENDENCIES
   pry
   puma
   rack
+  rack-flash3
   rack-test
   rack-timeout
   rack-tracker

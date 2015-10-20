@@ -5,22 +5,23 @@ class ErrorHandlerMiddleware
 
   def call(env)
     begin
-      @app.call(env)
-    rescue Beatalong::UrlNotSupported => e
-      message = e.class.name
+      status, headers, response = @app.call(env)
+    rescue Beatalong::UrlNotSupported
+      message = "The specified url isn't supported!"
     rescue Beatalong::KindNotSupported => e
-      message = e.class.name
-    rescue Beatalong::IdentityNotFound => e
-      message = e.class.name
+      message = "'#{e.unsupported_kind.titleize}' entities are not supported currently! Please share artists, albums or tracks!"
+    rescue Beatalong::IdentityNotFound
+      message = "No supported entity found on the specified url"
     end
 
     if message
-      [301, {'Location' => "/"}, []]
+      env['x-rack.flash'].error = message
+      IndexApp.new.call(env)
+
+      #[301, {'Location' => "/i"}, []]
+    else
+      [status, headers, response]
     end
+
   end
 end
-
-# [301, {'Location' => redirect_to}, []]
-# else
-#   [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['beatalong.incoming_url'].inspect}"]]
-# end

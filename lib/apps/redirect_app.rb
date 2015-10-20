@@ -7,6 +7,7 @@ require 'erb'
 
 class RedirectApp
   def call(env)
+    identity = env['beatalong.provider_identity']
     destination_prov_name  = destination_provider(env)
     redirect_to = if identity.provider != destination_prov_name
                     destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
