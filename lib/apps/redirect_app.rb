@@ -7,19 +7,14 @@ require 'erb'
 
 class RedirectApp
   def call(env)
-    orig_url = env['beatalong.incoming_url'].to_s
-    if (identity = env['beatalong.provider_identity'])
-      destination_prov_name  = destination_provider(env)
-      redirect_to = if identity.provider != destination_prov_name
-                      destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
-                    else
-                      orig_url
-                    end
+    destination_prov_name  = destination_provider(env)
+    redirect_to = if identity.provider != destination_prov_name
+                    destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
+                  else
+                    env['beatalong.incoming_url'].to_s
+                  end
 
-      [301, {'Location' => redirect_to}, []]
-    else
-      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['beatalong.incoming_url'].inspect}"]]
-    end
+    [301, {'Location' => redirect_to}, []]
   end
 
   private
