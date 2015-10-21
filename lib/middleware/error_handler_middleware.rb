@@ -15,6 +15,6 @@ class ErrorHandlerMiddleware
 
   def respond_with_error(env, message)
     env['x-rack.flash'].error = message
-    IndexApp.new.call(env)
+    IndexApp.call(env)
   end
 end

@@ -37,7 +37,7 @@ app = Rack::Builder.new do
     urls: ['/assets'],
     root: File.expand_path('../public', __FILE__)
 
-  run IndexApp.new
+  run IndexApp
 end
 
 run app
