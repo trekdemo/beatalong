@@ -1,13 +1,8 @@
 require 'rack/test'
 
-OUTER_APP = Rack::Builder.parse_file('config.ru').first
-
 RSpec.describe 'Form errors' do
   include Rack::Test::Methods
-
-  def app
-    OUTER_APP
-  end
+  include RackTestApp
 
   describe 'GET /j - Jump Page with an invalid url' do
     it 'succeds' do
