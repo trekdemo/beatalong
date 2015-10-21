@@ -1,13 +1,8 @@
 require 'rack/test'
 
-OUTER_APP = Rack::Builder.parse_file('config.ru').first
-
 RSpec.describe 'Smoke' do
   include Rack::Test::Methods
-
-  def app
-    OUTER_APP
-  end
+  include RackTestApp
 
   describe 'GET / - Home Page' do
     it 'succeds' do

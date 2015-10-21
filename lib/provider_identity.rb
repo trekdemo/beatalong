@@ -27,6 +27,6 @@ class ProviderIdentity
   def validated_kind(kind)
     return kind.downcase if VALID_KIND.include?(kind)
 
-    fail ArgumentError, "#{kind.inspect} is not a valid kind!"
+    raise kind.blank? ? Beatalong::IdentityNotFound : Beatalong::KindNotSupported.new(kind)
   end
 end

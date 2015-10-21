@@ -50,7 +50,9 @@ RSpec.describe EntityResolver do
 
     context 'when provider is UNKNOWN' do
       let(:url) { 'https://google.com' }
-      it { is_expected.to be_nil }
+      it "is expected to raise an exception" do
+        expect{subject}.to raise_error(Beatalong::UrlNotSupported)
+      end
     end
   end
 end

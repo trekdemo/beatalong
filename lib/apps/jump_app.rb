@@ -13,14 +13,11 @@ class JumpApp
   end
 
   def call(env)
-    if (provider_identity = env['beatalong.provider_identity'])
-      respond_with(
-        api_adapter(provider_identity.provider).find(provider_identity),
-        env
-      )
-    else
-      [400, {'Content-Type' => 'text/html'}, ["We cannot reccognize the specified url: #{env['beatalong.incoming_url'].inspect}"]]
-    end
+    provider_identity = env['beatalong.provider_identity']
+    respond_with(
+      api_adapter(provider_identity.provider).find(provider_identity),
+      env
+    )
   end
 
   private

@@ -11,6 +11,9 @@
   <body>
     <div class="wrapper">
       <h1 class="center">Share your favorite music with your friends!</h1>
+      <% if error = env['x-rack.flash'].error %>
+        <div class="url-error"><%= error %></div>
+      <% end %>
       <div class="form-wrapper">
         <form action="/j" method="GET">
           <input name="u" class="share-url" autofocus="autofocus" placeholder="Put your music url here&hellip;" />

@@ -12,9 +12,7 @@ class EntityResolverMiddleware
 
     # Try to identify the URL
     identity = EntityResolver.identity_from(url)
-    if identity && identity.valid?
-      env['beatalong.provider_identity'] = identity
-    end
+    env['beatalong.provider_identity'] = identity
 
     @app.call(env)
   end
