@@ -21,24 +21,23 @@ app = Rack::Builder.new do
   use ProductionAdditions
   use Rack::Session::Pool
   use Rack::Flash, :accessorize => [:notice, :error]
+  use ErrorHandlerMiddleware
+
   map('/j') do
-    use ErrorHandlerMiddleware
     use EntityResolverMiddleware
     run JumpApp.new
   end
 
   map('/r') do
-    use ErrorHandlerMiddleware
     use EntityResolverMiddleware
     run RedirectApp.new
   end
 
-  map('/')  { run IndexApp.new }
-
   use Rack::Static,
     urls: ['/assets'],
     root: File.expand_path('../public', __FILE__)
-  run -> {}
+
+  run IndexApp.new
 end
 
 run app

@@ -16,8 +16,11 @@ class EntityResolver
   ]
 
   def self.identity_from(url)
-    resolver = RESOLVERS.find { |resolver| resolver.match?(url) }
-    identity = resolver.new(url).identity
+    identity =
+      RESOLVERS
+        .find { |resolver| resolver.match?(url) }
+        .new(url)
+        .identity
 
     raise Beatalong::IdentityNotFound unless identity && identity.valid?
 
