@@ -6,7 +6,7 @@ module UrlIdentityResolver
 
     def self.match?(url)
       !!(
-        url =~ /https?:\/\/(www\.)?rdio\.com/ ||
+        url =~ /https?:\/\/(www\.)?rdio\.com\/artist\/(.+\/album\/(.+\/track\/)?)?/ ||
         url =~ /https?:\/\/(www\.)?rd\.io/
       )
     end
