@@ -26,6 +26,10 @@ module UrlIdentityResolver
       primary_match = clean_url.match(PRIMARY_ATRIBUTES)
       secondary_match = url.query.to_s.match(SECONDARY_ATTRIBUTES) || {}
 
+      unless primary_match.is_a?(MatchData) || secondary_match.is_a?(MatchData)
+        raise Beatalong::IdentityNotFound
+      end
+
       self.id = secondary_match[:id] || primary_match[:id]
       self.kind = secondary_match[:id] ? 'track' : primary_match[:action]
       self.country_code = primary_match[:country_code].downcase

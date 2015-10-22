@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: https://itun.es/nl/noentity
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Apple WebObjects
+    headers:
+      Last-Modified:
+      - Thu, 22 Oct 2015 14:51:38 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStore.woa/wa/redirectToContent?path=%2Fnl%2Fnoentity"
+      Vary:
+      - X-Apple-Store-Front
+      X-Apple-Application-Site:
+      - ST11
+      Edge-Control:
+      - cache-maxage=60s
+      X-Apple-Aka-Ttl:
+      - Generated Thu Oct 22 07:51:38 PDT 2015, Expires Thu Oct 22 07:52:38 PDT 2015,
+        TTL 60s
+      Apple-Timing-App:
+      - 12 ms
+      Cache-Control:
+      - no-transform, max-age=480
+      X-Apple-Orig-Url:
+      - https://itun.es/nl/noentity
+      X-Apple-Application-Instance:
+      - '2003901'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Webobjects-Loadaverage:
+      - '0'
+      X-Apple-Jingle-Correlation-Key:
+      - 3FEZJJOSE4XZ5BID52MWVPYV5Y
+      Content-Length:
+      - '0'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Via:
+      - http/1.0 vagrant-oel63-x64.localdomain (ApacheTrafficServer/4.1.0 [uScMsSf
+        pSeN:t cCMi p sS])
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.173.38.164/80/nl/noentity/browser/https"
+      Date:
+      - Thu, 22 Oct 2015 14:51:38 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 22 Oct 2015 14:51:38 GMT
+recorded_with: VCR 2.9.3

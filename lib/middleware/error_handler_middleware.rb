@@ -10,7 +10,7 @@ class ErrorHandlerMiddleware
   rescue Beatalong::KindNotSupported => e
     respond_with_error env, "'#{e.unsupported_kind.titleize}' entities are not supported currently! Please share artists, albums or tracks!"
   rescue Beatalong::IdentityNotFound
-    respond_with_error env, "Not supported entity found on the specified url"
+    respond_with_error env, "No supported entity found on the specified url"
   end
 
   def respond_with_error(env, message)

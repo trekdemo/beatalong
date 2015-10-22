@@ -1,4 +1,5 @@
 require 'url_identity_resolver/apple_music'
+require 'beatalong/errors'
 
 module UrlIdentityResolver
   RSpec.describe AppleMusic do
@@ -70,6 +71,16 @@ module UrlIdentityResolver
           end
         end
       end
+
+      context 'when url contains no entity' do
+        # https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?&l=en
+        let(:url) { 'https://itun.es/nl/noentity' }
+
+        it 'raises an exception' do
+          expect{subject}.to raise_exception(::Beatalong::IdentityNotFound)
+        end
+      end
+
     end
   end
 end
