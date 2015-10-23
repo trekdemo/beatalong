@@ -19,8 +19,13 @@ require 'beatalong/errors'
 app = Rack::Builder.new do
   use DevelopmentAdditions
   use ProductionAdditions
-  use Rack::Session::Pool
-  use Rack::Flash, :accessorize => [:notice, :error]
+
+  use Rack::Session::Cookie, {
+    key: 'rack.session',
+    expire_after: 2592000,
+    secret: 'U2FsdGVkX1+NhbDrLMj6oGUzDA77BJCbMzBCqGfdOcGCnIAW5JMnVqI5g5KIWEnS',
+  }
+  use Rack::Flash, accessorize: [:notice, :error]
   use ErrorHandlerMiddleware
 
   map('/j') do
