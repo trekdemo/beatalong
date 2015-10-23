@@ -9,7 +9,7 @@ bundle:
 web:
   build: .
   env_file: config/.env
-  command: bundle exec shotgun -p 3000 -o 0.0.0.0
+  command: bundle exec shotgun --port 3000 --host 0.0.0.0
   volumes:
     - .:/beatalong
   ports:
