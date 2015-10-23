@@ -1,3 +1,4 @@
+require 'base_controller'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
@@ -6,16 +7,19 @@ require 'api/rdio'
 require 'erb'
 
 class RedirectApp
+  include BaseController
+
   def call(env)
     identity = env['beatalong.provider_identity']
     destination_prov_name  = destination_provider(env)
-    redirect_to = if identity.provider != destination_prov_name
-                    destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
-                  else
-                    env['beatalong.incoming_url'].to_s
-                  end
+    path =
+      if identity.provider != destination_prov_name
+        destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
+      else
+        env['beatalong.incoming_url'].to_s
+      end
 
-    [301, {'Location' => redirect_to}, []]
+    redirect_to(path)
   end
 
   private

@@ -1,11 +1,15 @@
-require 'erb'
+require 'base_controller'
 
 class IndexApp
-  TEMPLATE_PATH = File.expand_path("../../../views/index.erb", __FILE__)
-  TEMPLATE = ERB.new(File.read(TEMPLATE_PATH))
+  extend BaseController
 
   def self.call(env)
-    [200, {'Content-Type' => 'text/html'}, [TEMPLATE.result(binding)]]
+    if env['PATH_INFO'] == '/'
+      render 'index', env: env
+    else
+      # Instead of calling `not_found`
+      redirect_to '/'
+    end
   end
 
 end

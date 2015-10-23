@@ -1,5 +1,9 @@
+require 'base_controller'
 require 'beatalong/errors'
+
 class ErrorHandlerMiddleware
+  include BaseController
+
   def initialize(app)
     @app = app
   end
@@ -15,7 +19,6 @@ class ErrorHandlerMiddleware
   end
 
   def respond_with_error(env, message)
-    env['x-rack.flash'].error = message
-    IndexApp.call(env)
+    redirect_to '/', env, error: message
   end
 end

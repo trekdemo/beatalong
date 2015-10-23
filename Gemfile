@@ -9,6 +9,7 @@ gem 'hiredis'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rack-timeout'
 gem 'rack-flash3'
+gem 'tilt'
 
 group :production do
   gem 'puma'

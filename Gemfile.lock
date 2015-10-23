@@ -107,6 +107,7 @@ DEPENDENCIES
   rollbar
   rspec
   shotgun
+  tilt
   vcr
   webmock
 
