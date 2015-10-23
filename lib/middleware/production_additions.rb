@@ -23,7 +23,7 @@ class ProductionAdditions
       use Rack::CommonLogger, $logger
       use Rack::ContentLength
       use Rack::Timeout
-      Rack::Timeout.timeout = 5
+      Rack::Timeout.timeout = 8
       use(Rack::Tracker) { handler :google_analytics, { tracker: 'UA-2495676-17' } }
       run app
     end
