@@ -14,7 +14,6 @@ require 'apps/index_app'
 require 'apps/jump_app'
 require 'apps/redirect_app'
 require 'rdio_token_retriever'
-require 'beatalong/errors'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
@@ -38,9 +37,7 @@ app = Rack::Builder.new do
     run RedirectApp.new
   end
 
-  use Rack::Static,
-    urls: ['/assets'],
-    root: File.expand_path('../public', __FILE__)
+  use Rack::Static, urls: ['/assets'], root: 'public'
 
   run IndexApp
 end

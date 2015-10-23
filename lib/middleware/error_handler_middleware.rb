@@ -1,3 +1,4 @@
+require 'beatalong/errors'
 class ErrorHandlerMiddleware
   def initialize(app)
     @app = app
