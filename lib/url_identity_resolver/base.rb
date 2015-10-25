@@ -33,7 +33,9 @@ module UrlIdentityResolver
     end
 
     def long_url
-      HTTParty.head(url, follow_redirects: true).request.last_uri.to_s
+      Store.cache("short_url:#{url}") do
+        HTTParty.head(url, follow_redirects: true).request.last_uri.to_s
+      end
     end
 
     module ClassMethods
