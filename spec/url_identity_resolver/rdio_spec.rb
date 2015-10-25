@@ -25,12 +25,14 @@ module UrlIdentityResolver
       subject { described_class.new(url) }
 
       context 'when url is shortened' do
-        # https://itunes.apple.com/nl/album/youre-mine-feat.-oscar-wolf/id972394188?&l=en
+        # https://www.rdio.com/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/?utm_campaign=share&utm_medium=Track&utm_source=16998181&utm_content=69195418
         let(:url) { 'http://rd.io/x/Rl5BAGYrVl6S0w/' }
 
-        it 'resolves the url and fetches the attributes' do
-          expect(subject.id).to eq('/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/')
-          expect(subject.kind).to eq('track')
+        it 'raise ShorUrlError' do
+          expect { subject }
+            .to raise_error(Beatalong::ShortUrlError) { |e|
+            expect(e.long_url).to eq('https://www.rdio.com/artist/Disclosure/album/Caracal_(Deluxe)/track/Hourglass/?utm_campaign=share&utm_medium=Track&utm_source=16998181&utm_content=69195418')
+          }
         end
       end
 
