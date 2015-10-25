@@ -21,7 +21,10 @@ class RedirectApp
     destination_prov_name  = destination_provider(env)
     path =
       if identity.provider != destination_prov_name
-        destination_provider_url(identity, destination_prov_name) { env['HTTP_REFERER'] }
+        destination_provider_url(identity, destination_prov_name) {
+          env['x-rack.flash'].error = "Song not found on #{destination_prov_name} (>,<)"
+          env['HTTP_REFERER']
+        }
       else
         env['beatalong.incoming_url'].to_s
       end

@@ -22,6 +22,9 @@
       <p>
         <a href="/">&larr; Share another</a>
       </p>
+      <% if error = env['x-rack.flash'].error %>
+        <div class="url-error"><%= error %></div>
+      <% end %>
       <div class="column">
         <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover image" />
       </div>
