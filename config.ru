@@ -8,7 +8,6 @@ $: << File.expand_path('../lib', __FILE__)
 require 'initializers'
 require 'middleware/development_additions'
 require 'middleware/production_additions'
-require 'middleware/entity_resolver_middleware'
 require 'middleware/error_handler_middleware'
 require 'apps/index_app'
 require 'apps/jump_app'
@@ -27,15 +26,8 @@ app = Rack::Builder.new do
   use Rack::Flash, accessorize: [:notice, :error]
   use ErrorHandlerMiddleware
 
-  map('/j') do
-    use EntityResolverMiddleware
-    run JumpApp.new
-  end
-
-  map('/r') do
-    use EntityResolverMiddleware
-    run RedirectApp.new
-  end
+  map('/j') { run JumpApp.app }
+  map('/r') { run RedirectApp.app }
 
   use Rack::Static, urls: ['/assets'], root: 'public'
 

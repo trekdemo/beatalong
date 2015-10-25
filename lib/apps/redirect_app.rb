@@ -1,13 +1,20 @@
+require 'middleware/entity_resolver_middleware'
 require 'base_controller'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
 require 'api/rdio'
 
-require 'erb'
-
 class RedirectApp
   include BaseController
+
+  def self.app
+    this = self
+    Rack::Builder.new do
+      use EntityResolverMiddleware
+      run this.new
+    end
+  end
 
   def call(env)
     identity = env['beatalong.provider_identity']

@@ -1,3 +1,4 @@
+require 'middleware/entity_resolver_middleware'
 require 'base_controller'
 require 'api/cached'
 require 'api/apple_music'
@@ -7,6 +8,14 @@ require 'api/rdio'
 
 class JumpApp
   include BaseController
+
+  def self.app
+    this = self
+    Rack::Builder.new do
+      use EntityResolverMiddleware
+      run this.new
+    end
+  end
 
   def call(env)
     provider_identity = env['beatalong.provider_identity']
