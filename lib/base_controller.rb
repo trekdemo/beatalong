@@ -1,5 +1,6 @@
 require 'erb'
 require 'tilt'
+require 'tilt/erb'
 
 module BaseController
   def redirect_to(path, env = nil, flash_messages = nil)

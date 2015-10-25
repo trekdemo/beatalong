@@ -15,15 +15,19 @@ module UrlIdentityResolver
       \/id(?<id>\w+)/xi
     SECONDARY_ATTRIBUTES = /i=(?<id>\w+)/i
 
+    def self.short_url_match?(url)
+      url =~ /https?:\/\/itun\.es/
+    end
+
     def self.match?(url)
       !!(
-        url =~ /https?:\/\/itun\.es/ ||
+        short_url_match?(url) ||
         url =~ /https?:\/\/itunes\.apple\.com/
       )
     end
 
     def call
-      primary_match = clean_url.match(PRIMARY_ATRIBUTES)
+      primary_match = url.to_s.match(PRIMARY_ATRIBUTES)
       secondary_match = url.query.to_s.match(SECONDARY_ATTRIBUTES) || {}
 
       self.id = secondary_match[:id] || primary_match[:id]
@@ -32,17 +36,5 @@ module UrlIdentityResolver
 
       true
     end
-
-    private
-
-    def clean_url
-      url_string = url.to_s
-      return url_string if url_string =~ PRIMARY_ATRIBUTES
-
-      HTTParty
-        .head(url_string, folow_redirects: true)
-        .headers['x-apple-orig-url']
-    end
-
   end
 end

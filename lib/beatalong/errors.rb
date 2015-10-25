@@ -9,4 +9,12 @@ module Beatalong
       @unsupported_kind = unsupported_kind
     end
   end
+
+  class ShortUrlError < StandardError
+    attr_reader :long_url
+
+    def initialize(long_url)
+      @long_url = long_url
+    end
+  end
 end
