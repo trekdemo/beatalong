@@ -10,6 +10,7 @@ gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rack-timeout'
 gem 'rack-flash3'
 gem 'tilt'
+gem 'soundcloud'
 
 group :production do
   gem 'puma'

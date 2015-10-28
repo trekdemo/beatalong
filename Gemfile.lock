@@ -26,8 +26,13 @@ GEM
     fakeredis (0.5.0)
       redis (~> 3.0)
     get_process_mem (0.2.0)
+    hashie (2.1.2)
     heapy (0.1.0)
     hiredis (0.6.0)
+    httmultiparty (0.3.16)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
     httparty (0.13.6)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -35,9 +40,11 @@ GEM
     json (1.8.3)
     memory_profiler (0.9.6)
     method_source (0.8.2)
+    mimemagic (0.3.0)
     minitest (5.8.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     newrelic_rpm (3.13.2.302)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -75,6 +82,9 @@ GEM
     shotgun (0.9.1)
       rack (>= 1.0)
     slop (3.6.0)
+    soundcloud (0.3.2)
+      hashie (~> 2.0)
+      httmultiparty (~> 0.3.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -107,6 +117,7 @@ DEPENDENCIES
   rollbar
   rspec
   shotgun
+  soundcloud
   tilt
   vcr
   webmock

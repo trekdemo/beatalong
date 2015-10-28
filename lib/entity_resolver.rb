@@ -13,6 +13,7 @@ class EntityResolver
     # UrlIdentityResolver::GooglePlayMusic,
     UrlIdentityResolver::Rdio,
     UrlIdentityResolver::Spotify,
+    UrlIdentityResolver::Soundcloud,
     UrlIdentityResolver::Null, # This must be the last
   ]
 
