@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=0b22e56042d2777e154029484104ab9c&format=json&url=https://soundcloud.com/gelka/gelka-feat-mozez-spell-im-in-forthcoming
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.6
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 29 Oct 2015 10:28:17 GMT
+      Location:
+      - https://api.soundcloud.com/tracks/229066751.json?client_id=0b22e56042d2777e154029484104ab9c
+      Server:
+      - am/2
+      Status:
+      - 302 Found
+      Content-Length:
+      - '129'
+    body:
+      encoding: UTF-8
+      string: '{"status":"302 - Found","location":"https://api.soundcloud.com/tracks/229066751.json?client_id=0b22e56042d2777e154029484104ab9c"}'
+    http_version: 
+  recorded_at: Thu, 29 Oct 2015 10:28:17 GMT
+- request:
+    method: get
+    uri: https://api.soundcloud.com/tracks/229066751.json?client_id=0b22e56042d2777e154029484104ab9c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Cache-Control:
+      - max-age=600, public
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 29 Oct 2015 10:28:17 GMT
+      Etag:
+      - '"b1e1fb2b594af2131fa0efb3ff8d8b62"'
+      Server:
+      - am/2
+      Status:
+      - 200 OK
+      Vary:
+      - Authorization, Accept
+      Content-Length:
+      - '2035'
+    body:
+      encoding: UTF-8
+      string: '{"kind":"track","id":229066751,"created_at":"2015/10/19 09:55:26 +0000","user_id":263922,"duration":229662,"commentable":true,"state":"finished","original_content_size":4593479,"last_modified":"2015/10/19
+        09:55:34 +0000","sharing":"public","tag_list":"\"chill out\" pop mozez gelka","permalink":"gelka-feat-mozez-spell-im-in-forthcoming","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":"https://gelkasound.bandcamp.com/album/stardust-memories","label_id":null,"purchase_title":"PRE
+        ORDER","genre":"downtempo","title":"Gelka feat Mozez - Spell I''m In (forthcoming)","description":"taken
+        from our forthcoming album \"Stardust Memories\"\n\ngelkasound.bandcamp.com/album/stardust-memories\n\nwww.mixcloud.com/gelka/\nwww.facebook.com/gelkahu\ntwitter.com/GELKA\n\nhttps://soundcloud.com/mozez\nhttp://www.facebook.com/MozezMusic\nhttps://twitter.com/Mozezofficial\n\n\nstem
+        mastering: \n@anorganik-mastering\nfb.com/anorganik.mastering","label_name":"Gelka
+        Sound","release":null,"track_type":null,"key_signature":null,"isrc":null,"video_url":null,"bpm":null,"release_year":2015,"release_month":11,"release_day":30,"original_format":"mp3","license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/229066751","user":{"id":263922,"kind":"user","permalink":"gelka","username":"gelka","last_modified":"2015/10/20
+        15:49:41 +0000","uri":"https://api.soundcloud.com/users/263922","permalink_url":"http://soundcloud.com/gelka","avatar_url":"https://i1.sndcdn.com/avatars-000144401641-bbxfha-large.jpg"},"permalink_url":"http://soundcloud.com/gelka/gelka-feat-mozez-spell-im-in-forthcoming","artwork_url":"https://i1.sndcdn.com/artworks-000133205905-ektm24-large.jpg","waveform_url":"https://w1.sndcdn.com/6TCsGNkNV6C1_m.png","stream_url":"https://api.soundcloud.com/tracks/229066751/stream","playback_count":1017,"download_count":0,"favoritings_count":56,"comment_count":6,"attachments_uri":"https://api.soundcloud.com/tracks/229066751/attachments","policy":"ALLOW","monetization_model":"NOT_APPLICABLE"}'
+    http_version: 
+  recorded_at: Thu, 29 Oct 2015 10:28:17 GMT
+recorded_with: VCR 2.9.3

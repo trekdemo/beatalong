@@ -9,7 +9,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     benchmark-ips (2.3.0)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     coderay (1.1.0)
+    columnize (0.9.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     derailed (0.1.0)
@@ -50,6 +53,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.2.0)
+      byebug (~> 5.0)
+      pry (~> 0.10)
     puma (2.14.0)
     rack (1.6.4)
     rack-flash3 (1.0.5)
@@ -106,6 +112,7 @@ DEPENDENCIES
   httparty
   newrelic_rpm
   pry
+  pry-byebug
   puma
   rack
   rack-flash3

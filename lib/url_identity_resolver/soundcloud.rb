@@ -1,7 +1,5 @@
 require 'url_identity_resolver/base'
-require 'soundcloud'
 require 'active_support/core_ext/object/blank'
-
 
 module UrlIdentityResolver
   class Soundcloud

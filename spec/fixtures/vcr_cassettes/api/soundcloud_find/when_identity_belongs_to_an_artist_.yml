@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=0b22e56042d2777e154029484104ab9c&format=json&url=https://soundcloud.com/gelka
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.6
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 29 Oct 2015 10:28:18 GMT
+      Location:
+      - https://api.soundcloud.com/users/263922.json?client_id=0b22e56042d2777e154029484104ab9c
+      Server:
+      - am/2
+      Status:
+      - 302 Found
+      Content-Length:
+      - '125'
+    body:
+      encoding: UTF-8
+      string: '{"status":"302 - Found","location":"https://api.soundcloud.com/users/263922.json?client_id=0b22e56042d2777e154029484104ab9c"}'
+    http_version: 
+  recorded_at: Thu, 29 Oct 2015 10:28:18 GMT
+- request:
+    method: get
+    uri: https://api.soundcloud.com/users/263922.json?client_id=0b22e56042d2777e154029484104ab9c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Cache-Control:
+      - max-age=600, public
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 29 Oct 2015 10:28:18 GMT
+      Etag:
+      - '"87b59dbbce3eebb43500dd3907ba5583"'
+      Server:
+      - am/2
+      Status:
+      - 200 OK
+      Vary:
+      - Authorization, Accept
+      Content-Length:
+      - '1067'
+    body:
+      encoding: UTF-8
+      string: '{"id":263922,"kind":"user","permalink":"gelka","username":"gelka","last_modified":"2015/10/20
+        15:49:41 +0000","uri":"https://api.soundcloud.com/users/263922","permalink_url":"http://soundcloud.com/gelka","avatar_url":"https://i1.sndcdn.com/avatars-000144401641-bbxfha-large.jpg","country":null,"first_name":"","last_name":"","full_name":"","description":"New
+        track in every Monday till the end of November. \n\nNew Mixtape \nhttps://www.mixcloud.com/gelka/gelka-feat-phoenix-pearle-white-lights-mixtape/\n\n\nBudapest
+        based emotional electronic music band\nCaf\u00e9 del Mar \u0026 former Wax
+        On Records artist. \n\nMembers: \nS\u00e1ndor D\u00f6m\u00f6t\u00f6r \nCsaba
+        K\u00fcrti \n","city":"Budapest","discogs_name":null,"myspace_name":null,"website":"https://gelkasound.bandcamp.com/album/million-nights-ep","website_title":"Bandcamp","online":false,"track_count":53,"playlist_count":5,"plan":"Pro
+        Plus","public_favorites_count":2115,"followers_count":4229,"followings_count":854,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]}'
+    http_version: 
+  recorded_at: Thu, 29 Oct 2015 10:28:18 GMT
+recorded_with: VCR 2.9.3

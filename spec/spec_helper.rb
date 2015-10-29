@@ -32,6 +32,8 @@ RSpec.configure do |config|
     config.debug_logger = File.open("log/vcr_debug.log", 'w')
   end
 
+  require 'pry'
+
   # Add VCR to all tests
   require 'active_support/core_ext/string/inflections'
   config.around(:each) do |example|

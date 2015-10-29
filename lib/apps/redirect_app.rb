@@ -4,6 +4,7 @@ require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
 require 'api/rdio'
+require 'api/soundcloud'
 
 class RedirectApp
   include BaseController

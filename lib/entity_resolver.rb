@@ -3,6 +3,7 @@ require 'url_identity_resolver/apple_music'
 require 'url_identity_resolver/deezer'
 require 'url_identity_resolver/spotify'
 require 'url_identity_resolver/rdio'
+require 'url_identity_resolver/soundcloud'
 # require 'url_identity_resolver/google_play_music'
 require 'beatalong/errors'
 
