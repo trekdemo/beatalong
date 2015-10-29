@@ -7,6 +7,12 @@ module Api
     include ::Api::Base
 
     def search(entity)
+      return false unless %w{artist track}.include?(entity.kind)
+
+      endpoint = entity.kind == 'artist' ? '/users' : '/tracks'
+
+      response = client.get(endpoint, q: search_term(entity))
+      response.map{|r| format_result(r, kind: entity.kind) }.first
     end
 
     def find(identity)
@@ -16,6 +22,11 @@ module Api
     end
 
     private
+
+    def search_term(entity)
+      # clean_api_query_string("#{entity.artist} #{entity.track}")
+      "#{entity.artist} #{entity.track}"
+    end
 
     def client
       @client ||= ::Soundcloud.new(client_id: ENV['SOUNDCLOUD_CLIENT_ID'])

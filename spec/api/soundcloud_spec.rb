@@ -40,5 +40,36 @@ module Api
       end
 
     end
+
+    describe '#search' do
+      context 'when looking for an artist' do
+        let(:entity) { build_pe('artist', 'Gelka') }
+
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.artist).to eq('gelka')
+          expect(subject.album).to be_nil
+          expect(subject.track).to be_nil
+          expect(subject.kind).to eq('artist')
+          expect(subject.url).to eq('http://soundcloud.com/gelka')
+        end
+      end
+
+      context 'when looking for a track' do
+        let(:entity) { build_pe('track', 'Gelka', nil, "Gelka feat Mozez - Spell I'm In (forthcoming)") }
+        subject { described_class.new.search(entity) }
+
+        it { is_expected.to be_a(ProviderEntity) }
+        it 'returns with a match' do
+          expect(subject.artist).to eq('gelka')
+          expect(subject.album).to be_nil
+          expect(subject.track).to eq("Gelka feat Mozez - Spell I'm In (forthcoming)")
+          expect(subject.kind).to eq('track')
+          expect(subject.url).to eq('https://soundcloud.com/gelka/gelka-feat-mozez-spell-im-in-forthcoming')
+        end
+      end
+    end
   end
 end
