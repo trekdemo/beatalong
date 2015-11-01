@@ -46,7 +46,7 @@ module Api
     # -H "User-Agent: iTunes/12.3.1 (Macintosh; # OS X 10.11.1) AppleWebKit/601.2.7.2" \
     # "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPlaylist?id=pl.5e01462edfd74e23b80e38b9982b30d5" > playlist.json
     def lookup_playlist(identity)
-      store_front = "#{STORE_FRONTS[identity.country_code]}-1,32 t:music2"
+      store_front = "#{STORE_FRONTS[identity.country_code]},32 t:music2"
       get(
         'https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPlaylist',
         {id: identity.id},
@@ -59,16 +59,21 @@ module Api
     end
 
     def get(path, query, headers = {})
-      response = self.class.get(path, query: query, headers: headers)
+      raw_response = self.class.get(path, query: query, headers: headers)
+      response = raw_response.parsed_response
+
+      if raw_response.code > 299 || raw_response.code < 200
+        fail StandardError, "API error: #{raw_response.inspect}"
+      end
       if (error_message = response['errorMessage'])
         fail StandardError, "API error: #{error_message}"
       end
 
-      if response['results']
+      if !response['results'].nil?
         response['results']
           .map(&method(:build_entity))
           .first
-      elsif response['storePlatformData']
+      elsif !response['storePlatformData'].nil?
         build_playlist(response['storePlatformData']['playlist-product']['results'][query[:id]])
       else
         response
