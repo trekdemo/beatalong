@@ -46,6 +46,29 @@ module Api
           expect(subject.find(identity).url).to eq('https://itunes.apple.com/nl/artist/ub40/id524856?uo=4')
         end
       end
+
+      context 'when identity belongs to a playlist' do
+        let(:identity) { build_pi('AppleMusic', 'pl.5e01462edfd74e23b80e38b9982b30d5', 'playlist') }
+
+        specify { expect(subject.find(identity)).to be_a(ProviderPlaylist) }
+
+        it 'returns with the meta data of the playlist' do
+          playlist = subject.find(identity)
+
+          expect(playlist.title).to eq('Chillen')
+          expect(playlist.author).to eq('Apple Music Pop')
+          expect(playlist.url).to eq('https://itunes.apple.com/nl/playlist/chillen/idpl.5e01462edfd74e23b80e38b9982b30d5')
+          expect(playlist.tracks.size).to eq(19)
+
+          first_track = playlist.tracks.first
+          expect(first_track).to be_a ProviderEntity
+          expect(first_track.artist).to eq('Loka')
+          expect(first_track.album).to eq('Beginningless - Single')
+          expect(first_track.track).to eq('Beginningless')
+          expect(first_track.kind).to eq('track')
+          expect(first_track.url).to eq('https://itunes.apple.com/nl/album/beginningless/id416357723?i=416357724')
+        end
+      end
     end
 
     describe '#search' do

@@ -1,5 +1,5 @@
 class ProviderIdentity
-  VALID_KIND = %w[artist album track]
+  VALID_KIND = %w[artist album track playlist]
 
   attr_reader :provider, :id, :kind, :country_code
 
@@ -27,6 +27,6 @@ class ProviderIdentity
   def validated_kind(kind)
     return kind.downcase if VALID_KIND.include?(kind)
 
-    raise kind.blank? ? Beatalong::IdentityNotFound : Beatalong::KindNotSupported.new(kind)
+    raise kind.strip.empty? ? Beatalong::IdentityNotFound : Beatalong::KindNotSupported.new(kind)
   end
 end

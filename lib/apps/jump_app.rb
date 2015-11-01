@@ -19,12 +19,15 @@ class JumpApp
 
   def call(env)
     provider_identity = env['beatalong.provider_identity']
+    entity_data = api_adapter(provider_identity.provider).find(provider_identity)
 
-    render('jump', {
+    template = provider_identity.kind == 'playlist' ? 'jump_pl' : 'jump'
+
+    render(template, {
       request: Rack::Request.new(env),
       provider_identity: provider_identity,
       orig_url: env['beatalong.incoming_url'],
-      entity_data: api_adapter(provider_identity.provider).find(provider_identity),
+      entity_data: entity_data,
       env: env,
     })
   end
