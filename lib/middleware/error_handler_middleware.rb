@@ -13,7 +13,7 @@ class ErrorHandlerMiddleware
   rescue Beatalong::UrlNotSupported
     respond_with_error env, "The specified url isn't supported!"
   rescue Beatalong::KindNotSupported => e
-    respond_with_error env, "'#{e.unsupported_kind.titleize}' entities are not supported currently! Please share artists, albums or tracks!"
+    respond_with_error env, "'#{e.unsupported_kind.titleize}' entities are not supported currently! Please share artists, albums, tracks or playlists!"
   rescue Beatalong::IdentityNotFound
     respond_with_error env, "Not supported entity found on the specified url"
   rescue Beatalong::ShortUrlError => e
