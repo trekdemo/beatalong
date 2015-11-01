@@ -70,6 +70,16 @@ module UrlIdentityResolver
             expect(subject.country_code).to eq('nl')
           end
         end
+
+        context 'and it leads to a playlist' do
+          let(:url) { 'https://itunes.apple.com/nl/playlist/3-a.m.-in-london/idpl.a2015206bf744ace9267a7235ee45234?l=en' }
+
+          it 'fetches the identifier of the playlist' do
+            expect(subject.id).to eq('pl.a2015206bf744ace9267a7235ee45234')
+            expect(subject.kind).to eq('playlist')
+            expect(subject.country_code).to eq('nl')
+          end
+        end
       end
     end
   end

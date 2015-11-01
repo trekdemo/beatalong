@@ -3,6 +3,7 @@ require 'httparty'
 require 'uri'
 require 'provider_identity'
 require 'beatalong/errors'
+require 'store'
 
 module UrlIdentityResolver
   module Base
