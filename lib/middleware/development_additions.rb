@@ -16,6 +16,7 @@ class DevelopmentAdditions
   def build_extended_app(app)
     Rack::Builder.new do
       use Rack::ShowExceptions
+      map('/flushall') { $redis.flushall }
       run app
     end
   end
