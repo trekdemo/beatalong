@@ -46,7 +46,7 @@ module Api
     # -H "User-Agent: iTunes/12.3.1 (Macintosh; # OS X 10.11.1) AppleWebKit/601.2.7.2" \
     # "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPlaylist?id=pl.5e01462edfd74e23b80e38b9982b30d5" > playlist.json
     def lookup_playlist(identity)
-      store_front = "#{STORE_FRONTS[identity.country_code]},32 t:music2"
+      store_front = "#{STORE_FRONTS[identity.country_code]}-1,32 t:music2"
       get(
         'https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPlaylist',
         {id: identity.id},
@@ -64,11 +64,11 @@ module Api
         fail StandardError, "API error: #{error_message}"
       end
 
-      if response.has_key?('results')
+      if response['results']
         response['results']
           .map(&method(:build_entity))
           .first
-      elsif response.has_key?('storePlatformData')
+      elsif response['storePlatformData']
         build_playlist(response['storePlatformData']['playlist-product']['results'][query[:id]])
       else
         response
@@ -105,7 +105,7 @@ module Api
       ProviderPlaylist.new({
         title: response['nameRaw'],
         author: response['curatorName'],
-        cover_image_url: response['artwork']['url'],
+        cover_image_url: response['artwork']['url'].sub('{w}', '420').sub('{h}', '420').sub('{f}', 'jpg'),
         url: response['url'],
         tracks: response['children'].values.map(&method(:build_entity))
       })
