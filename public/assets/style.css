@@ -124,8 +124,8 @@ li {
   padding: 0 10px;
   width: 45%;
   float: left;
-
 }
+.column img { margin-left: -10px; }
 
 .kind {
   font-size: .8em;
@@ -141,3 +141,24 @@ li {
 .outside-links.social > div {
   margin-bottom: 6px;
 }
+
+
+.collection-item {
+  border-bottom: 1px dotted  #bbb;
+  padding: .25em .1em;
+  font-size: .9em;
+  width: 100%;
+}
+.collection-item:last-child {
+  border: none;
+}
+.collection-item:hover {
+  background-color: #eee;
+}
+.collection-item a {
+  color: #333;
+}
+.collection-item a:hover {
+  text-decoration: none;
+}
+.column ol { margin: 0; }

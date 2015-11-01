@@ -28,32 +28,28 @@
       <div>
         <span class="kind">[ <%= provider_identity.kind %> ]</span>
         <h1 class="small"><%= entity_data.title %></h2>
-        <h2 class="small">
-          <i><%= entity_data.author %></i>
-        </h1>
+        <span class="kind"><%= entity_data.author %> </span>
+      </div>
+
+      <div class="column">
+        <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover image" />
+        <span class="kind">[ Listen in on these services ]</span>
+        <ul class="cf">
+          <li><a target="_blank" href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
+          <%# <li><a target="_blank" href="/r/deezer?u=<%= orig_url %1>">Deezer</a></li> %>
+          <%# <li><a target="_blank" href="/r/spotify?u=<%= orig_url %1>">Spotify</a></li> %>
+          <%# <li><a target="_blank" href="/r/rdio?u=<%= orig_url %1>">Rdio</a></li> %>
+        </ul>
         <div class="outside-links">
-          <span class="kind">[ Listen in on these services ]</span>
-          <ul class="cf">
-            <li><a target="_blank" href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
-            <%# <li><a target="_blank" href="/r/deezer?u=<%= orig_url %1>">Deezer</a></li> %>
-            <%# <li><a target="_blank" href="/r/spotify?u=<%= orig_url %1>">Spotify</a></li> %>
-            <%# <li><a target="_blank" href="/r/rdio?u=<%= orig_url %1>">Rdio</a></li> %>
-          </ul>
-        </div>
-        <div class="outside-links social">
           <span class="kind">[ Share this <% provider_identity.kind %> with your friends ]</span>
           <div class="fb-like" data-href="<%= request.url %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
           <div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="beatalong">Tweet</a></div>
         </div>
       </div>
-
-      <div class="column">
-        <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover image" />
-      </div>
       <div class="column">
         <ol>
           <% entity_data.tracks.each do |track| %>
-            <li><a href="/j?u=<%= track.url %>"><%= track.artist %> - <%= track.track %></a></li>
+            <li class="collection-item"><a href="/j?u=<%= track.url %>"><%= track.artist %> - <%= track.track %></a></li>
           <% end %>
         </ol>
       </div>
