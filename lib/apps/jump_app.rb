@@ -21,15 +21,22 @@ class JumpApp
     provider_identity = env['beatalong.provider_identity']
     entity_data = api_adapter(provider_identity.provider).find(provider_identity)
 
-    template = provider_identity.kind == 'playlist' ? 'jump_pl' : 'jump'
-
-    render(template, {
-      request: Rack::Request.new(env),
-      provider_identity: provider_identity,
-      orig_url: env['beatalong.incoming_url'],
-      entity_data: entity_data,
-      env: env,
-    })
+    if entity_data
+      case provider_identity.kind
+      when 'search' then redirect_to("/j?u=#{entity_data.url}")
+      else
+        template = provider_identity.kind == 'playlist' ? 'jump_pl' : 'jump'
+        render(template, {
+          request: Rack::Request.new(env),
+          provider_identity: provider_identity,
+          orig_url: env['beatalong.incoming_url'],
+          entity_data: entity_data,
+          env: env,
+        })
+      end
+    else
+      redirect_to '/', env, error: "We can't find #{provider_identity.id}"
+    end
   end
 
   private

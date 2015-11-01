@@ -21,6 +21,7 @@ module Api
     def find(identity)
       case identity.kind
       when 'playlist' then lookup_playlist(identity)
+      when 'search' then lookup_search(identity)
       else
         get('/lookup', {
           id: identity.id,
@@ -52,6 +53,17 @@ module Api
         {id: identity.id},
         {'X-Apple-Store-Front' => store_front}
       )
+    end
+
+    def lookup_search(identity)
+      search_kind = identity.id.split('-').size > 1 ? 'track' : 'artist'
+
+      get('/search', normalize_search_query({
+        country: identity.country_code,
+        media: 'music',
+        entity: itunes_kind(search_kind),
+        term: clean_api_query_string(identity.id),
+      }))
     end
 
     def search_term(entity)
