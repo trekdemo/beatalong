@@ -1,6 +1,7 @@
 require 'active_support/concern'
 require 'httparty'
 require 'provider_entity'
+require 'provider_playlist'
 
 module Api
   module Base
