@@ -6,7 +6,7 @@ RSpec.describe 'Form errors' do
 
   describe 'GET /j - Jump Page with an invalid url' do
     it 'succeds' do
-      get '/j?u=blabla'
+      get '/j?u=http://foo.bar'
       follow_redirect!
 
       expect(last_response.body).to include("The specified url isn't supported!")

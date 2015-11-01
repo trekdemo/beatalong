@@ -1,4 +1,4 @@
-require 'url_identity_resolver/null'
+require 'url_identity_resolver/unsupported'
 require 'url_identity_resolver/apple_music'
 require 'url_identity_resolver/deezer'
 require 'url_identity_resolver/spotify'
@@ -13,7 +13,7 @@ class EntityResolver
     # UrlIdentityResolver::GooglePlayMusic,
     UrlIdentityResolver::Rdio,
     UrlIdentityResolver::Spotify,
-    UrlIdentityResolver::Null, # This must be the last
+    UrlIdentityResolver::Unsupported,
   ]
 
   def self.identity_from(url)
