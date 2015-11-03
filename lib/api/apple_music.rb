@@ -19,16 +19,7 @@ module Api
       limit lang version explicit]
 
     def find(identity)
-      case identity.kind
-      when 'playlist' then lookup_playlist(identity)
-      when 'search' then lookup_search(identity)
-      else
-        get('/lookup', {
-          id: identity.id,
-          entity: itunes_kind(identity.kind),
-          country: identity.country_code || country_code,
-        })
-      end
+      self.send("lookup_#{identity.kind}", identity)
     end
 
     def search(entity)
@@ -41,6 +32,17 @@ module Api
     end
 
     private
+
+    def lookup_general(identity)
+      get('/lookup', {
+        id: identity.id,
+        entity: itunes_kind(identity.kind),
+        country: identity.country_code || country_code,
+      })
+    end
+    alias_method :lookup_artist, :lookup_general
+    alias_method :lookup_album,  :lookup_general
+    alias_method :lookup_track,  :lookup_general
 
     # curl \
     # -H "X-Apple-Store-Front: 143452-2,32 t:music2" \
@@ -119,12 +121,16 @@ module Api
     end
 
     def build_playlist(response)
+      track_order = response['childrenIds']
       ProviderPlaylist.new({
         title: response['nameRaw'],
         author: response['curatorName'],
         cover_image_url: response['artwork']['url'].sub('{w}', '420').sub('{h}', '420').sub('{f}', 'jpg'),
         url: response['url'],
-        tracks: response['children'].values.map(&method(:build_entity))
+        tracks: response['children']
+          .values
+          .sort { |t| track_order.index(t['id']) }
+          .map(&method(:build_entity))
       })
     end
 

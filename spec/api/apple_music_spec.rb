@@ -62,11 +62,11 @@ module Api
 
           first_track = playlist.tracks.first
           expect(first_track).to be_a ProviderEntity
-          expect(first_track.artist).to eq('Loka')
-          expect(first_track.album).to eq('Beginningless - Single')
-          expect(first_track.track).to eq('Beginningless')
+          expect(first_track.artist).to eq('Beastie Boys')
+          expect(first_track.album).to eq('The In Sound From Way Out!')
+          expect(first_track.track).to eq('Namaste')
           expect(first_track.kind).to eq('track')
-          expect(first_track.url).to eq('https://itunes.apple.com/nl/album/beginningless/id416357723?i=416357724')
+          expect(first_track.url).to eq('https://itunes.apple.com/nl/album/namaste/id724748953?i=724749360')
         end
       end
     end
