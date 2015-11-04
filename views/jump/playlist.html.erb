@@ -35,10 +35,10 @@
         <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover image" />
         <span class="kind">[ Listen in on these services ]</span>
         <ul class="cf">
-          <li><a target="_blank" href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
-          <%# <li><a target="_blank" href="/r/deezer?u=<%= orig_url %1>">Deezer</a></li> %>
-          <%# <li><a target="_blank" href="/r/spotify?u=<%= orig_url %1>">Spotify</a></li> %>
-          <%# <li><a target="_blank" href="/r/rdio?u=<%= orig_url %1>">Rdio</a></li> %>
+          <li><a class="track-click" target="_blank" href="/r/apple_music?u=<%= orig_url %>">Apple Music</a></li>
+          <%# <li><a class="track-click" target="_blank" href="/r/deezer?u=<%= orig_url %1>">Deezer</a></li> %>
+          <%# <li><a class="track-click" target="_blank" href="/r/spotify?u=<%= orig_url %1>">Spotify</a></li> %>
+          <%# <li><a class="track-click" target="_blank" href="/r/rdio?u=<%= orig_url %1>">Rdio</a></li> %>
         </ul>
         <div class="outside-links">
           <span class="kind">[ Share this <% provider_identity.kind %> with your friends ]</span>
@@ -64,5 +64,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/assets/main.js"></script>
   </body>
 </html>
