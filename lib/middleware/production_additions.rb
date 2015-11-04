@@ -24,6 +24,7 @@ class ProductionAdditions
       use Rack::ContentLength
       use Rack::Timeout
       Rack::Timeout.timeout = 8
+      Rack::Timeout::Logger.level  = Logger::ERROR
       use(Rack::Tracker) { handler :google_analytics, { tracker: 'UA-2495676-17' } }
       run app
     end
