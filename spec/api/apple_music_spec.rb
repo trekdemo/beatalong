@@ -69,6 +69,40 @@ module Api
           expect(first_track.url).to eq('https://itunes.apple.com/nl/album/namaste/id724748953?i=724749360')
         end
       end
+
+      context 'when identity belongs to a search' do
+        let(:identity) { build_pi('AppleMusic', search_term, 'search') }
+
+        context 'for an artist' do
+          let(:search_term) { 'Daft Punk' }
+
+          it 'returns with the meta data of a track' do
+            track = subject.find(identity)
+
+            expect(track).to be_a(ProviderEntity)
+            expect(track.artist).to eq('Daft Punk')
+            expect(track.album).to be_nil
+            expect(track.track).to be_nil
+            expect(track.kind).to eq('artist')
+            expect(track.url).to eq('https://itunes.apple.com/nl/artist/daft-punk/id5468295?uo=4')
+          end
+        end
+
+        context 'for a track' do
+          let(:search_term) { 'Daft Punk - Harder Better Faster Stronger' }
+
+          it 'returns with the meta data of a track' do
+            track = subject.find(identity)
+
+            expect(track).to be_a(ProviderEntity)
+            expect(track.artist).to eq('Daft Punk')
+            expect(track.album).to eq('Discovery')
+            expect(track.track).to eq('Harder Better Faster Stronger')
+            expect(track.kind).to eq('track')
+            expect(track.url).to eq('https://itunes.apple.com/nl/album/harder-better-faster-stronger/id697194953?i=697195787&uo=4')
+          end
+        end
+      end
     end
 
     describe '#search' do

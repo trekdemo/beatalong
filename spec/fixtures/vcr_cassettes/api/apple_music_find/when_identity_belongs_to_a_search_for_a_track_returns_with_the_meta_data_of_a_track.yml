@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://itunes.apple.com/search?country=nl&entity=song&limit=1&media=music&term=Daft%20Punk%20-%20Harder%20Better%20Faster%20Stronger
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Apple-Jingle-Correlation-Key:
+      - HIVCDRYF4WFIOQBPWVXKWA3WVA
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStoreServices.woa/ws/wsSearch?term=Daft%20Punk%20-%20Harder%20Better%20Faster%20Stronger&country=nl&media=music&entity=song&limit=1&urlDesc="
+      X-Apple-Orig-Url:
+      - https://itunes.apple.com/search?term=Daft%20Punk%20-%20Harder%20Better%20Faster%20Stronger&country=nl&media=music&entity=song&limit=1
+      X-Apple-Application-Site:
+      - NWK
+      Apple-Timing-App:
+      - 85 ms
+      Content-Type:
+      - text/javascript; charset=utf-8
+      X-Apple-Application-Instance:
+      - '1000177'
+      X-Webobjects-Loadaverage:
+      - '0'
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.154.42.218/80/search/iDevice/https?country=nl&entity=song&limit=1&media=music&term=Daft%20Punk%20-%20Harder%20Better%20Faster%20Stronger"
+      Cache-Control:
+      - no-transform, max-age=60
+      Date:
+      - Wed, 04 Nov 2015 10:40:39 GMT
+      Content-Length:
+      - '1565'
+      Connection:
+      - keep-alive
+      X-Apple-Partner:
+      - origin.0
+    body:
+      encoding: UTF-8
+      string: |2+
+
+
+
+        {
+         "resultCount":1,
+         "results": [
+        {"wrapperType":"track", "kind":"song", "artistId":5468295, "collectionId":697194953, "trackId":697195787, "artistName":"Daft Punk", "collectionName":"Discovery", "trackName":"Harder Better Faster Stronger", "collectionCensoredName":"Discovery", "trackCensoredName":"Harder Better Faster Stronger", "artistViewUrl":"https://itunes.apple.com/nl/artist/daft-punk/id5468295?uo=4", "collectionViewUrl":"https://itunes.apple.com/nl/album/harder-better-faster-stronger/id697194953?i=697195787&uo=4", "trackViewUrl":"https://itunes.apple.com/nl/album/harder-better-faster-stronger/id697194953?i=697195787&uo=4", "previewUrl":"http://a128.phobos.apple.com/us/r1000/043/Music6/v4/54/20/ca/5420caec-b3cf-db90-3568-19c4f6c1b51b/mzaf_534527659554058378.plus.aac.p.m4a", "artworkUrl30":"http://is4.mzstatic.com/image/thumb/Features6/v4/dc/21/8b/dc218b8b-98d8-07cd-927a-f4abb416897c/dj.huxlnxyy.jpg/30x30bb-85.jpg", "artworkUrl60":"http://is1.mzstatic.com/image/thumb/Features6/v4/dc/21/8b/dc218b8b-98d8-07cd-927a-f4abb416897c/dj.huxlnxyy.jpg/60x60bb-85.jpg", "artworkUrl100":"http://is4.mzstatic.com/image/thumb/Features6/v4/dc/21/8b/dc218b8b-98d8-07cd-927a-f4abb416897c/dj.huxlnxyy.jpg/100x100bb-85.jpg", "collectionPrice":6.99, "trackPrice":1.29, "releaseDate":"2001-03-07T08:00:00Z", "collectionExplicitness":"notExplicit", "trackExplicitness":"notExplicit", "discCount":1, "discNumber":1, "trackCount":14, "trackNumber":4, "trackTimeMillis":224693, "country":"NLD", "currency":"EUR", "primaryGenreName":"Dance", "isStreamable":true}]
+        }
+
+
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 10:40:39 GMT
+recorded_with: VCR 2.9.3

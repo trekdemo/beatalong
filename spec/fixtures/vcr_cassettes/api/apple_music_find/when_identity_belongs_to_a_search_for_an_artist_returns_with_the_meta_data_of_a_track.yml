@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://itunes.apple.com/search?country=nl&entity=musicArtist&limit=1&media=music&term=Daft%20Punk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Apple-Jingle-Correlation-Key:
+      - UHCBOBKNW44ONLTUMJZH72VDEE
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Apple-Translated-Wo-Url:
+      - "/WebObjects/MZStoreServices.woa/ws/wsSearch?term=Daft%20Punk&country=nl&media=music&entity=musicArtist&limit=1&urlDesc="
+      X-Apple-Orig-Url:
+      - https://itunes.apple.com/search?term=Daft%20Punk&country=nl&media=music&entity=musicArtist&limit=1
+      X-Apple-Application-Site:
+      - ST11
+      Apple-Timing-App:
+      - 23 ms
+      Content-Type:
+      - text/javascript; charset=utf-8
+      X-Apple-Application-Instance:
+      - '2001057'
+      X-Webobjects-Loadaverage:
+      - '0'
+      Server:
+      - ATS/4.1.0
+      X-Apple-Ats-Cache-Key:
+      - "/17.173.38.169/80/search/iDevice/https?country=nl&entity=musicArtist&limit=1&media=music&term=Daft%20Punk"
+      Cache-Control:
+      - no-transform, max-age=60
+      Date:
+      - Wed, 04 Nov 2015 10:40:38 GMT
+      Content-Length:
+      - '286'
+      Connection:
+      - keep-alive
+      X-Apple-Partner:
+      - origin.0
+    body:
+      encoding: UTF-8
+      string: |2+
+
+
+
+        {
+         "resultCount":1,
+         "results": [
+        {"wrapperType":"artist", "artistType":"Artist", "artistName":"Daft Punk", "artistLinkUrl":"https://itunes.apple.com/nl/artist/daft-punk/id5468295?uo=4", "artistId":5468295, "amgArtistId":168791, "primaryGenreName":"Dance", "primaryGenreId":17}]
+        }
+
+
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 10:40:38 GMT
+recorded_with: VCR 2.9.3
