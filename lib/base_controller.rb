@@ -17,13 +17,13 @@ module BaseController
     )
   end
 
-  def render(view, locals = {}, status = 200)
-    render_html(render_template(view, locals), status)
+  def render(view, locals, status: 200)
+    render_html(render_template(view, locals || {}), status)
   end
 
   def not_found(msg = 'Page not found')
     # render_html(msg, 404)
-    render('not_found', {}, 404)
+    render('not_found', {}, status: 404)
   end
 
   private

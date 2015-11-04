@@ -10,27 +10,27 @@ class JumpApp
   include BaseController
 
   def self.app
-    this = self
+    klass = self
     Rack::Builder.new do
       use EntityResolverMiddleware
-      run this.new
+      run klass.new
     end
   end
 
   def call(env)
     provider_identity = env['beatalong.provider_identity']
-    entity_data = api_adapter(provider_identity.provider).find(provider_identity)
+    entity_data = api_adapter(provider_identity.provider, env['country_code']).find(provider_identity)
 
     if entity_data
       case provider_identity.kind
       when 'search' then redirect_to("/j?u=#{entity_data.url}")
       else
-        template = provider_identity.kind == 'playlist' ? 'jump_pl' : 'jump'
+        template = provider_identity.kind == 'playlist' ? 'jump/playlist' : 'jump/general'
         render(template, {
           request: Rack::Request.new(env),
           provider_identity: provider_identity,
-          orig_url: env['beatalong.incoming_url'],
           entity_data: entity_data,
+          orig_url: env['beatalong.incoming_url'],
           env: env,
         })
       end
@@ -41,7 +41,7 @@ class JumpApp
 
   private
 
-  def api_adapter(provider)
-    Api::Cached.new(Object.const_get("Api::#{provider}").new)
+  def api_adapter(provider, country_code)
+    Api::Cached.new(Object.const_get("Api::#{provider}").new(country_code))
   end
 end
