@@ -15,8 +15,7 @@ module Api
     base_uri 'https://api.spotify.com'
 
     def find(identity)
-      response = get(['/v1', identity.kind.pluralize, identity.id].join('/'))
-      format_result(response)
+      self.send("lookup_#{identity.kind}", identity)
     end
 
     def search(entity)
@@ -32,6 +31,28 @@ module Api
     end
 
     private
+
+    def lookup_general(identity)
+      response = get(['/v1', identity.kind.pluralize, identity.id].join('/'))
+      format_result(response)
+    end
+    alias_method :lookup_artist, :lookup_general
+    alias_method :lookup_album,  :lookup_general
+    alias_method :lookup_track,  :lookup_general
+
+    def lookup_search(identity)
+      search_kind = identity.id.split('-').size > 1 ? 'track' : 'artist'
+
+      response = get('/v1/search', {
+        type: search_kind,
+        q: identity.id,
+        limit: 1,
+      })
+
+      response[search_kind.pluralize]['items']
+        .map(&method(:format_result))
+        .first
+    end
 
     def get(path, query = nil)
       self.class.get(path, query: query)

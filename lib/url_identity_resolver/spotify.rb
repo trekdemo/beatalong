@@ -6,7 +6,7 @@ module UrlIdentityResolver
 
     def self.match?(url)
       !!(
-        url =~ /https?:\/\/play.spotify\.com/ ||
+        url =~ /https?:\/\/(play|open).spotify\.com/ ||
         url =~ /spotify:/
       )
     end

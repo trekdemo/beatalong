@@ -12,7 +12,7 @@ module UrlIdentityResolver
 
     def identity
       ProviderIdentity.new(
-        provider: 'AppleMusic',
+        provider: 'Spotify',
         id: @search_term,
         kind: 'search',
         country_code: 'us',

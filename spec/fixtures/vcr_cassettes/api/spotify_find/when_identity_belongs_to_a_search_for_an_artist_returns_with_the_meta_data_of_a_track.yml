@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=1&q=Daft%20Punk&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 04 Nov 2015 20:47:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "artists" : {
+            "href" : "https://api.spotify.com/v1/search?query=Daft+Punk&offset=0&limit=1&type=artist",
+            "items" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/4tZwfgrHOc3mvqYlEYSvVi"
+              },
+              "followers" : {
+                "href" : null,
+                "total" : 2490485
+              },
+              "genres" : [ "house" ],
+              "href" : "https://api.spotify.com/v1/artists/4tZwfgrHOc3mvqYlEYSvVi",
+              "id" : "4tZwfgrHOc3mvqYlEYSvVi",
+              "images" : [ {
+                "height" : 751,
+                "url" : "https://i.scdn.co/image/e52651f03da8c9bf264f75cdabf39cf039606ddc",
+                "width" : 999
+              }, {
+                "height" : 481,
+                "url" : "https://i.scdn.co/image/b96d08f790bf2be50fee0aa490a7d06d40ba36bb",
+                "width" : 640
+              }, {
+                "height" : 150,
+                "url" : "https://i.scdn.co/image/5bafab32f2eb71e881de73ec4b088e106feb9e3f",
+                "width" : 200
+              }, {
+                "height" : 48,
+                "url" : "https://i.scdn.co/image/809d6b89f4bb3f0f42f86c953a8b312234a31f31",
+                "width" : 64
+              } ],
+              "name" : "Daft Punk",
+              "popularity" : 79,
+              "type" : "artist",
+              "uri" : "spotify:artist:4tZwfgrHOc3mvqYlEYSvVi"
+            } ],
+            "limit" : 1,
+            "next" : "https://api.spotify.com/v1/search?query=Daft+Punk&offset=1&limit=1&type=artist",
+            "offset" : 0,
+            "previous" : null,
+            "total" : 5
+          }
+        }
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 20:47:14 GMT
+recorded_with: VCR 2.9.3

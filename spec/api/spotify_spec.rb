@@ -46,6 +46,40 @@ module Api
           expect(subject.find(identity).url).to eq('https://open.spotify.com/track/1FNZq0NV4yymW1wEjIi2eY')
         end
       end
+
+      context 'when identity belongs to a search' do
+        let(:identity) { build_pi('Spotify', search_term, 'search') }
+
+        context 'for an artist' do
+          let(:search_term) { 'Daft Punk' }
+
+          it 'returns with the meta data of a track' do
+            track = subject.find(identity)
+
+            expect(track).to be_a(ProviderEntity)
+            expect(track.artist).to eq('Daft Punk')
+            expect(track.album).to be_nil
+            expect(track.track).to be_nil
+            expect(track.kind).to eq('artist')
+            expect(track.url).to eq('https://open.spotify.com/artist/4tZwfgrHOc3mvqYlEYSvVi')
+          end
+        end
+
+        context 'for a track' do
+          let(:search_term) { 'Daft Punk - Harder Better Faster Stronger' }
+
+          it 'returns with the meta data of a track' do
+            track = subject.find(identity)
+
+            expect(track).to be_a(ProviderEntity)
+            expect(track.artist).to eq('Daft Punk')
+            expect(track.album).to eq('harder better faster stronger')
+            expect(track.track).to eq('Harder Better Faster Stronger')
+            expect(track.kind).to eq('track')
+            expect(track.url).to eq('https://open.spotify.com/track/2cJz1loJp5EZM6shmQpLZN')
+          end
+        end
+      end
     end
 
     describe '#search' do
