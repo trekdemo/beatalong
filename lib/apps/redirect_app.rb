@@ -21,7 +21,7 @@ class RedirectApp
     destination_prov_name  = destination_provider(env)
     path =
       if identity.provider != destination_prov_name
-        destination_provider_url(identity, destination_prov_name) {
+        destination_provider_url(identity, destination_prov_name, env['country_code']) {
           env['x-rack.flash'].error = "Song not found on #{destination_prov_name} (>,<)"
           env['HTTP_REFERER']
         }
@@ -38,15 +38,15 @@ class RedirectApp
     env['PATH_INFO'].split('/').last.to_s.camelize
   end
 
-  def destination_provider_url(identity, destination_prov_name, &blk)
+  def destination_provider_url(identity, destination_prov_name, country_code, &blk)
     # Get information based on url
-    api_adapter = cached_api_adapter(identity.provider)
+    api_adapter = cached_api_adapter(identity.provider, country_code)
     entity_data = api_adapter.find(identity)
 
     # Find entity on destination
     # TODO Detect country_code
     destination_provider_data =
-      cached_api_adapter(destination_prov_name).search(entity_data)
+      cached_api_adapter(destination_prov_name, country_code).search(entity_data)
 
     if destination_provider_data
       destination_provider_data.url
@@ -55,7 +55,7 @@ class RedirectApp
     end
   end
 
-  def cached_api_adapter(provider)
-    Api::Cached.new(Object.const_get("Api::#{provider}").new('us'))
+  def cached_api_adapter(provider, country_code = 'us')
+    Api::Cached.new(Object.const_get("Api::#{provider}").new(country_code))
   end
 end

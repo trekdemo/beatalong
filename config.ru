@@ -9,6 +9,7 @@ require 'initializers'
 require 'middleware/development_additions'
 require 'middleware/production_additions'
 require 'middleware/error_handler_middleware'
+require 'middleware/geocoder_middleware'
 require 'apps/index_app'
 require 'apps/jump_app'
 require 'apps/redirect_app'
@@ -25,6 +26,7 @@ app = Rack::Builder.new do
   }
   use Rack::Flash, accessorize: [:notice, :error]
   use ErrorHandlerMiddleware
+  use GeocoderMiddleware, APP_ROOT.join('db/GeoIP.dat')
 
   map('/j') { run JumpApp.app }
   map('/r') { run RedirectApp.app }

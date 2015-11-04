@@ -1,3 +1,5 @@
+APP_ROOT = Pathname.new(File.expand_path('../..', __FILE__))
+
 $logger ||= begin
   require 'logger'
   Logger.new(STDOUT)
