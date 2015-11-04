@@ -1,6 +1,13 @@
 require 'api/apple_music'
 
 module Api
+  class AppleMusic
+    # do not make extra requests
+    def echonest_image(artist)
+      nil
+    end
+  end
+
   RSpec.describe AppleMusic do
     include InternalStructuresFactory
 

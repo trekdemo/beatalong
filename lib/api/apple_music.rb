@@ -104,6 +104,12 @@ module Api
     end
 
     def build_entity(result)
+      cover_image =
+        if (apple_image = result['artworkUrl100'])
+          apple_image.to_s.sub('100x100', '420x420')
+        else
+          echonest_image(result['artistName'])
+        end
       ProviderEntity.new({
         kind: internal_kind(result['wrapperType'] || result['kind']),
         artist: result['artistName'],
@@ -116,7 +122,7 @@ module Api
           result['artistLinkUrl'] ||
           result['url']
         ),
-        cover_image_url: result['artworkUrl100'].to_s.sub('100x100', '420x420'),
+        cover_image_url: cover_image,
       })
     end
 
@@ -132,6 +138,17 @@ module Api
           .sort { |t| track_order.index(t['id']) }
           .map(&method(:build_entity))
       })
+    end
+
+    def echonest_image(artist)
+      resp = HTTParty.get('http://developer.echonest.com/api/v4/artist/images', query: {
+        format: 'json',
+        api_key: ENV['ECHONEST_KEY'],
+        name: artist,
+        results: 1,
+      }).parsed_response
+
+      resp['response']['images'].first['url']
     end
 
     def itunes_kind(internal_kind)
