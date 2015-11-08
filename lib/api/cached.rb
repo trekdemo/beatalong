@@ -15,9 +15,7 @@ module Api
       Store.cache key do
         result = adapter.find(identity)
 
-        $redis.synchronize do
-          $redis.client.call([:zadd, 'recent_shares', 'NX', score, key])
-        end if result && identity.kind != 'search' && ENV['RACK_ENV'] != 'test'
+        $redis.zadd('recent_shares', score, key) if result && identity.kind != 'search'
 
         result
       end
