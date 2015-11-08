@@ -9,8 +9,17 @@ module Api
     end
 
     def find(identity)
-      Store.cache cache_key_for_identity(identity) do
-        adapter.find(identity)
+      key = cache_key_for_identity(identity)
+      score = 9_999_999_999 - Time.now.to_f
+
+      Store.cache key do
+        result = adapter.find(identity)
+
+        $redis.synchronize do
+          $redis.client.call([:zadd, 'recent_shares', 'NX', score, key])
+        end if result && identity.kind != 'search' && ENV['RACK_ENV'] != 'test'
+
+        result
       end
     end
 

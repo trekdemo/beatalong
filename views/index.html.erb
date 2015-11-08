@@ -20,9 +20,24 @@
           <input type="submit" class="share-btn" value="Share" />
         </form>
       </div>
+      <% unless recent_shares.empty? %>
+      <div class="additional-info">
+        <h3>Recently shared</h3>
+        <!-- <%= shared_count %> -->
+        <ul class="cf">
+          <% recent_shares.each do |entity| %>
+            <li class="small-entity">
+              <a href="/j?u=<%= CGI.escape entity.url %>">
+                <img height="128" src="<%= entity.cover_image_url %>" />
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
       <div class="additional-info">
         <h3>Supported services:</h3>
-        <ul class="logos">
+        <ul class="logos cf">
           <li><img src="/assets/itunes.jpg"  height="80" alt="iTunes" /></li>
           <li><img src="/assets/spotify.jpg" height="80" alt="Spotify" /></li>
           <li><img src="/assets/deezer.jpg"  height="80" alt="Deezer" /></li>
