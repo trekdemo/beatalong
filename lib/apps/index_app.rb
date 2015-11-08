@@ -5,7 +5,7 @@ class IndexApp
 
   def self.call(env)
     if env['PATH_INFO'] == '/'
-      shared_keys = $redis.zrange('recent_shares', 0, 10)
+      shared_keys = $redis.zrange('recent_shares', 0, 14)
       shared_count = $redis.zcard('recent_shares')
       recent_shares = shared_keys.map { |k| Store.get(k) }
 
