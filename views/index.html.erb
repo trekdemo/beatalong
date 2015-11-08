@@ -28,7 +28,7 @@
           <% recent_shares.each do |entity| %>
             <li class="small-entity">
               <a href="/j?u=<%= CGI.escape entity.url %>">
-                <img height="128" src="<%= entity.cover_image_url %>" />
+                <img height="128" src="<%= entity.cover_image_url %>" alt="Go to <%= entity.to_s %>" title="<%= entity.to_s %>" />
               </a>
             </li>
           <% end %>

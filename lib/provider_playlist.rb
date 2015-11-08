@@ -7,6 +7,10 @@ class ProviderPlaylist
     end
   end
 
+  def to_s
+    [title, author].compact.join(' - ')
+  end
+
   def to_h
     Hash[[:title, :author, :cover_image_url, :url]
       .map {|k| [k, public_send(k)] }]

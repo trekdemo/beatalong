@@ -7,6 +7,10 @@ class ProviderEntity
     end
   end
 
+  def to_s
+    [artist, album, track].compact.join(' - ')
+  end
+
   def to_h
     Hash[[:artist, :album, :track, :cover_image_url, :url, :kind, :original]
       .map {|k| [k, public_send(k)] }]
