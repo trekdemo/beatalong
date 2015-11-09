@@ -104,14 +104,16 @@ module Api
     end
 
     def build_entity(result)
+      kind = internal_kind(result['wrapperType'] || result['kind'])
       cover_image =
         if (apple_image = result['artworkUrl100'])
           apple_image.to_s.sub('100x100', '420x420')
-        else
+        elsif kind == 'artist'
           echonest_image(result['artistName'])
         end
+
       ProviderEntity.new({
-        kind: internal_kind(result['wrapperType'] || result['kind']),
+        kind: kind,
         artist: result['artistName'],
         album: result['collectionName'],
         track: result['trackName'] || result['name'],
