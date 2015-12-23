@@ -46,8 +46,6 @@ RSpec.describe EntityResolver do
       end
     end
 
-    context 'when provider is Rdio'
-
     context 'when provider is UNKNOWN' do
       let(:url) { 'https://google.com' }
       it "is expected to raise an exception" do

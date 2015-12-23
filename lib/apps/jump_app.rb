@@ -4,7 +4,6 @@ require 'api/cached'
 require 'api/apple_music'
 require 'api/deezer'
 require 'api/spotify'
-require 'api/rdio'
 
 class JumpApp
   include BaseController

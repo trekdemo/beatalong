@@ -13,7 +13,6 @@ require 'middleware/geocoder_middleware'
 require 'apps/index_app'
 require 'apps/jump_app'
 require 'apps/redirect_app'
-require 'rdio_token_retriever'
 
 app = Rack::Builder.new do
   use DevelopmentAdditions
