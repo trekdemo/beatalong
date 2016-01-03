@@ -43,7 +43,6 @@ class RedirectApp
     entity_data = api_adapter.find(identity)
 
     # Find entity on destination
-    # TODO Detect country_code
     destination_provider_data =
       cached_api_adapter(destination_prov_name, country_code).search(entity_data)
 
@@ -52,6 +51,8 @@ class RedirectApp
     else
       blk.call # fallback
     end
+  rescue NameError
+    blk.call # fallback
   end
 
   def cached_api_adapter(provider, country_code = 'us')
