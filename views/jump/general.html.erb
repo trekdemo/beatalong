@@ -1,10 +1,12 @@
 <!doctype html>
 <% titles = [entity_data.track, entity_data.album, entity_data.artist].compact %>
+<% main_title, *secondary_title = *titles %>
 <html class="" lang="en-US">
   <head>
       <meta charset="utf-8">
-      <title>BeatAlong</title>
-      <meta name="description" content="">
+      <title><%= titles.join(' - ') %> - Beat Along - Share your favorite music with your friends!</title>
+      <meta name="description" content="Beat Along - Share: <%= titles.join(' - ') %>">
+      <meta name="keywords" content="beat, along, music, music shareing, social, friends, <%= titles.join(', ') %>">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:type" content="music.song"/>
       <meta property="og:title" content="<%= titles.first %>"/>
@@ -29,7 +31,6 @@
         <img src="<%= entity_data.cover_image_url %>" width="100%" alt="cover image" />
       </div>
       <div class="column">
-        <% main_title, *secondary_title = *titles %>
         <span class="kind">[ <%= entity_data.kind %> ]</span>
         <h1 class="small"><%= main_title %></h2>
         <h2 class="small">
