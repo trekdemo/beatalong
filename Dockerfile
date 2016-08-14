@@ -1,17 +1,11 @@
 # image and default installs
 FROM ruby:2.2.2
-RUN apt-get update -qq && apt-get install -y build-essential
 
-ENV APP_HOME /beatalong
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
-
-ADD Gemfile* $APP_HOME/
-
-ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
-  BUNDLE_JOBS=2 \
-  BUNDLE_PATH=/bundle
-
+WORKDIR /usr/src/app
+ADD Gemfile      /usr/src/app/Gemfile
+ADD Gemfile.lock /usr/src/app/Gemfile.lock
 RUN bundle install
 
-ADD . $APP_HOME
+ADD . /usr/src/app
+
+CMD bundle exec puma --config config/puma.rb
