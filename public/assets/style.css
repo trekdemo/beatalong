@@ -169,6 +169,19 @@ li {
 }
 .column ol { margin: 0; }
 
+.cf li a.track-click:hover { color: #666; }
+.cf li:first-child a.track-click { margin-left: 0; }
+.cf li a.track-click {
+    border-radius: .3em;
+    display: inline-block;
+    padding: .5em .6em;
+    box-shadow: 0 0 0px 5px rgba(20, 28, 34, 0.1);
+    margin: .4em .6em;
+    color: #ccc;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
 
 @media (max-width: 1200px) {
   .wrapper { width: 80%; }
