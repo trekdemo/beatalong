@@ -1,5 +1,5 @@
 ## Development on Docker
-[ ![Codeship Status for trekdemo/beatalong](https://codeship.com/projects/a937de10-57f7-0133-ae90-36edf9c92862/status?branch=master)](https://codeship.com/projects/109593)
+[ ![Codeship Status for trekdemo/beatalong](https://app.codeship.com/projects/8b78bfd0-11a1-0135-d13d-161500de5619/status?branch=master)](https://app.codeship.com/projects/216765)
 
 The application can be runned over a docker environment. In order to do that, you'll have to download docker-toolbox.
 
