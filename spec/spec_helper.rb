@@ -17,8 +17,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 ENV['RACK_ENV'] = 'test'
+require 'logger'
+require 'webmock/rspec'
 require 'fakeredis/rspec'
 $redis ||= Redis.new
+$logger ||= Logger.new(nil)
 
 RSpec.configure do |config|
   # Require every support file
