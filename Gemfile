@@ -4,7 +4,7 @@ ruby '2.2.2'
 gem 'rake'
 gem 'rack'
 gem 'activesupport'
-gem 'httparty', require: false
+gem 'httparty', '~> 0.14.0', require: false
 gem 'hiredis'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rack-timeout'
