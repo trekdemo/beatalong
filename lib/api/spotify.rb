@@ -1,4 +1,5 @@
 require 'api/base'
+require 'api/auth/oauth_client_credentials'
 require 'active_support/core_ext/string/inflections'
 
 # https://developer.spotify.com/web-api/search-item/
@@ -13,6 +14,7 @@ module Api
   class Spotify
     include ::Api::Base
     base_uri 'https://api.spotify.com'
+    API_TOKEN_URI = 'https://accounts.spotify.com/api/token'.freeze
 
     def find(identity)
       self.send("lookup_#{identity.kind}", identity)
@@ -28,6 +30,16 @@ module Api
       response[entity.kind.pluralize]['items']
         .map(&method(:format_result))
         .first
+    end
+
+    def api_auth
+      Auth::OauthClientCredentials.new(
+        cache_provider: $redis,
+        logger: $logger,
+        url: API_TOKEN_URI,
+        client_id: ENV['SPOTIFY_CLIENT_ID'],
+        client_secret: ENV['SPOTIFY_CLIENT_SECRET']
+      )
     end
 
     private
@@ -55,7 +67,9 @@ module Api
     end
 
     def get(path, query = nil)
-      self.class.get(path, query: query)
+      self.class.get(path, query: query, headers: {
+        'Authorization' => "Bearer #{api_auth.token}"
+      })
     end
 
     def search_term(entity)

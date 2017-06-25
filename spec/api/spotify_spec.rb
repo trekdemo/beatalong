@@ -1,8 +1,13 @@
 require 'api/spotify'
+require 'api/auth/oauth_client_credentials'
 
 module Api
   RSpec.describe Spotify do
     include InternalStructuresFactory
+
+    before do
+      allow_any_instance_of(Auth::OauthClientCredentials).to receive(:token).and_return('X')
+    end
 
     describe '#find' do
       context 'when identity belongs to an artist' do
